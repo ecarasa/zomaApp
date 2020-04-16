@@ -16,18 +16,35 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->bigIncrements('id');
             
-            $table->bigIncrements('idUsuarioAdmin');
+            $table->bigInteger('idUsuarioAdmin');
+            
             $table->string('nombre');
             
-            $table->string('msjBienvenida')->nulleable;
-            $table->string('imagen');
+            $table->longText('msjBienvenida')->nullable();
+            $table->string('imagen')->nullable();
 
-            $table->float('maxDinero');
+            $table->float('maxDinero', 8, 2);
             $table->integer('maxJugadores');
-            $table->boolean('permiteAdivinar');
+            $table->boolean('permiteAdivinar')->nullable();
             
-            $table->timestamps('fechaInicio');
-            $table->datetime('fechaFin');
+            $table->dateTime('fechaInicio')->nullable();
+            $table->dateTime('fechaFin')->nullable();
+            $table->char('codigo', 5)->unique();
+            $table->integer('estado');
+            $table->timestamps();
+            /*
+
+            Schema::table('posts', function (Blueprint $table) {
+                $table->unsignedBigInteger('user_id');
+                $table->foreign('user_id')->references('id')->on('users');
+            });
+
+            Schema::table('posts', function (Blueprint $table) {
+                $table->foreignId('user_id')->constrained();
+            });
+
+            */
+
         });
     }
 

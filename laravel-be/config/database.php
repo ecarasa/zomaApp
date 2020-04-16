@@ -42,15 +42,24 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
+/*
 
+DB_CONNECTION=mysql
+DB_HOST=flexit.com.ar
+DB_PORT=3306
+DB_DATABASE=flexitco_app_testing
+DB_USERNAME=flexitco_test_amigofiel
+DB_PASSWORD=amigoamigo123
+
+*/
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'flexit.com.ar'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'flexitco_app_testing'),
+            'username' => env('DB_USERNAME', 'flexitco_test_amigofiel'),
+            'password' => env('DB_PASSWORD', 'amigoamigo123'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
