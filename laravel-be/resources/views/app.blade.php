@@ -69,11 +69,10 @@
 
         <!-- FORM BOX TITLE -->
         <h2 class="form-box-title">Crear Grupo</h2>
+        @csrf
         <!-- /FORM BOX TITLE -->
     
-
-
-        <form class="form">
+        <form class="form" id="formJuego">
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
@@ -128,7 +127,7 @@
     
             <div class="form-item">
     
-              <button class="button medium secondary" onclick="javascript: alert('click');">CREAR</button>
+              <button class="button medium secondary" onclick="javascript:crear();">CREAR</button>
 
             </div>
             <!-- /FORM ITEM -->
@@ -261,5 +260,29 @@
 
 <!-- app -->
 <script src="js/app.bundle.min.js"></script>
+<script>
+    function loadPartidos() {
+
+        var fd = new FormData(document.getElementById('formJuego'));
+        fd.append("_token", $("input[name=_token]").val());
+
+        $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+        type: "GET",
+        data: fd,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+            $('#btn-crear-grupo').html('Creando ...');
+        }
+        }).done(function(data) {
+        console.log('data response partidos');
+        console.log(data);
+
+        });
+}
+</script>
 </body>
 </html>
