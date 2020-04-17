@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Grupos;
 use App\User;
 use Illuminate\Http\Request;
+use DB;
 use Illuminate\Support\Facades\Validator;
 
 class GruposController extends Controller
@@ -35,54 +36,45 @@ class GruposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function crear(Request $request)
     {
-       
-            $messages = [
-                'required'=> 'El :attributo es requerido.'
-            ];
+        // if (Auth::check()) {
+   
+        if (!$request->has(['nombreGrupo', 'email', 'fechaFin', 'maxDinero'])) {
+            return json_encode(array("status"=>false, "msj"=>"Faltan datos"));
+        }
 
-            $validator = Validator::make(
-                $request->all(),
-                [
-                    'nombreGrupo'=> 'required|string',
-                    'cantidadPersons'=> 'required|integer',
-                    'maximoGastar'=> 'required|float',
-                    'email'=> 'required|email',
-                ],
-                $messages
-            );
+        $usuario  = User::where('email', '=', $request->email)->first();
 
-            if ($validator->fails()){
-               
-                $response = $validator->messages();
-                
-            }else{
+        if (!$usuario){
+            // sino existe lo damos de alta
+            $usuario = new User();
+            $usuario->email = $request->email;
+            $usuario->save();
+        }
 
-                $usuario  = User::where('email', '=', $request->email)->first();
+        $grupo = new Grupos();
+        $grupo->nombre = $request->nombreGrupo;
+        $grupo->estado = 1; //activo ?
+        $grupo->fechaFin = $request->fechaFin;
+        $grupo->maxDinero = $request->maxDinero;
+        $grupo->idUsuarioAdmin = $usuario->id;
+        // falta hacer logica para cheaquear que no exista 
+        // ya en la Db el codigo recien generado
+        $grupo->codigo = rand(10000,99999);
+        
+        if ($grupo->save()){
+            return response()->json('ok grupo dado de alta',200);
+            // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
+            //A LA RUTA DE ADMINISTRCION DEL GRUPO 
+            //return view('grupoDetalle'); + compact para mandarle info del grupo
+            // googlear return view compact data laraval para ver ejemplos
 
-                if (!$usuario){
-                    $usuario->email = $request->email;
-                    $usuario->save();
-                }
+        }else{
+            //error, lo deberia procesar el ajax
+            return response()->json('error',401);
+        }
 
-                $grupo = new Grupos();
-                $grupo->nombre = $request->nombreGrupo;
-                $grupo->maxDinero = $request->nombreGrupo;
-                $grupo->maxJugadores = $request->nombreGrupo;
-                $grupo->idUsuarioAdmin = $usuario->id;
-                // falta hacer logica para cheaquear que no exista 
-                // ya en la Db el codigo recien generado
-                $grupo->codigo = rand(10000,99999);
-                
-                if ($grupo->save()){
-                    return response()->json('ok grupo dado de alta',200);
-                }else{
-                    return response()->json('error',401);
-                }
-            }
-
-            
     }
 
     /**

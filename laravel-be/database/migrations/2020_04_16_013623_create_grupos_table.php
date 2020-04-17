@@ -16,21 +16,20 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->bigIncrements('id');
             
+            //obligatorios
             $table->bigInteger('idUsuarioAdmin');
-            
             $table->string('nombre');
+            $table->float('maxDinero', 8, 2);
+            $table->integer('estado');
             
+            //nulleables
             $table->longText('msjBienvenida')->nullable();
             $table->string('imagen')->nullable();
-
-            $table->float('maxDinero', 8, 2);
-            $table->integer('maxJugadores');
+            $table->integer('maxJugadores')->nullable();
             $table->boolean('permiteAdivinar')->nullable();
-            
             $table->dateTime('fechaInicio')->nullable();
             $table->dateTime('fechaFin')->nullable();
             $table->char('codigo', 5)->unique();
-            $table->integer('estado');
             $table->timestamps();
             /*
 

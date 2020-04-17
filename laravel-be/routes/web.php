@@ -17,4 +17,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/grupos/crear', 'GruposController@store');
+Route::post('/grupos/crear', 'GruposController@crear')->name('crear');

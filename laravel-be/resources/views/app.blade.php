@@ -59,20 +59,13 @@
     </div>
     <!-- /LANDING INFO -->
 
-    <!-- LANDING FORM -->
-    <div class="landing-form">
-      <!-- FORM BOX -->
+    <div class="landing-form">  
+      <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
-        <!-- FORM BOX DECORATION -->
         <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
-        <!-- /FORM BOX DECORATION -->
-
-        <!-- FORM BOX TITLE -->
         <h2 class="form-box-title">Crear Grupo</h2>
+        <form class="form" id="formJuego" action="/grupos/crear" method="post">
         @csrf
-        <!-- /FORM BOX TITLE -->
-    
-        <form class="form" id="formJuego">
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
@@ -81,64 +74,54 @@
               </div>
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-password">Max. Participantes</label>
-                <input type="number" id="maxPArticipantes"  name="maxPArticipantes" autocomplete="off">
+                <label for="login-password">Email</label>
+                <input type="text" id="email"  name="email" autocomplete="off">
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-password">Cuando Termina?</label>
-                <input type="date" id="maxPArticipantes"  class="dateInput" name="maxPArticipantes" autocomplete="off">
+                <label for="login-password">Cuando Termina ?</label>
+                <input type="date" id="fechaFin"  class="dateInput" name="fechaFin" autocomplete="off">
               </div>
             </div>
           </div>
-    
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-password">Maximo $$ a gastar</label>
-                <input type="number" id="maxGastar"  name="maxGastar" autocomplete="off">
+                <label for="login-password">Maximo $ a gastar</label>
+                <input type="number" id="maxDinero"  name="maxDinero" autocomplete="off">
               </div>
             </div>
           </div>
-
           <div class="form-row space-between">
             <div class="form-item">
               <div class="checkbox-wrap">
-                <input type="checkbox" id="login-remember" name="login_remember" checked>
+                <input type="checkbox" id="adivinar" name="adivinar" checked>
                 <div class="checkbox-box">
                   <svg class="icon-cross">
                     <use xlink:href="#svg-cross"></use>
                   </svg>
                 </div>
-                <label for="login-remember">PERMITIR ADIVINAR ?</label>
+                <label for="adivinar">PERMITIR ADIVINAR ?</label>
               </div>
             </div>
-    
           </div>
-    
           <div class="form-row">
-    
             <div class="form-item">
-    
-              <button class="button medium secondary" onclick="javascript:crear();">CREAR</button>
-
+              <button type="submit" class="button medium secondary" onclick="">CREAR</button>
+              <a href="javascript:crear();" class="button medium secondary" style="    width: 100%;">Crear</a>
             </div>
-            <!-- /FORM ITEM -->
           </div>
-          <!-- /FORM ROW -->
         </form>
-        <!-- /FORM -->
       </div>
-      <!-- /FORM BOX -->
+      <!-- end.1er FORM -->
     
-      <!-- FORM BOX -->
+      <!-- start.2do FORM -->
       <div class="form-box login-register-form-element">
         <!-- FORM BOX DECORATION -->
         <img class="form-box-decoration" src="img/landing/rocket.png" alt="rocket">
@@ -252,34 +235,34 @@
         <p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account. If you have any problems, <a href="#">contact us</a>!</p>
         <!-- /FORM TEXT -->
       </div>
-      <!-- /FORM BOX -->
+      <!-- end.2do FORM -->
     </div>
-    <!-- /LANDING FORM -->
   </div>
-  <!-- /LANDING -->
+  
 
-<!-- app -->
 <script src="js/app.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
-    function loadPartidos() {
+    function crear() {
 
         var fd = new FormData(document.getElementById('formJuego'));
         fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
-        type: "GET",
+        url: "https://flexit.com.ar/zomaApp/laravel-be/public/grupos/crear",
+        type: "POST",
         data: fd,
         dataType: 'json',
         enctype: 'multipart/form-data',
         processData: false,
         contentType: false,
         beforeSend: function() {
-            $('#btn-crear-grupo').html('Creando ...');
+            console.log("before send request");
         }
         }).done(function(data) {
-        console.log('data response partidos');
-        console.log(data);
+        
+            console.log(data);
 
         });
 }
