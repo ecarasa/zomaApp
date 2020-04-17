@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/basesycond', 'HomeController@show');
 
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::post('/grupo/{codigoGrupo}', 'GruposController@show')->name('crear');
