@@ -113,8 +113,7 @@
           </div>
           <div class="form-row">
             <div class="form-item">
-              <button type="submit" class="button medium secondary" onclick="">CREAR</button>
-              <a href="javascript:crear();" class="button medium secondary" style="    width: 100%;">Crear</a>
+              <a href="javascript:crear();" class="button medium secondary" style="width: 100%;">CREAR</a>
             </div>
           </div>
         </form>
@@ -250,7 +249,7 @@
         fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "https://flexit.com.ar/zomaApp/laravel-be/public/grupos/crear",
+        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
         type: "POST",
         data: fd,
         dataType: 'json',
@@ -261,8 +260,15 @@
             console.log("before send request");
         }
         }).done(function(data) {
-        
+          
+          console.log(data);
+          
+          if (data.status == true){
+            // window.location.href = "grupo/" + data.codigo;
+            console.log("grupo/" + data.codigo);
+          }else{
             console.log(data);
+          }
 
         });
 }

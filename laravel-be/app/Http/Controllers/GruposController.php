@@ -41,40 +41,43 @@ class GruposController extends Controller
         // if (Auth::check()) {
    
         if (!$request->has(['nombreGrupo', 'email', 'fechaFin', 'maxDinero'])) {
-            return json_encode(array("status"=>false, "msj"=>"Faltan datos"));
-        }
-
-        $usuario  = User::where('email', '=', $request->email)->first();
-
-        if (!$usuario){
-            // sino existe lo damos de alta
-            $usuario = new User();
-            $usuario->email = $request->email;
-            $usuario->save();
-        }
-
-        $grupo = new Grupos();
-        $grupo->nombre = $request->nombreGrupo;
-        $grupo->estado = 1; //activo ?
-        $grupo->fechaFin = $request->fechaFin;
-        $grupo->maxDinero = $request->maxDinero;
-        $grupo->idUsuarioAdmin = $usuario->id;
-        // falta hacer logica para cheaquear que no exista 
-        // ya en la Db el codigo recien generado
-        $grupo->codigo = rand(10000,99999);
-        
-        if ($grupo->save()){
-            return response()->json('ok grupo dado de alta',200);
-            // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
-            //A LA RUTA DE ADMINISTRCION DEL GRUPO 
-            //return view('grupoDetalle'); + compact para mandarle info del grupo
-            // googlear return view compact data laraval para ver ejemplos
-
+            $output = array("status"=>false, "msj"=>"Faltan datos");
+            return response()->json($output);
         }else{
-            //error, lo deberia procesar el ajax
-            return response()->json('error',401);
-        }
 
+            $usuario  = User::where('email', '=', $request->email)->first();
+
+            if (!$usuario){
+                // sino existe lo damos de alta
+                $usuario = new User();
+                $usuario->email = $request->email;
+                $usuario->save();
+            }
+
+            $grupo = new Grupos();
+            $grupo->nombre = $request->nombreGrupo;
+            $grupo->estado = 1; //activo ?
+            $grupo->fechaFin = $request->fechaFin;
+            $grupo->maxDinero = $request->maxDinero;
+            $grupo->idUsuarioAdmin = $usuario->id;
+            // falta hacer logica para cheaquear que no exista 
+            // ya en la Db el codigo recien generado
+            $grupo->codigo = rand(10000,99999);
+            
+            if ($grupo->save()){
+
+                $output = array("status"=>true,"msj"=>"Perfecto, grupo creado. Ahora invita a tus amigos.", "codigoGrupo"=>$grupo->codigo );
+                return response()->json($output);
+                // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
+                //A LA RUTA DE ADMINISTRCION DEL GRUPO 
+                //return view('grupoDetalle'); + compact para mandarle info del grupo
+                // googlear return view compact data laraval para ver ejemplos
+
+            }else{
+                $output = array("status"=>false, "msj"=>"Error.");
+                return response()->json($output);
+            }
+        }
     }
 
     /**
@@ -83,9 +86,12 @@ class GruposController extends Controller
      * @param  \App\Grupos  $grupos
      * @return \Illuminate\Http\Response
      */
-    public function show(Grupos $grupos)
+    public function show(Request $request, $codigoGrupo)
     {
-        //
+        $grupo = Grupos::where('codigo', $codigoGrupo)->get();
+
+        return $grupo;
+
     }
 
     /**
