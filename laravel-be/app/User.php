@@ -1,7 +1,7 @@
 <?php
 
     namespace App;
-
+    use ParticipanteGrupos;
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -35,5 +35,9 @@
         public function getJWTCustomClaims()
         {
             return [];
+        }
+
+        public function getAmigoInvisible(){
+            return $this->hasOne('App\ParticipanteGrupos', 'idUsuario', 'id');
         }
     }
