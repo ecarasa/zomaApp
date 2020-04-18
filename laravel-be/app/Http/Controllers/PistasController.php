@@ -25,7 +25,7 @@ class PistasController extends Controller
      */
     public function create()
     {
-        //
+        return view('app');
     }
 
     /**

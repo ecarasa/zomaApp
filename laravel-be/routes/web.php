@@ -16,7 +16,9 @@ Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/basesycond', 'HomeController@show');
+Route::get('/basesycond', 'BasesController@index')->name('home');;
+
+Route::get('/pista', 'PistasController@index'); //// nombre en url y el nombre del controller.php
 
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::post('/grupo/{codigoGrupo}', 'GruposController@show')->name('crear');

@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'TuAmigoFiel.com') }}</title>
+            <title>{{ config('pista.name', 'TuAmigoFiel.com') }}</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
@@ -34,15 +34,17 @@
       <!-- /LOGO -->
 
       <!-- LANDING INFO PRETITLE -->
-      <h2 class="landing-info-pretitle">GRACIAS</h2>
+      <h2 class="landing-info-pretitle">Dale ahora a tu amig@ una</h2>
       <!-- /LANDING INFO PRETITLE -->
 
       <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">AMIGO FIEL</h1>
+      <h1 class="landing-info-title">PISTA</h1>
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <p class="landing-info-text">Intenta ser lo suficientemente ambiguo, creativo y claro para que no te descubran hasta la fecha final. 
+      Utiliza y entrelazá tus conocimientos y sus conocimientos sobre ambos y si quieres hasta regala algo dentro de la pista.
+      </p>
       <!-- /LANDING INFO TEXT -->
 
       <!-- TAB SWITCH -->
@@ -63,41 +65,34 @@
       <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
         <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
-        <h2 class="form-box-title">Crear Grupo</h2>
-        <form class="form" id="formJuego" action="/grupos/crear" method="post">
+        <h2 class="form-box-title">Crear Pista</h2>
+        <form class="form" id="formJuego" action="/pistas/crear" method="post">
         @csrf
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-username">Nombre de Grupo</label>
-                <input type="text" id="nombreGrupo" name="nombreGrupo" autocomplete="off">
+                <label for="pista-receptor">$$AQUI VA EL USER.NAME DEL RECEPTOR$$</label>
+                <input type="text" id="PistaReceptor" name="PistaReceptor" autocomplete="off">
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-password">Email</label>
-                <input type="text" id="email"  name="email" autocomplete="off">
+                <label for="pista-comentarios">Pista</label>
+                <textarea type="textarea" id="PistaComentario"  name="PistaComentario" autocomplete="off"> </textarea>
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
-                <label for="login-password">Cuando Termina ?</label>
-                <input type="date" id="fechaFin"  class="dateInput" name="fechaFin" autocomplete="off">
+                <label for="pista-Regalo">Regalo</label>
+                <input type="text" id="PistaRegalo"   name="PistaRegalo" autocomplete="off">
               </div>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-item">
-              <div class="form-input">
-                <label for="login-password">Maximo $ a gastar</label>
-                <input type="number" id="maxDinero"  name="maxDinero" autocomplete="off">
-              </div>
-            </div>
-          </div>
+          
           <div class="form-row space-between">
             <div class="form-item">
               <div class="checkbox-wrap">
@@ -113,7 +108,7 @@
           </div>
           <div class="form-row">
             <div class="form-item">
-              <a href="javascript:crear();" class="button medium secondary" style="width: 100%;">CREAR</a>
+              <a href="javascript:crear();" class="button medium secondary" style="width: 100%;">ENVIAR</a>
             </div>
           </div>
         </form>
@@ -249,7 +244,7 @@
         fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+        url: "{{ env('APP_URL_PUERTO') }}/pistas/crear",
         type: "POST",
         data: fd,
         dataType: 'json',
@@ -265,7 +260,7 @@
           
           if (data.status == true){
             // window.location.href = "grupo/" + data.codigo;
-            console.log("grupo/" + data.codigo);
+            console.log("pista/" + data.codigo);
           }else{
             console.log(data);
           }
