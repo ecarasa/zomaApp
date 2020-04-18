@@ -28,7 +28,16 @@ class GruposController extends Controller
     public function sortear(Request $request )
     {
         
-        
+        /**
+         * como ?
+         * 1 nos fijamos que ParticipantesGrupos no tenga registros para el codigo de grupo que vamos a sortear
+         * 2 si no tiene .. se sortea
+         * 3 cargamos todos los participantes en un array
+         *   $flight = App\Flight::where('number', 'FR 900')->get();
+         * 4 buscamos alguna funcion que haga un "random pop of array php"
+         * 5 
+         * 
+         */
 
 
 

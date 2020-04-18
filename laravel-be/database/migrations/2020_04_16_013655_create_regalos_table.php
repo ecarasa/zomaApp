@@ -15,6 +15,10 @@ class CreateRegalosTable extends Migration
     {
         Schema::create('regalos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('url');
+            $table->string('botondepago');
+            $table->string('blabla');
             $table->timestamps();
         });
     }

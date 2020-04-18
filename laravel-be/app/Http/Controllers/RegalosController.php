@@ -14,7 +14,8 @@ class RegalosController extends Controller
      */
     public function index()
     {
-        //
+        $regalos = Regalos::all();
+        return view('marketplace')->with(compact('regalos'));
     }
 
     /**

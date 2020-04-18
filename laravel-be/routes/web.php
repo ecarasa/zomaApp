@@ -16,7 +16,15 @@ Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+// bases y condiciones
 Route::post('/basesycond', 'HomeController@show');
 
+
+//grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::post('/grupo/{codigoGrupo}', 'GruposController@show')->name('crear');
+
+//marketplace
+
+Route::get('/store', 'RegalosController@index');
