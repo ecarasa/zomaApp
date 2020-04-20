@@ -16,15 +16,9 @@ Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-Route::get('/basesycond', 'BasesController@index')->name('home');;
+Route::get('/basesycond', 'BasesController@index')->name('home');
 
 Route::get('/pista', 'PistasController@index'); //// nombre en url y el nombre del controller.php
-=======
-
-// bases y condiciones
-Route::post('/basesycond', 'HomeController@show');
->>>>>>> 306ee99bcc13c9c47f18c2a610a91b5446add4a8
 
 
 //grupos
