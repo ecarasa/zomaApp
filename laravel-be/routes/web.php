@@ -18,11 +18,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // bases y condiciones
-Route::post('/basesycond', 'HomeController@show');
+Route::get('/basesycond', 'HomeController@show');
 
 //panel paticipante
     //pistas
     Route::get('/pista', 'PistasController@index')->name('home');
+    Route::post('/pista/crear', 'PistasController@register')->name('register');
 
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');

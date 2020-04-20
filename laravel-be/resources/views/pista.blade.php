@@ -321,6 +321,7 @@
      </div>
     <!-- / grid izquierdo -->
     <!--grid centro -->
+    
     @include ('grid_pista_centro')
      <!--grid centro -->
 
@@ -438,5 +439,43 @@
 
 <!-- app -->
 <script src="js/app.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+function sendMsj() {
+
+  var datos = new FormData();
+      datos.append("_token", $("input[name=_token]").val());
+      datos.append('emisor', document.getElementById("Emisor").value);
+      datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
+ 
+      // AJAX CALL
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        type: "POST",
+        data: datos,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+            console.log("before send request");
+        }
+        }).done(function(data) {
+          
+          console.log(data);
+          
+          if (data.status == true){
+            // window.location.href = "grupo/" + data.codigo;
+            console.log("pista/" + data.codigo);
+          }else{
+            console.log(data);
+          }
+
+        });
+      alert(2);
+      return false;
+
+}
+</script>
 </body>
 </html>

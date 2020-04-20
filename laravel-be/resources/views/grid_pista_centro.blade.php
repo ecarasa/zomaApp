@@ -23,17 +23,20 @@
             <p class="section-header-action" onclick="document.getElementById('msjesExistentes').style.display='none';"> Enviar Pista </p>
             <!-- /SECTION HEADER ACTION -->
           </div>
-          <!-- /SECTION HEADER ACTIONS -->
+        <!-- /SECTION HEADER ACTIONS -->
         </div>
         <!-- /SECTION HEADER -->
-
+        
         <!-- CHAT WIDGET WRAP -->
         <div class="chat-widget-wrap" id="msjesExistentes">
           <!-- CHAT WIDGET -->
           <div class="chat-widget static">
             <!-- CHAT WIDGET MESSAGES -->
             <div class="chat-widget-messages" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
-              <!-- CHAT WIDGET MESSAGE -->
+              <!-- CHAT WIDGET MESSAGE 
+              for cada mensaje mio   -->
+              
+              @foreach ($mensajes as $mensaje)
               <div class="chat-widget-message">
                 <!-- USER STATUS -->
                 <div class="user-status">
@@ -94,11 +97,11 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Bearded Wonder</span></p>
+                  <p class="user-status-title"><span class="bold">{{ $mensaje->idUserEmisor }}</span></p>
                   <!-- /USER STATUS TITLE -->
               
                   <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Great! Then we'll meet with them at the party...</p>
+                  <p class="user-status-text"> {{ $mensaje->mensaje }} </p>
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
@@ -107,235 +110,10 @@
                 </div>
                 <!-- /USER STATUS -->
               </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-      
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">12</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
+              <!-- /CHAT WIDGET MESSAGE 
+              //fin for -->
+              @endforeach
               
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Neko Bebop</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Awesome! I'll see you there!</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">54 mins ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-      
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message active">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">16</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Nick Grissom</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Can you stream the new game?</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-      
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/07.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">26</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Sarah Diamond</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">I'm sending you the latest news of the release...</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">16 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
         
               <!-- CHAT WIDGET MESSAGE -->
               <div class="chat-widget-message">
@@ -1150,12 +928,13 @@
         <!-- /CHAT WIDGET WRAP -->
 
 <!-- CHAT WIDGET FORM -->
-<form class="chat-widget-form">
+<form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
+@csrf
               <!-- FORM ROW -->
               <div class="form-row split">
                 <!-- FORM ITEM -->
                   <div class="form-item">
-                  <input type="text" id="chat-widget-message-text-receptor" name="chat_widget_message_text_receptor" placeholder="Receptor">
+                  <input type="text" id="Emisor" name="Emisor" placeholder="Receptor">
                   </div>
                 <!-- FORM ITEM -->
               </div>
@@ -1164,7 +943,7 @@
                 <div class="form-item">
                   <!-- INTERACTIVE INPUT -->
                   <div class="interactive-input small">
-                    <textarea id="chat-widget-message-text-2" name="chat_widget_message_text_2" placeholder="Write a message...">
+                    <textarea id="pistamsj_enviar" name="pistamsj_enviar" placeholder="Write a message...">
                     </textarea>
                     <!-- INTERACTIVE INPUT ICON WRAP -->
                     <div class="interactive-input-icon-wrap actionable">
@@ -1195,11 +974,11 @@
                 <!-- /FORM ITEM -->
       
                 <!-- FORM ITEM -->
-                <div class="form-item auto-width">
+                <div class="form-item auto-width" onclick="sendMsj();">
                   <!-- BUTTON -->
                   <p class="button primary padded">
                     <!-- BUTTON ICON -->
-                    <svg class="button-icon no-space icon-send-message">
+                    <svg  class="button-icon no-space icon-send-message">
                       <use xlink:href="#svg-send-message"></use>
                     </svg>
                     <!-- /BUTTON ICON -->

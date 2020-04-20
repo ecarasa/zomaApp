@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Pistas;
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class PistasController extends Controller
 {
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,8 @@ class PistasController extends Controller
      */
     public function index()
     {
-   
-     return view('pista');
+        $mensajes = Pistas::all();
+        return view('pista')->with(compact('mensajes'));
     }
 
     /**
@@ -27,6 +32,31 @@ class PistasController extends Controller
     {
         return view('app');
     }
+    /** 
+     * function para crear registro de mensaje/pista
+    */
+    public function register ( Request $request )
+    {
+        $pista =  new Pistas(); 
+        $pista->idUserEmisor=$request->emisor;
+        $pista->idUserReceptor=$request->emisor;
+        $pista->mensaje=$request->pistamsj;
+        //$pista->fecha=getdate();
+        if ($pista->save()){
+
+                $output = array("status"=>true,"msj"=>"Pista Enviada!" );
+                return response()->json($output);
+                // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
+                //A LA RUTA DE ADMINISTRCION DEL GRUPO 
+             
+                // googlear return view compact data laraval para ver ejemplos
+
+            }else{
+                $output = array("status"=>false, "msj"=>"Error.");
+                return response()->json($output);
+            }
+    }
+
 
     /**
      * Store a newly created resource in storage.
