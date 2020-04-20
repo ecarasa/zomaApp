@@ -465,14 +465,14 @@ function sendMsj() {
           console.log(data);
           
           if (data.status == true){
-            // window.location.href = "grupo/" + data.codigo;
+            window.location.reload();
             console.log("pista/" + data.codigo);
           }else{
             console.log(data);
           }
 
         });
-      alert(2);
+    
       return false;
 
 }
