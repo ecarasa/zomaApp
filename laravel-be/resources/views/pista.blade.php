@@ -422,15 +422,6 @@
 
     <!-- GRID -->
     <div class="grid grid-3-3-3-3 centered">
-      
-      
-      
-      
-      
-
-
-
-   
 
     </div>
     <!-- /GRID -->
@@ -447,7 +438,7 @@ function sendMsj() {
       datos.append("_token", $("input[name=_token]").val());
       datos.append('receptor', document.getElementById("receptor").value);
       datos.append('emisor', {{ $userLogueado}} );
-      datos.append('emisor', {{ $userLogueado}} );
+      datos.append('grupo', {{ $userLogueado}} );
       datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
  
       // AJAX CALL

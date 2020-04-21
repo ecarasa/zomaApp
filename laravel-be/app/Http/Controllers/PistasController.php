@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pistas;
 use Illuminate\Http\Request;
 
+
 use DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,15 +24,18 @@ class PistasController extends Controller
         //$mensajes = Pistas::all();
 
         $mensajes = DB::table('pistas')->where('idUserEmisor','like',$request->idUser)
-            ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
-            ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id')
-           // ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('pistas.*', 'users.email' ,'u2.email as receptor' )
-            ->get();
+                    ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
+                    ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
+                    ->select('pistas.*', 'users.email' ,'u2.email as receptor' )
+                    ->get();
+
         $userLogueado=$request->idUser;
+        $grupos =  DB::table('participante_grupos as pg')//->where('idUsuario','like',$userLogueado)
+                    ->select('pg.id','pg.codigoGrupo')
+                    ->get();
         //$users = DB::table('users')->where('nombre','like',$parametro)->get();
 
-        return view('pista')->with(compact('mensajes','userLogueado'));
+        return view('pista')->with(compact('mensajes','userLogueado','grupos'));
     }
 
     /**
