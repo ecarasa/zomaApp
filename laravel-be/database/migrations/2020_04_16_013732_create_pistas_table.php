@@ -17,6 +17,7 @@ class CreatePistasTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('idUserEmisor'); // de emi 
+            $table->integer('idGrupo')->nullable(); // opcional regalo
             $table->integer('idUserReceptor'); // para franco
             $table->string('mensaje'); // mensaje de la pista
             $table->timestamp('fecha')->nullable(); // fecha de envio

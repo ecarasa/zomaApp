@@ -445,7 +445,9 @@ function sendMsj() {
 
   var datos = new FormData();
       datos.append("_token", $("input[name=_token]").val());
-      datos.append('emisor', document.getElementById("Emisor").value);
+      datos.append('receptor', document.getElementById("receptor").value);
+      datos.append('emisor', {{ $userLogueado}} );
+      datos.append('emisor', {{ $userLogueado}} );
       datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
  
       // AJAX CALL
@@ -465,7 +467,9 @@ function sendMsj() {
           console.log(data);
           
           if (data.status == true){
-            window.location.reload();
+            //window.location.reload();
+          //  document.getElementById('msjesExistentes').style.display='none';
+          //  $('#msjesExistentes').load('grid_pista_dentro.php');
             console.log("pista/" + data.codigo);
           }else{
             console.log(data);

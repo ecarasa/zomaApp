@@ -97,7 +97,7 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">{{ $mensaje->idUserEmisor }}</span></p>
+                  <p class="user-status-title"><span class="bold">{{ $mensaje->receptor }}</span></p>
                   <!-- /USER STATUS TITLE -->
               
                   <!-- USER STATUS TEXT -->
@@ -105,7 +105,7 @@
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
+                  <p class="user-status-timestamp floaty">fecha</p>
                   <!-- /USER STATUS TIMESTAMP -->
                 </div>
                 <!-- /USER STATUS -->
@@ -934,7 +934,7 @@
               <div class="form-row split">
                 <!-- FORM ITEM -->
                   <div class="form-item">
-                  <input type="text" id="Emisor" name="Emisor" placeholder="Receptor">
+                  <input type="text" id="receptor" name="receptor" placeholder="Receptor">
                   </div>
                 <!-- FORM ITEM -->
               </div>
