@@ -56,7 +56,6 @@ class GruposController extends Controller
         }
     }
 
-    
     /*
     * funcion devuelve random de un array exepto el que tenga el mail XXXX 
     */
