@@ -15,238 +15,444 @@
         </head>
     <body>
 
-  <!-- LANDING -->
-  <div class="landing">
-    <!-- LANDING DECORATION -->
-    <div class="landing-decoration"></div>
-    <!-- /LANDING DECORATION -->
+  <!-- PAGE LOADER -->
+  @include('pageloader')
+  <!-- /PAGE LOADER -->
+  <!-- MENU  DE NAV WIDGET -->
+   @include('nav_menu')
+  <!-- /NAVIGATION WIDGET -->
+  <!-- MENU  DE NAV WIDGET -->
+  @include('header')
+  <!-- /NAVIGATION WIDGET -->
 
-    <!-- LANDING INFO -->
-    <div class="landing-info">
-      <!-- LOGO -->
-      <div class="logo">
-        <!-- ICON LOGO VIKINGER -->
-        <svg class="icon-logo-vikinger">
-          <use xlink:href="#svg-logo-vikinger"></use>
-        </svg>
-        <!-- /ICON LOGO VIKINGER -->
+
+  <!-- FLOATY BAR -->
+  <aside class="floaty-bar">
+    <!-- BAR ACTIONS -->
+    <div class="bar-actions">
+      <!-- PROGRESS STAT -->
+      <div class="progress-stat">
+        <!-- BAR PROGRESS WRAP -->
+        <div class="bar-progress-wrap">
+          <!-- BAR PROGRESS INFO -->
+          <p class="bar-progress-info">Next: <span class="bar-progress-text"></span></p>
+          <!-- /BAR PROGRESS INFO -->
+        </div>
+        <!-- /BAR PROGRESS WRAP -->
+    
+        <!-- PROGRESS STAT BAR -->
+        <div id="logged-user-level-cp" class="progress-stat-bar"></div>
+        <!-- /PROGRESS STAT BAR -->
       </div>
-      <!-- /LOGO -->
-
-      <!-- LANDING INFO PRETITLE -->
-      <h2 class="landing-info-pretitle">Dale ahora a tu amig@ una</h2>
-      <!-- /LANDING INFO PRETITLE -->
-
-      <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">PISTA</h1>
-      <!-- /LANDING INFO TITLE -->
-
-      <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">Intenta ser lo suficientemente ambiguo, creativo y claro para que no te descubran hasta la fecha final. 
-      Utiliza y entrelazá tus conocimientos y sus conocimientos sobre ambos y si quieres hasta regala algo dentro de la pista.
-      </p>
-      <!-- /LANDING INFO TEXT -->
-
-      <!-- TAB SWITCH -->
-      <div class="tab-switch">
-        <!-- TAB SWITCH BUTTON -->
-        <p class="tab-switch-button login-register-form-trigger">AMIGO INVISIBLE</p>
-        <!-- /TAB SWITCH BUTTON -->
-
-        <!-- TAB SWITCH BUTTON -->
-        <p class="tab-switch-button login-register-form-trigger">POR QUE SI, POR QUE NO ?</p>
-        <!-- /TAB SWITCH BUTTON -->
-      </div>
-      <!-- /TAB SWITCH -->
+      <!-- /PROGRESS STAT -->
     </div>
-    <!-- /LANDING INFO -->
+    <!-- /BAR ACTIONS -->
 
-    <div class="landing-form">  
-      <!-- start.1er FORM -->    
-      <div class="form-box login-register-form-element">
-        <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
-        <h2 class="form-box-title">Crear Pista</h2>
-        <form class="form" id="formJuego" action="/pistas/crear" method="post">
-        @csrf
-          <div class="form-row">
-            <div class="form-item">
-              <div class="form-input">
-                <label for="pista-receptor">$$AQUI VA EL USER.NAME DEL RECEPTOR$$</label>
-                <input type="text" id="PistaReceptor" name="PistaReceptor" autocomplete="off">
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-item">
-              <div class="form-input">
-                <label for="pista-comentarios">Pista</label>
-                <textarea type="textarea" id="PistaComentario"  name="PistaComentario" autocomplete="off"> </textarea>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-item">
-              <div class="form-input">
-                <label for="pista-Regalo">Regalo</label>
-                <input type="text" id="PistaRegalo"   name="PistaRegalo" autocomplete="off">
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-row space-between">
-            <div class="form-item">
-              <div class="checkbox-wrap">
-                <input type="checkbox" id="adivinar" name="adivinar" checked>
-                <div class="checkbox-box">
-                  <svg class="icon-cross">
-                    <use xlink:href="#svg-cross"></use>
-                  </svg>
-                </div>
-                <label for="adivinar">PERMITIR ADIVINAR ?</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-item">
-              <a href="javascript:crear();" class="button medium secondary" style="width: 100%;">ENVIAR</a>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- end.1er FORM -->
-    
-      <!-- start.2do FORM -->
-      <div class="form-box login-register-form-element">
-        <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration" src="img/landing/rocket.png" alt="rocket">
-        <!-- /FORM BOX DECORATION -->
+    <!-- BAR ACTIONS -->
+    <div class="bar-actions">
+      <!-- ACTION LIST -->
+      <div class="action-list dark">
+        <!-- ACTION LIST ITEM -->
+        <a class="action-list-item" href="marketplace-cart.html">
+          <!-- ACTION LIST ITEM ICON -->
+          <svg class="action-list-item-icon icon-shopping-bag">
+            <use xlink:href="#svg-shopping-bag"></use>
+          </svg>
+          <!-- /ACTION LIST ITEM ICON -->
+        </a>
+        <!-- /ACTION LIST ITEM -->
 
-        <!-- FORM BOX TITLE -->
-        <h2 class="form-box-title">Create your Account!</h2>
-        <!-- /FORM BOX TITLE -->
-    
-        <!-- FORM -->
-        <form class="form">
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-email">Your Email</label>
-                <input type="text" id="register-email" name="register_email">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-username">Username</label>
-                <input type="text" id="register-username" name="register_username">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-password">Password</label>
-                <input type="password" id="register-password" name="register_password">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-password-repeat">Repeat Password</label>
-                <input type="password" id="register-password-repeat" name="register_password_repeat">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- CHECKBOX WRAP -->
-              <div class="checkbox-wrap">
-                <input type="checkbox" id="register-newsletter" name="register_newsletter" checked>
-                <!-- CHECKBOX BOX -->
-                <div class="checkbox-box">
-                  <!-- ICON CROSS -->
-                  <svg class="icon-cross">
-                    <use xlink:href="#svg-cross"></use>
-                  </svg>
-                  <!-- /ICON CROSS -->
-                </div>
-                <!-- /CHECKBOX BOX -->
-                <label for="register-newsletter">Send me news and updates via email</label>
-              </div>
-              <!-- /CHECKBOX WRAP -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- BUTTON -->
-              <button class="button medium primary">Register Now!</button>
-              <!-- /BUTTON -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-        </form>
-        <!-- /FORM -->
-    
-        <!-- FORM TEXT -->
-        <p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account. If you have any problems, <a href="#">contact us</a>!</p>
-        <!-- /FORM TEXT -->
+        <!-- ACTION LIST ITEM -->
+        <a class="action-list-item" href="hub-profile-requests.html">
+          <!-- ACTION LIST ITEM ICON -->
+          <svg class="action-list-item-icon icon-friend">
+            <use xlink:href="#svg-friend"></use>
+          </svg>
+          <!-- /ACTION LIST ITEM ICON -->
+        </a>
+        <!-- /ACTION LIST ITEM -->
+
+        <!-- ACTION LIST ITEM -->
+        <a class="action-list-item" href="hub-profile-messages.html">
+          <!-- ACTION LIST ITEM ICON -->
+          <svg class="action-list-item-icon icon-messages">
+            <use xlink:href="#svg-messages"></use>
+          </svg>
+          <!-- /ACTION LIST ITEM ICON -->
+        </a>
+        <!-- /ACTION LIST ITEM -->
+
+        <!-- ACTION LIST ITEM -->
+        <a class="action-list-item unread" href="hub-profile-notifications.html">
+          <!-- ACTION LIST ITEM ICON -->
+          <svg class="action-list-item-icon icon-notification">
+            <use xlink:href="#svg-notification"></use>
+          </svg>
+          <!-- /ACTION LIST ITEM ICON -->
+        </a>
+        <!-- /ACTION LIST ITEM -->
       </div>
-      <!-- end.2do FORM -->
+      <!-- /ACTION LIST -->
+
+      <!-- ACTION ITEM WRAP -->
+      <a class="action-item-wrap" href="hub-profile-info.html">
+        <!-- ACTION ITEM -->
+        <div class="action-item dark">
+          <!-- ACTION ITEM ICON -->
+          <svg class="action-item-icon icon-settings">
+            <use xlink:href="#svg-settings"></use>
+          </svg>
+          <!-- /ACTION ITEM ICON -->
+        </div>
+        <!-- /ACTION ITEM -->
+      </a>
+      <!-- /ACTION ITEM WRAP -->
     </div>
-  </div>
+    <!-- /BAR ACTIONS -->
+  </aside>
+  <!-- /FLOATY BAR -->
+
+  <!-- CONTENT GRID -->
+  <div class="content-grid">
+    <!-- SECTION BANNER -->
+   
+    <!-- /SECTION BANNER -->
+
+   
+
+    <!-- / englobador de grid  -->
+  <div class="grid grid-3-9 mobile-prefer-content">
+    <!-- grid izquierdo -->
+    <div class="grid-sidebar">
+          <!-- PROFILE STATS -->
+          <div class="profile-stats fixed-height">
+            <!-- PROFILE STATS COVER -->
+            <div class="profile-stats-cover">
+              <!-- PROFILE STATS COVER TITLE -->
+              <p class="profile-stats-cover-title">Welcome Back!</p>
+              <!-- /PROFILE STATS COVER TITLE -->
+        
+              <!-- PROFILE STATS COVER TEXT -->
+              <p class="profile-stats-cover-text">Nombre Usuario</p>
+              <!-- /PROFILE STATS COVER TEXT -->
+            </div>
+            <!-- /PROFILE STATS COVER -->
+        
+            <!-- PROFILE STATS INFO -->
+            <div class="profile-stats-info">
+              <!-- USER AVATAR -->
+              <div class="user-avatar medium">
+                <!-- USER AVATAR BORDER -->
+                <div class="user-avatar-border">
+                  <!-- HEXAGON -->
+                  <div class="hexagon-120-132" style="width: 120px; height: 132px; position: relative;"><canvas width="120" height="132" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                  <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR BORDER -->
+            
+                <!-- USER AVATAR CONTENT -->
+                <div class="user-avatar-content">
+                  <!-- HEXAGON -->
+                  <div class="hexagon-image-82-90" data-src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;">
+                  <img src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;" ></img>
+                  <canvas width="82" height="90" style="position: absolute; top: 0px; left: 0px;"></canvas>
+                  </div>
+                  <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR CONTENT -->
+            
+                <!-- USER AVATAR PROGRESS -->
+                <div class="user-avatar-progress">
+                  <!-- HEXAGON -->
+                  <div class="hexagon-progress-100-110" style="width: 100px; height: 110px; position: relative;"><canvas width="100" height="110" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                  <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS -->
+            
+                <!-- USER AVATAR PROGRESS BORDER -->
+                <div class="user-avatar-progress-border">
+                  <!-- HEXAGON -->
+                  <div class="hexagon-border-100-110" style="width: 100px; height: 110px; position: relative;"><canvas width="100" height="110" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                  <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR PROGRESS BORDER -->
+            
+                <!-- USER AVATAR BADGE -->
+                <div class="user-avatar-badge">
+                  <!-- USER AVATAR BADGE BORDER -->
+                  <div class="user-avatar-badge-border">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-32-36" style="width: 32px; height: 36px; position: relative;"><canvas width="32" height="36" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                    <!-- /HEXAGON -->
+                  </div>
+                  <!-- /USER AVATAR BADGE BORDER -->
+            
+                  <!-- USER AVATAR BADGE CONTENT -->
+                  <div class="user-avatar-badge-content">
+                    <!-- HEXAGON -->
+                    <div class="hexagon-dark-26-28" style="width: 26px; height: 28px; position: relative;"><canvas width="26" height="28" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                    <!-- /HEXAGON -->
+                  </div>
+                  <!-- /USER AVATAR BADGE CONTENT -->
+            
+                  <!-- USER AVATAR BADGE TEXT -->
+                  <p class="user-avatar-badge-text">24</p>
+                  <!-- /USER AVATAR BADGE TEXT -->
+                </div>
+                <!-- /USER AVATAR BADGE -->
+              </div>
+              <!-- /USER AVATAR -->
+        
+              <!-- FEATURED STAT LIST -->
+              <div class="featured-stat-list">
+                <!-- FEATURED STAT -->
+                <div class="featured-stat">
+                  <!-- FEATURED STAT ICON -->
+                  <svg class="featured-stat-icon icon-status">
+                    <use xlink:href="#svg-status"></use>
+                  </svg>
+                  <!-- /FEATURED STAT ICON -->
+        
+                  <!-- FEATURED STAT TITLE -->
+                  <p class="featured-stat-title">28.4</p>
+                  <!-- /FEATURED STAT TITLE -->
+        
+                  <!-- FEATURED STAT SUBTITLE -->
+                  <p class="featured-stat-subtitle">Posts</p>
+                  <!-- /FEATURED STAT SUBTITLE -->
+        
+                  <!-- FEATURED STAT TEXT -->
+                  <p class="featured-stat-text">Avg Month</p>
+                  <!-- /FEATURED STAT TEXT -->
+                </div>
+                <!-- /FEATURED STAT -->
+        
+                <!-- FEATURED STAT -->
+                <div class="featured-stat">
+                  <!-- FEATURED STAT ICON -->
+                  <svg class="featured-stat-icon icon-comment">
+                    <use xlink:href="#svg-comment"></use>
+                  </svg>
+                  <!-- /FEATURED STAT ICON -->
+        
+                  <!-- FEATURED STAT TITLE -->
+                  <p class="featured-stat-title">69.7</p>
+                  <!-- /FEATURED STAT TITLE -->
+        
+                  <!-- FEATURED STAT SUBTITLE -->
+                  <p class="featured-stat-subtitle">Comments</p>
+                  <!-- /FEATURED STAT SUBTITLE -->
+        
+                  <!-- FEATURED STAT TEXT -->
+                  <p class="featured-stat-text">Avg Month</p>
+                  <!-- /FEATURED STAT TEXT -->
+                </div>
+                <!-- /FEATURED STAT -->
+              </div>
+              <!-- /FEATURED STAT LIST -->
+        
+              <!-- FEATURED STAT LIST -->
+              <div class="featured-stat-list">
+                <!-- FEATURED STAT -->
+                <div class="featured-stat">
+                  <!-- PROGRESS ARC WRAP -->
+                  <div class="progress-arc-wrap small">
+                    <!-- PROGRESS ARC -->
+                    <div class="progress-arc"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                      <canvas id="posts-engagement-chart" width="100" height="100" class="chartjs-render-monitor" style="display: block; height: 80px; width: 80px;"></canvas>
+                    </div>
+                    <!-- PROGRESS ARC -->
+              
+                    <!-- PROGRESS ARC INFO -->
+                    <div class="progress-arc-info">
+                      <!-- PROGRESS ARC TITLE -->
+                      <p class="progress-arc-title">87%</p>
+                      <!-- /PROGRESS ARC TITLE -->
+                    </div>
+                    <!-- /PROGRESS ARC INFO -->
+                  </div>
+                  <!-- /PROGRESS ARC WRAP -->
+        
+                  <!-- FEATURED STAT SUBTITLE -->
+                  <p class="featured-stat-subtitle">Posts</p>
+                  <!-- /FEATURED STAT SUBTITLE -->
+        
+                  <!-- FEATURED STAT TEXT -->
+                  <p class="featured-stat-text">Engagement</p>
+                  <!-- /FEATURED STAT TEXT -->
+                </div>
+                <!-- /FEATURED STAT -->
+        
+                <!-- FEATURED STAT -->
+                <div class="featured-stat">
+                  <!-- PROGRESS ARC WRAP -->
+                  <div class="progress-arc-wrap small">
+                    <!-- PROGRESS ARC -->
+                    <div class="progress-arc"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                      <canvas id="posts-shared-chart" width="100" height="100" class="chartjs-render-monitor" style="display: block; height: 80px; width: 80px;"></canvas>
+                    </div>
+                    <!-- PROGRESS ARC -->
+        
+                    <!-- PROGRESS ARC INFO -->
+                    <div class="progress-arc-info">
+                      <!-- PROGRESS ARC TITLE -->
+                      <p class="progress-arc-title">42%</p>
+                      <!-- /PROGRESS ARC TITLE -->
+                    </div>
+                    <!-- /PROGRESS ARC INFO -->
+                  </div>
+                  <!-- /PROGRESS ARC WRAP -->
+        
+                  <!-- FEATURED STAT SUBTITLE -->
+                  <p class="featured-stat-subtitle">Posts</p>
+                  <!-- /FEATURED STAT SUBTITLE -->
+        
+                  <!-- FEATURED STAT TEXT -->
+                  <p class="featured-stat-text">Shared</p>
+                  <!-- /FEATURED STAT TEXT -->
+                </div>
+                <!-- /FEATURED STAT -->
+              </div>
+              <!-- /FEATURED STAT LIST -->
+            </div>
+            <!-- /PROFILE STATS INFO -->
+          </div>
+          <!-- /PROFILE STATS -->
+     </div>
+    <!-- / grid izquierdo -->
+    <!--grid centro -->
+    
+    @include ('grid_pista_centro')
+     <!--grid centro -->
+
+    
+    </div>  
+    <!-- / englobador de grids  -->
+    <!-- GRID -->
+    <div class="grid grid-3-3-3-3 centered">
+      <!-- PRODUCT CATEGORY BOX -->
+      <a class="product-category-box category-all" href="marketplace-category.html">
+        <!-- PRODUCT CATEGORY BOX TITLE -->
+        <p class="product-category-box-title">Browse All</p>
+        <!-- /PRODUCT CATEGORY BOX TITLE -->
+    
+        <!-- PRODUCT CATEGORY BOX TEXT -->
+        <p class="product-category-box-text">Check out all items</p>
+        <!-- /PRODUCT CATEGORY BOX TEXT -->
+    
+        <!-- PRODUCT CATEGORY BOX TAG -->
+        <p class="product-category-box-tag">1360 items</p>
+        <!-- /PRODUCT CATEGORY BOX TAG -->
+      </a>
+      <!-- /PRODUCT CATEGORY BOX -->
+    
+      <!-- PRODUCT CATEGORY BOX -->
+      <a class="product-category-box category-featured" href="marketplace-category.html">
+        <!-- PRODUCT CATEGORY BOX TITLE -->
+        <p class="product-category-box-title">Featured</p>
+        <!-- /PRODUCT CATEGORY BOX TITLE -->
+    
+        <!-- PRODUCT CATEGORY BOX TEXT -->
+        <p class="product-category-box-text">Handpicked by us</p>
+        <!-- /PRODUCT CATEGORY BOX TEXT -->
+    
+        <!-- PRODUCT CATEGORY BOX TAG -->
+        <p class="product-category-box-tag">254 items</p>
+        <!-- /PRODUCT CATEGORY BOX TAG -->
+      </a>
+      <!-- /PRODUCT CATEGORY BOX -->
+    
+      <!-- PRODUCT CATEGORY BOX -->
+      <a class="product-category-box category-digital" href="marketplace-category.html">
+        <!-- PRODUCT CATEGORY BOX TITLE -->
+        <p class="product-category-box-title">Digital</p>
+        <!-- /PRODUCT CATEGORY BOX TITLE -->
+    
+        <!-- PRODUCT CATEGORY BOX TEXT -->
+        <p class="product-category-box-text">Logos, banners...</p>
+        <!-- /PRODUCT CATEGORY BOX TEXT -->
+    
+        <!-- PRODUCT CATEGORY BOX TAG -->
+        <p class="product-category-box-tag">1207 items</p>
+        <!-- /PRODUCT CATEGORY BOX TAG -->
+      </a>
+      <!-- /PRODUCT CATEGORY BOX -->
+    
+      <!-- PRODUCT CATEGORY BOX -->
+      <a class="product-category-box category-physical" href="marketplace-category.html">
+        <!-- PRODUCT CATEGORY BOX TITLE -->
+        <p class="product-category-box-title">Physical</p>
+        <!-- /PRODUCT CATEGORY BOX TITLE -->
+    
+        <!-- PRODUCT CATEGORY BOX TEXT -->
+        <p class="product-category-box-text">Prints, joysticks...</p>
+        <!-- /PRODUCT CATEGORY BOX TEXT -->
+    
+        <!-- PRODUCT CATEGORY BOX TAG -->
+        <p class="product-category-box-tag">153 items</p>
+        <!-- /PRODUCT CATEGORY BOX TAG -->
+      </a>
+      <!-- /PRODUCT CATEGORY BOX -->
+    </div>
+    <!-- /GRID -->
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <!-- SECTION HEADER INFO -->
+      <div class="section-header-info">
+        <!-- SECTION PRETITLE -->
+        <p class="section-pretitle">See what's new!</p>
+        <!-- /SECTION PRETITLE -->
   
+        <!-- SECTION TITLE -->
+        <h2 class="section-title">Latest Items</h2>
+        <!-- /SECTION TITLE -->
+      </div>
+      <!-- /SECTION HEADER INFO -->
+  
+      <!-- SECTION HEADER ACTIONS -->
+      <div class="section-header-actions">
+        <!-- SECTION HEADER ACTION -->
+        <a class="section-header-action" href="marketplace-category.html">Browse All Latest</a>
+        <!-- /SECTION HEADER ACTION -->
+      </div>
+      <!-- /SECTION HEADER ACTIONS -->
+    </div>
+    <!-- /SECTION HEADER -->
 
+    <!-- GRID -->
+    <div class="grid grid-3-3-3-3 centered">
+      
+      
+      
+      
+      
+
+
+
+   
+
+    </div>
+    <!-- /GRID -->
+  </div>
+  <!-- /CONTENT GRID -->
+
+<!-- app -->
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 <script>
-    function crear() {
+function sendMsj() {
 
-        var fd = new FormData(document.getElementById('formJuego'));
-        fd.append("_token", $("input[name=_token]").val());
-
-        $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/pistas/crear",
+  var datos = new FormData();
+      datos.append("_token", $("input[name=_token]").val());
+      datos.append('emisor', document.getElementById("Emisor").value);
+      datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
+ 
+      // AJAX CALL
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
         type: "POST",
-        data: fd,
+        data: datos,
         dataType: 'json',
         enctype: 'multipart/form-data',
         processData: false,
@@ -259,13 +465,16 @@
           console.log(data);
           
           if (data.status == true){
-            // window.location.href = "grupo/" + data.codigo;
+            window.location.reload();
             console.log("pista/" + data.codigo);
           }else{
             console.log(data);
           }
 
         });
+    
+      return false;
+
 }
 </script>
 </body>

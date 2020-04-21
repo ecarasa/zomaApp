@@ -16,15 +16,19 @@ Route::get('/', 'HomeController@index')->name('home');
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/basesycond', 'BasesController@index')->name('home');
 
-Route::get('/pista', 'PistasController@index'); //// nombre en url y el nombre del controller.php
+// bases y condiciones
+Route::get('/basesycond', 'HomeController@show');
 
+//panel paticipante
+    //pistas
+    Route::get('/pista', 'PistasController@index')->name('home');
+    Route::post('/pista/crear', 'PistasController@register')->name('register');
 
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::post('/grupo/{codigoGrupo}', 'GruposController@show')->name('crear');
+Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 
 //marketplace
-
 Route::get('/store', 'RegalosController@index');

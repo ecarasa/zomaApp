@@ -17,7 +17,7 @@ class CreateParticipanteGruposTable extends Migration
             $table->bigIncrements('id');
             $table->char('codigoGrupo',5); // de emi 
             $table->integer('idUsuario'); // de emi 
-            $table->integer('idUserAmigoInvible'); // a franco
+            $table->integer('idUserAmigoInvible')->nulleable(); // a franco
             $table->integer('idRegalo')->nulleable(); // tal cosa  -> pero de franco a emi puede ser otra 
             $table->timestamps();
         });

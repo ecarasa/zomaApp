@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grupos;
 use App\User;
+use App\ParticipanteGrupos;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Validator;
@@ -27,24 +28,52 @@ class GruposController extends Controller
      */
     public function sortear(Request $request )
     {
-        
-        /**
-         * como ?
-         * 1 nos fijamos que ParticipantesGrupos no tenga registros para el codigo de grupo que vamos a sortear
-         * 2 si no tiene .. se sortea
-         * 3 cargamos todos los participantes en un array
-         *   $flight = App\Flight::where('number', 'FR 900')->get();
-         * 4 buscamos alguna funcion que haga un "random pop of array php"
-         * 5 
-         * 
-         */
+        if (!$request->has(['idGrupo'])) {
+            $output = array("status"=>false, "msj"=>"Faltan datos");
+            return response()->json($output);
+        }else{
 
+            $grupo = Grupos::findOrFail($request->idGrupo);
 
+            // TODO -> validacion de quien esta sorteando que sea el admin.
+            //if( $grupo->idUsuarioAdmin == Auth::id() ){
 
+            // TODO
+            // Falta un IF para saber si se sorteo, si se sorteo, no se puede volver a sortear o si ?    
+            
+            $participantes = $grupo->getParticipantes;
+            $participantesTemp = $participantes->toArray();
 
-
-
+            foreach ($participantes as $participante){
+                $randIndex = $this->selRandomFromArray($participantesTemp, $participante->mail);
+                $amigoInvDelEach = $participantesTemp[$randIndex]; 
+                echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
+                $pivotTable = ParticipanteGrupos::where('idUsuario', $participante->id)->where('codigoGrupo',$grupo->codigo)->first();
+                $pivotTable->idUserAmigoInvible = $amigoInvDelEach['id'];
+                $pivotTable->save();
+                unset($participantesTemp[$randIndex]);
+            }
+        }
     }
+
+    
+    /*
+    * funcion devuelve random de un array exepto el que tenga el mail XXXX 
+    */
+
+    function selRandomFromArray($arr, $emailNot) {
+        $index = array_rand($arr);
+        $emailRand = $arr[$index]['email'];
+
+        if ($emailRand == $emailNot){
+            $this->selRandomFromArray($arr, $emailNot);
+        }else{
+            return $index;
+        }
+     }
+    
+
+
 
     /**
      * Store a newly created resource in storage.
