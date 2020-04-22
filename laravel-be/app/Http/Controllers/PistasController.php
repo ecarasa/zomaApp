@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Pistas;
 use Illuminate\Http\Request;
-
-
 use DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,16 +24,20 @@ class PistasController extends Controller
         $mensajes = DB::table('pistas')->where('idUserEmisor','like',$request->idUser)
                     ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
                     ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
-                    ->select('pistas.*', 'users.email' ,'u2.email as receptor' )
+                    ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
+                    ->select('pistas.*', 'users.email' ,'u2.email as receptor','g.nombre as GrupoNombre' )
                     ->get();
 
         $userLogueado=$request->idUser;
-        $grupos =  DB::table('participante_grupos as pg')//->where('idUsuario','like',$userLogueado)
-                    ->select('pg.id','pg.codigoGrupo')
+        $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
+                    ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
+                    ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
+                    ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
                     ->get();
-        //$users = DB::table('users')->where('nombre','like',$parametro)->get();
 
-        return view('pista')->with(compact('mensajes','userLogueado','grupos'));
+        $users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre')->get();
+
+        return view('pista')->with(compact('mensajes','userLogueado','grupos','users'));
     }
 
     /**
@@ -57,6 +59,7 @@ class PistasController extends Controller
         $pista->idUserReceptor=$request->receptor;
         $pista->mensaje=$request->pistamsj;
         //$pista->fecha=getdate();
+        $pista->idgrupo=$request->grupo;
         if ($pista->save()){
 
                 $output = array("status"=>true,"msj"=>"Pista Enviada!" );

@@ -129,11 +129,11 @@
             <!-- PROFILE STATS COVER -->
             <div class="profile-stats-cover">
               <!-- PROFILE STATS COVER TITLE -->
-              <p class="profile-stats-cover-title">Welcome Back!</p>
+              <p class="profile-stats-cover-title">Welcome Back! </p>
               <!-- /PROFILE STATS COVER TITLE -->
         
               <!-- PROFILE STATS COVER TEXT -->
-              <p class="profile-stats-cover-text">Nombre Usuario</p>
+              <p class="profile-stats-cover-text">{{ $userLogueado  }}</p>
               <!-- /PROFILE STATS COVER TEXT -->
             </div>
             <!-- /PROFILE STATS COVER -->
@@ -432,13 +432,21 @@
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+  
+function slReceptor() {
+  $('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
+  $('#receptorEmail').val($('#ComboGr option:selected').attr('emailamigoi'));
+
+
+}
+
 function sendMsj() {
 
   var datos = new FormData();
       datos.append("_token", $("input[name=_token]").val());
       datos.append('receptor', document.getElementById("receptor").value);
       datos.append('emisor', {{ $userLogueado}} );
-      datos.append('grupo', {{ $userLogueado}} );
+      datos.append('grupo', $("#ComboGr").val());
       datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
  
       // AJAX CALL
@@ -458,7 +466,7 @@ function sendMsj() {
           console.log(data);
           
           if (data.status == true){
-            //window.location.reload();
+            window.location.reload();
           //  document.getElementById('msjesExistentes').style.display='none';
           //  $('#msjesExistentes').load('grid_pista_dentro.php');
             console.log("pista/" + data.codigo);
