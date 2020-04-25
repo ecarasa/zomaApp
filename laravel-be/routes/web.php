@@ -34,3 +34,8 @@ Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 
 //marketplace
 Route::get('/store', 'RegalosController@index');
+
+
+
+
+Auth::routes();
