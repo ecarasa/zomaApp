@@ -5,12 +5,13 @@
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
             <p class="section-pretitle"> @foreach ($users as $usuario) 
-            {{ $usuario->nombre}} 
-            @endforeach </p>
+            {{ $usuario->nombre }} -   {{ $usuario->email }} 
+            @endforeach 
+            </p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">Pistas</h2>
+            <h2 class="section-title"></h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -22,14 +23,14 @@
             <!-- /SECTION HEADER ACTION -->
       
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action" onclick="document.getElementById('msjesExistentes').style.display='none';"> Enviar Pista </p>
+            <p class="section-header-action" onclick="MostrarDivUnico('msjEnviados')"> Ver Pistas </p>
             <!-- /SECTION HEADER ACTION -->
           </div>
         <!-- /SECTION HEADER ACTIONS -->
         </div>
         <!-- /SECTION HEADER -->
         <!-- CHAT WIDGET FORM -->
-        <div class="chat-widget-wrap" id="">
+        <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
         <form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
          @csrf
             <!-- FORM ROW -->
@@ -39,7 +40,7 @@
              
                 <div class="form-item">
                   <select class="form-control" id="ComboGr" onchange="slReceptor();" >
-                  <option value=0> Seleccionar grupo</option>
+                  <option value=0 emailamigoi="" idamigoi=0> Seleccionar grupo</option>
                   @foreach ($grupos as $grupo)
                   <option value={{$grupo->id}} idamigoi="{{$grupo->idUserAmigoInvible}}" emailamigoi="{{$grupo->email}}"> 
                     {{$grupo->codigoGrupo}}
@@ -47,10 +48,13 @@
                   @endforeach               
                   </select>                  
                 </div>
+                 <!-- FORM ITEM -->
+              </div>
+              <div class="form-row split">
                 <div class="form-item" >
-                  Tu amigo invisible es:
+                  <p class="user-status-title">Tu amigo invisible es:</p>
                   <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="">
-                  <input type="text" id="receptorEmail"  value="">
+                  <p readonly class="user-status user-status-tag online" type="text" id="receptorEmail"  ></p>
                 </div>
                 
                 <!-- FORM ITEM -->
@@ -60,7 +64,7 @@
                 <div class="form-item">
                   <!-- INTERACTIVE INPUT -->
                   <div class="interactive-input small">
-                    <textarea id="pistamsj_enviar" name="pistamsj_enviar" placeholder="Write a message...">
+                    <textarea id="pistamsj_enviar" name="pistamsj_enviar" placeholder="Escribe un mensaje..." class="form-control">
                     </textarea>
                     <!-- INTERACTIVE INPUT ICON WRAP -->
                     <div class="interactive-input-icon-wrap actionable">
@@ -109,7 +113,7 @@
         </div>
         <!-- /CHAT WIDGET FORM -->
         <!-- CHAT WIDGET WRAP -->
-        <div class="chat-widget-wrap" id="msjesExistentes">
+        <div class="chat-widget-wrap" id="msjEnviados">
           <!-- CHAT WIDGET -->
           <div class="chat-widget static">
             <!-- CHAT WIDGET MESSAGES -->

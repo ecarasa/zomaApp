@@ -35,7 +35,7 @@ class PistasController extends Controller
                     ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
                     ->get();
 
-        $users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre')->get();
+        $users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
 
         return view('pista')->with(compact('mensajes','userLogueado','grupos','users'));
     }

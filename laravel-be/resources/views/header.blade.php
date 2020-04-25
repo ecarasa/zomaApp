@@ -188,7 +188,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
+                    <div class="hexagon-image-30-32" data-src=""></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -270,7 +270,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg"></div>
+                    <div class="hexagon-image-30-32" data-src=""></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
