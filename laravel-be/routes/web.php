@@ -27,7 +27,7 @@ Route::get('/basesycond', 'HomeController@show');
 
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
-Route::post('/grupo/{codigoGrupo}', 'GruposController@show')->name('crear');
+Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 
 //marketplace
