@@ -18,8 +18,8 @@
   <!-- PAGE LOADER -->
   @include('pageloader')
   <!-- /PAGE LOADER -->
-  <!-- MENU  DE NAV WIDGET -->
-   @include('nav_menu')
+  <!-- MENU  DE NAV WIDGET 
+   @ //include('nav_menu') -->
   <!-- /NAVIGATION WIDGET -->
   <!-- MENU  DE NAV WIDGET -->
   @include('header')
@@ -115,7 +115,13 @@
   <!-- CONTENT GRID -->
   <div class="content-grid">
     <!-- SECTION BANNER -->
-   
+    <div class="dropdown-box" id="msfConfirm" style="display:none">
+      <div class="dropdown-box-header"> Pista Mensaje Enviad@ 
+      <svg onclick="$('#msfConfirm').hide()" class="sidebar-menu-header-control-icon-open icon-minus-small">
+                    <use xlink:href="#svg-minus-small"></use>
+                  </svg>
+      </div>
+    </div>
     <!-- /SECTION BANNER -->
 
    
@@ -462,13 +468,12 @@ function sendMsj() {
         }
         }).done(function(data) {
           
-          console.log(data);
-          
           if (data.status == true){
-            window.location.reload();
+           // window.location.reload();
           //  document.getElementById('msjesExistentes').style.display='none';
-          //  $('#msjesExistentes').load('grid_pista_dentro.php');
-            console.log("pista/" + data.codigo);
+          $('#msfConfirm').show();
+          $('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+           
           }else{
             console.log(data);
           }
@@ -503,4 +508,4 @@ $(divamostrar).fadeIn();
 
 </script>
 </body>
-</html>
+</html> 

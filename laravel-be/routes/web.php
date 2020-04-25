@@ -24,6 +24,8 @@ Route::get('/basesycond', 'HomeController@show');
     //pistas
     Route::get('/pista', 'PistasController@index')->name('index');
     Route::post('/pista/crear', 'PistasController@register')->name('register');
+    Route::get('/pista/enviados', 'PistasController@enviados')->name('enviados');
+    
 
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
