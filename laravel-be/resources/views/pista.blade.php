@@ -212,7 +212,7 @@
               <!-- FEATURED STAT LIST -->
               <div class="featured-stat-list">
                 <!-- FEATURED STAT -->
-                <div class="featured-stat">
+                <div class="featured-stat" onclick="CargarRecibidos();>
                   <!-- FEATURED STAT ICON -->
                   <svg class="featured-stat-icon icon-status">
                     <use xlink:href="#svg-status"></use>
@@ -234,7 +234,7 @@
                 <!-- /FEATURED STAT -->
         
                 <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="MostrarDivUnico('DivEnviarPista');">
+                <div class="featured-stat" onclick="CargarEnviados();">
                   <!-- FEATURED STAT ICON -->
                   <svg class="featured-stat-icon icon-comment">
                     <use xlink:href="#svg-comment"></use>
@@ -484,6 +484,21 @@ function sendMsj() {
 
 }
 
+/*****
+FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
+***** */
+function CargarRecibidos() {
+
+$('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+}
+
+/*****
+FUNCION PARA CARGAR DIV PHP DE PISTAS RECIBIDAS
+***** */
+function CargarRecibidos() {
+
+  $('#pistascentro').load('/pista/recibidos?idUser={{ $userLogueado}}');
+}
 
 /**** 
 FUNCION PARA MOSTRAR UN SOLO DIV Y OCULTAR EL RESTO 

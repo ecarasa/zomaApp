@@ -4,9 +4,7 @@
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle"> @foreach ($users as $usuario) 
-            {{ $usuario->nombre }} -   {{ $usuario->email }} 
-            @endforeach 
+            <p class="section-pretitle"> 
             </p>
             <!-- /SECTION PRETITLE -->
 
@@ -19,11 +17,11 @@
           <!-- SECTION HEADER ACTIONS -->
           <div class="section-header-actions">
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action" onclick="MostrarDivUnico('DivEnviarPista')">Enviar Pista</p>
+            <p class="section-header-action">Marcar como leidas</p>
             <!-- /SECTION HEADER ACTION -->
       
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action" onclick="MostrarDivUnico('msjEnviados')"> Ver Pistas </p>
+            <p class="section-header-action" onclick="MostrarDivUnico('msjRecibidos')"> Ver Pistas </p>
             <!-- /SECTION HEADER ACTION -->
           </div>
         <!-- /SECTION HEADER ACTIONS -->
@@ -181,7 +179,7 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold" readonly>{{ $mensaje->receptor }}</span></p>
+                  <p class="user-status-title"><span class="bold" readonly>Tu Amigo Invisible:</span></p>
                   <p class="user-status-timestamp ">Grupo: {{$mensaje->GrupoNombre}}</p>
                   <!-- /USER STATUS TITLE -->
               

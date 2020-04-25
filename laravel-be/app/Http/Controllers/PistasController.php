@@ -41,6 +41,28 @@ class PistasController extends Controller
     }
 
 
+    public function recibidos(request $request )
+    { 
+                $mensajes = DB::table('pistas')->where('idUserReceptor','like',$request->idUser)
+                    ->join('users', 'pistas.idUserReceptor', '=', 'users.id')
+                   // ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
+                    ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
+                    ->select('pistas.*','g.nombre as GrupoNombre' )
+                    ->get();
+
+        $userLogueado=$request->idUser;
+        $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
+                    ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
+                    ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
+                    ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
+                    ->get();
+
+        //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
+
+        return view('grid_recibidos')->with(compact('mensajes','userLogueado','grupos'));
+       // return view('grid_pista_centro');
+    }
+
     public function enviados(request $request )
     { 
                 $mensajes = DB::table('pistas')->where('idUserEmisor','like',$request->idUser)
