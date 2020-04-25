@@ -22,7 +22,7 @@ Route::get('/basesycond', 'HomeController@show');
 
 //panel paticipante
     //pistas
-    Route::get('/pista', 'PistasController@index')->name('home');
+    Route::get('/pista', 'PistasController@index')->name('index');
     Route::post('/pista/crear', 'PistasController@register')->name('register');
 
 //grupos

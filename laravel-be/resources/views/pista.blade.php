@@ -129,11 +129,11 @@
             <!-- PROFILE STATS COVER -->
             <div class="profile-stats-cover">
               <!-- PROFILE STATS COVER TITLE -->
-              <p class="profile-stats-cover-title">Welcome Back!</p>
+              <p class="profile-stats-cover-title">Welcome Back! </p>
               <!-- /PROFILE STATS COVER TITLE -->
         
               <!-- PROFILE STATS COVER TEXT -->
-              <p class="profile-stats-cover-text">Nombre Usuario</p>
+              <p class="profile-stats-cover-text">{{ $userLogueado  }}</p>
               <!-- /PROFILE STATS COVER TEXT -->
             </div>
             <!-- /PROFILE STATS COVER -->
@@ -214,21 +214,21 @@
                   <!-- /FEATURED STAT ICON -->
         
                   <!-- FEATURED STAT TITLE -->
-                  <p class="featured-stat-title">28.4</p>
+                  <p class="featured-stat-title">Adivinar</p>
                   <!-- /FEATURED STAT TITLE -->
         
                   <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Posts</p>
+                  <p class="featured-stat-subtitle">Pistas Recibidas</p>
                   <!-- /FEATURED STAT SUBTITLE -->
         
                   <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">Avg Month</p>
+                  <p class="featured-stat-text">por un amigo invisible</p>
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
         
                 <!-- FEATURED STAT -->
-                <div class="featured-stat">
+                <div class="featured-stat" onclick="MostrarDivUnico('DivEnviarPista');">
                   <!-- FEATURED STAT ICON -->
                   <svg class="featured-stat-icon icon-comment">
                     <use xlink:href="#svg-comment"></use>
@@ -236,15 +236,15 @@
                   <!-- /FEATURED STAT ICON -->
         
                   <!-- FEATURED STAT TITLE -->
-                  <p class="featured-stat-title">69.7</p>
+                  <p class="featured-stat-title">Enviar</p>
                   <!-- /FEATURED STAT TITLE -->
         
                   <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Comments</p>
+                  <p class="featured-stat-subtitle">Pistas</p>
                   <!-- /FEATURED STAT SUBTITLE -->
         
                   <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">Avg Month</p>
+                  <p class="featured-stat-text">a tu amigo invisible</p>
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
@@ -266,7 +266,7 @@
                     <!-- PROGRESS ARC INFO -->
                     <div class="progress-arc-info">
                       <!-- PROGRESS ARC TITLE -->
-                      <p class="progress-arc-title">87%</p>
+                      <p class="progress-arc-title">Regalar</p>
                       <!-- /PROGRESS ARC TITLE -->
                     </div>
                     <!-- /PROGRESS ARC INFO -->
@@ -274,11 +274,11 @@
                   <!-- /PROGRESS ARC WRAP -->
         
                   <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Posts</p>
+                  <p class="featured-stat-subtitle">Elige un regalo</p>
                   <!-- /FEATURED STAT SUBTITLE -->
         
                   <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">Engagement</p>
+                  <p class="featured-stat-text">acorde al perfil de tu AI</p>
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
@@ -296,7 +296,7 @@
                     <!-- PROGRESS ARC INFO -->
                     <div class="progress-arc-info">
                       <!-- PROGRESS ARC TITLE -->
-                      <p class="progress-arc-title">42%</p>
+                      <p class="progress-arc-title">Grupos</p>
                       <!-- /PROGRESS ARC TITLE -->
                     </div>
                     <!-- /PROGRESS ARC INFO -->
@@ -304,11 +304,11 @@
                   <!-- /PROGRESS ARC WRAP -->
         
                   <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Posts</p>
+                  <p class="featured-stat-subtitle">Mira con quien</p>
                   <!-- /FEATURED STAT SUBTITLE -->
         
                   <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">Shared</p>
+                  <p class="featured-stat-text">y en que equipo juegas</p>
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
@@ -422,15 +422,6 @@
 
     <!-- GRID -->
     <div class="grid grid-3-3-3-3 centered">
-      
-      
-      
-      
-      
-
-
-
-   
 
     </div>
     <!-- /GRID -->
@@ -441,11 +432,20 @@
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+  
+function slReceptor() {
+  $('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
+  $('#receptorEmail').text($('#ComboGr option:selected').attr('emailamigoi'));
+
+}
+
 function sendMsj() {
 
   var datos = new FormData();
       datos.append("_token", $("input[name=_token]").val());
-      datos.append('emisor', document.getElementById("Emisor").value);
+      datos.append('receptor', document.getElementById("receptor").value);
+      datos.append('emisor', {{ $userLogueado}} );
+      datos.append('grupo', $("#ComboGr").val());
       datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
  
       // AJAX CALL
@@ -466,6 +466,8 @@ function sendMsj() {
           
           if (data.status == true){
             window.location.reload();
+          //  document.getElementById('msjesExistentes').style.display='none';
+          //  $('#msjesExistentes').load('grid_pista_dentro.php');
             console.log("pista/" + data.codigo);
           }else{
             console.log(data);
@@ -476,6 +478,29 @@ function sendMsj() {
       return false;
 
 }
+
+
+/**** 
+FUNCION PARA MOSTRAR UN SOLO DIV Y OCULTAR EL RESTO 
+ENTRADA : DIV A MOSTRAR
+PREDEF: DIVS A OCULTAR
+***/
+function MostrarDivUnico(divamostrar) {
+
+var listaDivs=["DivEnviarPista","msjEnviados"];
+var divaocultar="";
+listaDivs.forEach(function (elemento, indice, array) {
+    console.log(elemento, indice);
+    divaocultar="#"+elemento;
+    $(divaocultar).hide();
+    divaocultar="";
+});
+divamostrar="#"+divamostrar;
+$(divamostrar).fadeIn();
+
+
+}
+
 </script>
 </body>
 </html>

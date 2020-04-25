@@ -4,11 +4,14 @@
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle">My Profile</p>
+            <p class="section-pretitle"> @foreach ($users as $usuario) 
+            {{ $usuario->nombre }} -   {{ $usuario->email }} 
+            @endforeach 
+            </p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">Pistas</h2>
+            <h2 class="section-title"></h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -20,15 +23,97 @@
             <!-- /SECTION HEADER ACTION -->
       
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action" onclick="document.getElementById('msjesExistentes').style.display='none';"> Enviar Pista </p>
+            <p class="section-header-action" onclick="MostrarDivUnico('msjEnviados')"> Ver Pistas </p>
             <!-- /SECTION HEADER ACTION -->
           </div>
         <!-- /SECTION HEADER ACTIONS -->
         </div>
         <!-- /SECTION HEADER -->
-        
+        <!-- CHAT WIDGET FORM -->
+        <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
+        <form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
+         @csrf
+            <!-- FORM ROW -->
+            
+              <div class="form-row split">
+                <!-- FORM ITEM -->   
+             
+                <div class="form-item">
+                  <select class="form-control" id="ComboGr" onchange="slReceptor();" >
+                  <option value=0 emailamigoi="" idamigoi=0> Seleccionar grupo</option>
+                  @foreach ($grupos as $grupo)
+                  <option value={{$grupo->id}} idamigoi="{{$grupo->idUserAmigoInvible}}" emailamigoi="{{$grupo->email}}"> 
+                    {{$grupo->codigoGrupo}}
+                  </option>
+                  @endforeach               
+                  </select>                  
+                </div>
+                 <!-- FORM ITEM -->
+              </div>
+              <div class="form-row split">
+                <div class="form-item" >
+                  <p class="user-status-title">Tu amigo invisible es:</p>
+                  <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="">
+                  <p readonly class="user-status user-status-tag online" type="text" id="receptorEmail"  ></p>
+                </div>
+                
+                <!-- FORM ITEM -->
+              </div>
+              <!-- FORM ROW -->
+              <div class="form-row split">
+                <div class="form-item">
+                  <!-- INTERACTIVE INPUT -->
+                  <div class="interactive-input small">
+                    <textarea id="pistamsj_enviar" name="pistamsj_enviar" placeholder="Escribe un mensaje..." class="form-control">
+                    </textarea>
+                    <!-- INTERACTIVE INPUT ICON WRAP -->
+                    <div class="interactive-input-icon-wrap actionable">
+                      <!-- TOOLTIP WRAP -->
+                      <div class="tooltip-wrap text-tooltip-tft" data-title="Send Photo" style="position: relative;">
+                        <!-- INTERACTIVE INPUT ICON -->
+                        <svg class="interactive-input-icon icon-camera">
+                          <use xlink:href="#svg-camera"></use>
+                        </svg>
+                        <!-- /INTERACTIVE INPUT ICON -->
+                      <div class="xm-tooltip" style="white-space: nowrap; position: absolute; z-index: 99999; top: -28px; left: 50%; margin-left: -40px; opacity: 0; visibility: hidden; transform: translate(0px, 10px); transition: all 0.3s ease-in-out 0s;"><p class="xm-tooltip-text">Send Photo</p></div><div class="xm-tooltip" style="white-space: nowrap; position: absolute; z-index: 99999; top: -28px; left: 50%; margin-left: -40px; opacity: 0; visibility: hidden; transform: translate(0px, 10px); transition: all 0.3s ease-in-out 0s;"><p class="xm-tooltip-text">Send Photo</p></div></div>
+                      <!-- /TOOLTIP WRAP -->
+                    </div>
+                    <!-- /INTERACTIVE INPUT ICON WRAP -->
+            
+                    <!-- INTERACTIVE INPUT ACTION -->
+                    <div class="interactive-input-action">
+                      <!-- INTERACTIVE INPUT ACTION ICON -->
+                      <svg class="interactive-input-action-icon icon-cross-thin">
+                        <use xlink:href="#svg-cross-thin"></use>
+                      </svg>
+                      <!-- /INTERACTIVE INPUT ACTION ICON -->
+                    </div>
+                    <!-- /INTERACTIVE INPUT ACTION -->
+                  </div>
+                  <!-- /INTERACTIVE INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+      
+                <!-- FORM ITEM -->
+                <div class="form-item auto-width" onclick="sendMsj();">
+                  <!-- BUTTON -->
+                  <p class="button primary padded">
+                    <!-- BUTTON ICON -->
+                    <svg  class="button-icon no-space icon-send-message">
+                      <use xlink:href="#svg-send-message"></use>
+                    </svg>
+                    <!-- /BUTTON ICON -->
+                  </p>
+                  <!-- /BUTTON -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+        </form>
+        </div>
+        <!-- /CHAT WIDGET FORM -->
         <!-- CHAT WIDGET WRAP -->
-        <div class="chat-widget-wrap" id="msjesExistentes">
+        <div class="chat-widget-wrap" id="msjEnviados">
           <!-- CHAT WIDGET -->
           <div class="chat-widget static">
             <!-- CHAT WIDGET MESSAGES -->
@@ -97,7 +182,8 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">{{ $mensaje->idUserEmisor }}</span></p>
+                  <p class="user-status-title"><span class="bold" readonly>{{ $mensaje->receptor }}</span></p>
+                  <p class="user-status-timestamp ">Grupo: {{$mensaje->GrupoNombre}}</p>
                   <!-- /USER STATUS TITLE -->
               
                   <!-- USER STATUS TEXT -->
@@ -105,8 +191,9 @@
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
+                  <p class="user-status-timestamp floaty">fecha</p>
+                  <!-- /mensaje pista grupo-->
+                 
                 </div>
                 <!-- /USER STATUS -->
               </div>
@@ -267,385 +354,7 @@
               </div>
               <!-- /CHAT WIDGET MESSAGE -->
         
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/12.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">10</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">James Murdock</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Great! Then we'll meet with them at the party...</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">7 days ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-        
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/10.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">5</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">The Green Goo</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Can you stream the new game?</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-        
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/02.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">13</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Destroy Dex</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Can you stream the new game?</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-        
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/08.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">4</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Damian Greyson</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Can you stream the new game?</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
-        
-              <!-- CHAT WIDGET MESSAGE -->
-              <div class="chat-widget-message">
-                <!-- USER STATUS -->
-                <div class="user-status">
-                  <!-- USER STATUS AVATAR -->
-                  <div class="user-status-avatar">
-                    <!-- USER AVATAR -->
-                    <div class="user-avatar small no-outline">
-                      <!-- USER AVATAR CONTENT -->
-                      <div class="user-avatar-content">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/14.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR CONTENT -->
-                  
-                      <!-- USER AVATAR PROGRESS -->
-                      <div class="user-avatar-progress">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS -->
-                  
-                      <!-- USER AVATAR PROGRESS BORDER -->
-                      <div class="user-avatar-progress-border">
-                        <!-- HEXAGON -->
-                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                        <!-- /HEXAGON -->
-                      </div>
-                      <!-- /USER AVATAR PROGRESS BORDER -->
-                  
-                      <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
-                        <!-- USER AVATAR BADGE BORDER -->
-                        <div class="user-avatar-badge-border">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE BORDER -->
-                  
-                        <!-- USER AVATAR BADGE CONTENT -->
-                        <div class="user-avatar-badge-content">
-                          <!-- HEXAGON -->
-                          <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                          <!-- /HEXAGON -->
-                        </div>
-                        <!-- /USER AVATAR BADGE CONTENT -->
-                  
-                        <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">3</p>
-                        <!-- /USER AVATAR BADGE TEXT -->
-                      </div>
-                      <!-- /USER AVATAR BADGE -->
-                    </div>
-                    <!-- /USER AVATAR -->
-                  </div>
-                  <!-- /USER STATUS AVATAR -->
-              
-                  <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold">Paul Lang</span></p>
-                  <!-- /USER STATUS TITLE -->
-              
-                  <!-- USER STATUS TEXT -->
-                  <p class="user-status-text">Can you stream the new game?</p>
-                  <!-- /USER STATUS TEXT -->
-              
-                  <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">2 hours ago</p>
-                  <!-- /USER STATUS TIMESTAMP -->
-                </div>
-                <!-- /USER STATUS -->
-              </div>
-              <!-- /CHAT WIDGET MESSAGE -->
+             
             </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 924px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 374px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
             <!-- /CHAT WIDGET MESSAGES -->
         
@@ -926,69 +635,5 @@
           <!-- /CHAT WIDGET -->
         </div>
         <!-- /CHAT WIDGET WRAP -->
-
-<!-- CHAT WIDGET FORM -->
-<form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
-@csrf
-              <!-- FORM ROW -->
-              <div class="form-row split">
-                <!-- FORM ITEM -->
-                  <div class="form-item">
-                  <input type="text" id="Emisor" name="Emisor" placeholder="Receptor">
-                  </div>
-                <!-- FORM ITEM -->
-              </div>
-              <!-- FORM ROW -->
-              <div class="form-row split">
-                <div class="form-item">
-                  <!-- INTERACTIVE INPUT -->
-                  <div class="interactive-input small">
-                    <textarea id="pistamsj_enviar" name="pistamsj_enviar" placeholder="Write a message...">
-                    </textarea>
-                    <!-- INTERACTIVE INPUT ICON WRAP -->
-                    <div class="interactive-input-icon-wrap actionable">
-                      <!-- TOOLTIP WRAP -->
-                      <div class="tooltip-wrap text-tooltip-tft" data-title="Send Photo" style="position: relative;">
-                        <!-- INTERACTIVE INPUT ICON -->
-                        <svg class="interactive-input-icon icon-camera">
-                          <use xlink:href="#svg-camera"></use>
-                        </svg>
-                        <!-- /INTERACTIVE INPUT ICON -->
-                      <div class="xm-tooltip" style="white-space: nowrap; position: absolute; z-index: 99999; top: -28px; left: 50%; margin-left: -40px; opacity: 0; visibility: hidden; transform: translate(0px, 10px); transition: all 0.3s ease-in-out 0s;"><p class="xm-tooltip-text">Send Photo</p></div><div class="xm-tooltip" style="white-space: nowrap; position: absolute; z-index: 99999; top: -28px; left: 50%; margin-left: -40px; opacity: 0; visibility: hidden; transform: translate(0px, 10px); transition: all 0.3s ease-in-out 0s;"><p class="xm-tooltip-text">Send Photo</p></div></div>
-                      <!-- /TOOLTIP WRAP -->
-                    </div>
-                    <!-- /INTERACTIVE INPUT ICON WRAP -->
-            
-                    <!-- INTERACTIVE INPUT ACTION -->
-                    <div class="interactive-input-action">
-                      <!-- INTERACTIVE INPUT ACTION ICON -->
-                      <svg class="interactive-input-action-icon icon-cross-thin">
-                        <use xlink:href="#svg-cross-thin"></use>
-                      </svg>
-                      <!-- /INTERACTIVE INPUT ACTION ICON -->
-                    </div>
-                    <!-- /INTERACTIVE INPUT ACTION -->
-                  </div>
-                  <!-- /INTERACTIVE INPUT -->
-                </div>
-                <!-- /FORM ITEM -->
-      
-                <!-- FORM ITEM -->
-                <div class="form-item auto-width" onclick="sendMsj();">
-                  <!-- BUTTON -->
-                  <p class="button primary padded">
-                    <!-- BUTTON ICON -->
-                    <svg  class="button-icon no-space icon-send-message">
-                      <use xlink:href="#svg-send-message"></use>
-                    </svg>
-                    <!-- /BUTTON ICON -->
-                  </p>
-                  <!-- /BUTTON -->
-                </div>
-                <!-- /FORM ITEM -->
-              </div>
-              <!-- /FORM ROW -->
-            </form>
-            <!-- /CHAT WIDGET FORM -->
 
 </div>
