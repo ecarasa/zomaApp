@@ -28,7 +28,7 @@ class PistasController extends Controller
                     ->select('pistas.*', 'users.email' ,'u2.email as receptor','g.nombre as GrupoNombre' )
                     ->get();
 
-        $userLogueado=$request->idUser;
+        $userLogueado=Auth::id();
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
                     ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')

@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-
-//Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 // bases y condiciones
 Route::get('/basesycond', 'HomeController@show');
 
@@ -27,7 +21,6 @@ Route::get('/basesycond', 'HomeController@show');
     Route::get('/pista/enviados', 'PistasController@enviados')->name('enviados');
     Route::get('/pista/recibidos', 'PistasController@recibidos')->name('recibidos');
     
-
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
@@ -38,5 +31,6 @@ Route::get('/store', 'RegalosController@index');
 
 
 
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
