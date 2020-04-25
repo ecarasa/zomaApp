@@ -212,7 +212,7 @@
               <!-- FEATURED STAT LIST -->
               <div class="featured-stat-list">
                 <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="CargarRecibidos();>
+                <div class="featured-stat" onclick="CargarRecibidos();">
                   <!-- FEATURED STAT ICON -->
                   <svg class="featured-stat-icon icon-status">
                     <use xlink:href="#svg-status"></use>
