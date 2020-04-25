@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
-use App\Grupos;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-      //  $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('app');
+        return view('home');
     }
 }

@@ -1,73 +1,95 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <title>{{ config('app.name', 'TuAmigoFiel.com') }}</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="css/styles.min.css">
+            <link rel="icon" href="img/favicon.ico">
+        </head>
+    <body>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+  <!-- LANDING -->
+  <div class="landing">
+    <!-- LANDING DECORATION -->
+    <div class="landing-decoration"></div>
+    <!-- /LANDING DECORATION -->
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <!-- LANDING INFO -->
+    <div class="landing-info">
+      <!-- LOGO -->
+      <div class="logo">
+        <!-- ICON LOGO VIKINGER -->
+        <svg class="icon-logo-vikinger">
+          <use xlink:href="#svg-logo-vikinger"></use>
+        </svg>
+        <!-- /ICON LOGO VIKINGER -->
+      </div>
+      <!-- /LOGO -->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+      <!-- LANDING INFO PRETITLE -->
+      <h2 class="landing-info-pretitle">Hola !</h2>
+      <!-- /LANDING INFO PRETITLE -->
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+      <!-- LANDING INFO TITLE -->
+      <h1 class="landing-info-title">INGRESÁ</h1>
+      <!-- /LANDING INFO TITLE -->
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+      <!-- LANDING INFO TEXT -->
+      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <!-- /LANDING INFO TEXT -->
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-@endsection
+
+
+    <div class="landing-form">  
+      <!-- start.1er FORM -->    
+      <div class="form-box login-register-form-element">
+        <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
+        <h2 class="form-box-title">Bienvenido</h2>
+        <form class="form" id="formJuego" action="/login" method="post">
+        @csrf
+
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input">
+                <label for="login-password">Email</label>
+                <input type="text" id="email"  name="email" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="password" class="dateInput" name="password" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-item">
+              <button type="submit" class="button medium secondary" style="width: 100%;">Ingresar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end.1er FORM -->
+    
+
+    </div>
+  </div>
+  
+
+<script src="js/app.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
+</html>

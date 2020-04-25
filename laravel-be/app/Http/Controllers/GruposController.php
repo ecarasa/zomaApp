@@ -132,7 +132,14 @@ class GruposController extends Controller
      */
     public function show(Request $request, $codigoGrupo)
     {
+        //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
         $grupo = Grupos::where('codigo', $codigoGrupo)->get();
+        
+        if ($grupo->soyIntegrante(Auth::id())){
+            echo 'ok soy';
+        }else{
+            echo 'tomatelas';
+        }
 
         return $grupo;
 

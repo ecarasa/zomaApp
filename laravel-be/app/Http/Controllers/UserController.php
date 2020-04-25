@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use App\User;
+    use Auth;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@
 
         public function register(Request $request)
         {
-                $validator = Validator::make($request->all(), [
+                 $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
@@ -50,27 +51,56 @@
         }
 
         public function getAuthenticatedUser()
-            {
-                    try {
+        {
+                try {
 
-                            if (! $user = JWTAuth::parseToken()->authenticate()) {
-                                    return response()->json(['user_not_found'], 404);
-                            }
+                        if (! $user = JWTAuth::parseToken()->authenticate()) {
+                                return response()->json(['user_not_found'], 404);
+                        }
 
-                    } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+                } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
-                            return response()->json(['token_expired'], $e->getStatusCode());
+                        return response()->json(['token_expired'], $e->getStatusCode());
 
-                    } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+                } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
 
-                            return response()->json(['token_invalid'], $e->getStatusCode());
+                        return response()->json(['token_invalid'], $e->getStatusCode());
 
-                    } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+                } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
 
-                            return response()->json(['token_absent'], $e->getStatusCode());
+                        return response()->json(['token_absent'], $e->getStatusCode());
 
-                    }
+                }
 
-                    return response()->json(compact('user'));
-            }
+                return response()->json(compact('user'));
+        }
+
+
+        public function index(Request $request)
+        {
+                return view('login');
+        }
+
+        public function login(Request $request)
+        {
+
+                $rules = array(
+                        'email'    => $request->get('email'), 
+                        'password' =>$request->get('password')
+                    );
+                    
+                dd(Auth::login($rules));
+
+
+                ;
+                /*if () {
+                        // Authentication passed...
+                        return redirect()->intended('home');
+                }else{
+                      return json_encode(array("Error en el usuario / contraseña."));
+                }*/
+        }
+
+
+
     }
