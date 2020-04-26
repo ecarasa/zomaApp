@@ -1,5 +1,5 @@
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" id="headerWeb">
     <!-- HEADER ACTIONS -->
     <div class="header-actions">
       <!-- HEADER BRAND -->

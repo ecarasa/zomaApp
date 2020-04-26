@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Pistas;
+use Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Validator;
@@ -20,15 +22,18 @@ class PistasController extends Controller
     public function index( request $request )
     { 
         //$mensajes = Pistas::all();
-
-        $mensajes = DB::table('pistas')->where('idUserEmisor','like',$request->idUser)
+        $userLogueado=0;
+        if (Auth::id()>0)
+            $userLogueado=Auth::id();
+        
+        $mensajes = DB::table('pistas')->where('idUserEmisor','like',$userLogueado)
                     ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
                     ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
                     ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
                     ->select('pistas.*', 'users.email' ,'u2.email as receptor','g.nombre as GrupoNombre' )
                     ->get();
 
-        $userLogueado=$request->idUser;
+      
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
                     ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
