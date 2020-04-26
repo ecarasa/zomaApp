@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Regalos;
+use App\Categorias;
 use Illuminate\Http\Request;
 
 class RegalosController extends Controller
@@ -15,7 +16,9 @@ class RegalosController extends Controller
     public function index()
     {
         $regalos = Regalos::all();
-        return view('marketplace')->with(compact('regalos'));
+        $categorias = Categorias::all();
+        
+        return view('marketplace')->with(compact('regalos','categorias'));
     }
 
     /**
