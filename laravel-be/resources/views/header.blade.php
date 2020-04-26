@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 
   <header class="header">
+=======
+  <!-- HEADER -->
+  <header class="header" id="headerWeb">
+    <!-- HEADER ACTIONS -->
+>>>>>>> df5758b8935d6a9354e434446d7f1d2930898f05
     <div class="header-actions">
       <div class="header-brand">
         <div class="logo">

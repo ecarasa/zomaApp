@@ -1,4 +1,4 @@
-<div class="account-hub-content" id="pistascentro">
+<div class="account-hub-content" id="pistascentro" href="#tg">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->

@@ -210,7 +210,7 @@
               <!-- /USER AVATAR -->
         
               <!-- FEATURED STAT LIST -->
-              <div class="featured-stat-list">
+              <div class="featured-stat-list" onover="cursor:pointer">
                 <!-- FEATURED STAT -->
                 <div class="featured-stat" onclick="CargarRecibidos();">
                   <!-- FEATURED STAT ICON -->
@@ -464,7 +464,11 @@ function sendMsj() {
         processData: false,
         contentType: false,
         beforeSend: function() {
-            console.log("before send request");
+          $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+         
+          var fromTop = $('#fixed-header').height();
+           $(window).scrollTop($('#pistascentro').offset().top - fromTop)
+          //$('html, body').animate({ scrollTop: $target.offset().top - fromTop }, 0);
         }
         }).done(function(data) {
           
@@ -487,16 +491,31 @@ function sendMsj() {
 /*****
 FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
 ***** */
-function CargarRecibidos() {
+function CargarEnviados() {
+
+  // si estoy en el mobile me muevo para abajo automaticamente
+  var fromTop = $('#headerWeb').height();
+ 
+  if(($('#pistascentro').offset().top - fromTop)>500)
+    $(window).scrollTop($('#pistascentro').offset().top - fromTop);
+
+$('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
 
 $('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+
 }
 
 /*****
 FUNCION PARA CARGAR DIV PHP DE PISTAS RECIBIDAS
 ***** */
 function CargarRecibidos() {
+  // si estoy en el mobile me muevo para abajo automaticamente
+  var fromTop = $('#headerWeb').height();
+ 
+  if(($('#pistascentro').offset().top - fromTop)>500)
+    $(window).scrollTop($('#pistascentro').offset().top - fromTop);
 
+  $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
   $('#pistascentro').load('/pista/recibidos?idUser={{ $userLogueado}}');
 }
 
