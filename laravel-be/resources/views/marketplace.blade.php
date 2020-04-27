@@ -117,7 +117,7 @@
     <div class="grid  mobile-prefer-content" style="  grid-template-columns: auto auto auto auto ;grid-template-rows: auto;">
       @foreach ($categorias as $categoria)
         <div class="grid  centered" >
-          <a class="product-category-box category-all" href="marketplace-category.html"     
+          <a class="product-category-box category-all" href="/store/categoria/{{$categoria->nombre}}"     
           style="background-image: url({{$categoria->imagen}});background-size: cover;">
               <p class="product-category-box-title">{{$categoria->nombre}}</p>
               <p class="product-category-box-text"></p>

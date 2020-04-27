@@ -21,6 +21,27 @@ class RegalosController extends Controller
         return view('marketplace')->with(compact('regalos','categorias'));
     }
 
+
+    public function busquedaCategoria(Request $request, $nombreCateg){
+
+
+        // Todas para el header, pasar a cache desp.
+        $categorias = Categorias::all();
+
+        
+        $categoriaSelected = Categorias::where('nombre', $nombreCateg)->first();
+        if ($categoriaSelected){
+            $regalos = Regalos::where('categoria', $categoriaSelected->id)->get();
+            return view('marketplace')->with(compact('regalos','categorias'));
+        }else{
+            return response(404);
+        }
+        
+        
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
