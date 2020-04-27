@@ -11,7 +11,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title"></h2>
+            <h2 class="section-title">Pistas Enviadas</h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -31,6 +31,7 @@
         <!-- /SECTION HEADER -->
         <!-- CHAT WIDGET FORM -->
         <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
+         <h2 class="section-title">Enviar Pista</h2>
         <form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
          @csrf
             <!-- FORM ROW -->
