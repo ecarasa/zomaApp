@@ -19,6 +19,23 @@ class PistasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function mensaje( request $request )
+    {
+      
+    
+        $mensajes = DB::table('pistas')->where('pistas.id','like',$request->idpista )
+        ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
+        ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
+        ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
+        ->select('pistas.*', 'users.email as emisor' ,'u2.email as receptor','g.nombre as grupo' )
+        ->get();
+        return view('grid_pista_detalle')->with(compact('mensajes'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index( request $request )
     { 
         //$mensajes = Pistas::all();
@@ -33,15 +50,10 @@ class PistasController extends Controller
                     ->select('pistas.*', 'users.email' ,'u2.email as receptor','g.nombre as GrupoNombre' )
                     ->get();
 
-<<<<<<< HEAD
-      
-=======
-        $userLogueado=Auth::id();
->>>>>>> 8666f4d2aea3d6c65b1f996388ac3f175cb102aa
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
                     ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
-                    ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
+                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
                     ->get();
 
         $users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
@@ -63,7 +75,7 @@ class PistasController extends Controller
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
                     ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
-                    ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
+                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
                     ->get();
 
         //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
@@ -85,12 +97,35 @@ class PistasController extends Controller
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
                     ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
-                    ->select('pg.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
+                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email'  )                    
                     ->get();
 
         $users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
 
         return view('grid_pista_centro')->with(compact('mensajes','userLogueado','grupos','users'));
+       // return view('grid_pista_centro');
+    }
+
+
+    public function grupos(request $request )
+    { 
+                $mensajes = DB::table('pistas')->where('idUserReceptor','like',$request->idUser)
+                    ->join('users', 'pistas.idUserReceptor', '=', 'users.id')
+                   // ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
+                    ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
+                    ->select('pistas.*','g.nombre as GrupoNombre' )
+                    ->get();
+
+        $userLogueado=$request->idUser;
+        $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
+                    ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
+                    ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
+                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email','g.fechaFin'  )                    
+                    ->get();
+
+        //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
+
+        return view('grid_grupos_pista')->with(compact('mensajes','userLogueado','grupos'));
        // return view('grid_pista_centro');
     }
 

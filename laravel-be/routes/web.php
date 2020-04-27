@@ -20,6 +20,8 @@ Route::get('/basesycond', 'HomeController@show');
     Route::post('/pista/crear', 'PistasController@register')->name('register');
     Route::get('/pista/enviados', 'PistasController@enviados')->name('enviados');
     Route::get('/pista/recibidos', 'PistasController@recibidos')->name('recibidos');
+    Route::get('/pista/grupos', 'PistasController@grupos')->name('grupos');
+    Route::get('/pista/mensaje', 'PistasController@mensaje')->name('mensaje');
     
 //grupos
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');

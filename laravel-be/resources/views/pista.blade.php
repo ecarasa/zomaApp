@@ -258,9 +258,9 @@
               <!-- /FEATURED STAT LIST -->
         
               <!-- FEATURED STAT LIST -->
-              <div class="featured-stat-list">
+              <div class="featured-stat-list" >
                 <!-- FEATURED STAT -->
-                <div class="featured-stat">
+                <div class="featured-stat" onclick="window.location.href='/store'">
                   <!-- PROGRESS ARC WRAP -->
                   <div class="progress-arc-wrap small">
                     <!-- PROGRESS ARC -->
@@ -290,7 +290,7 @@
                 <!-- /FEATURED STAT -->
         
                 <!-- FEATURED STAT -->
-                <div class="featured-stat">
+                <div class="featured-stat" onclick="CargarGrupos();">
                   <!-- PROGRESS ARC WRAP -->
                   <div class="progress-arc-wrap small">
                     <!-- PROGRESS ARC -->
@@ -300,7 +300,7 @@
                     <!-- PROGRESS ARC -->
         
                     <!-- PROGRESS ARC INFO -->
-                    <div class="progress-arc-info">
+                    <div class="progress-arc-info" >
                       <!-- PROGRESS ARC TITLE -->
                       <p class="progress-arc-title">Grupos</p>
                       <!-- /PROGRESS ARC TITLE -->
@@ -310,11 +310,11 @@
                   <!-- /PROGRESS ARC WRAP -->
         
                   <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Mira con quien</p>
+                  <p class="featured-stat-subtitle">Mira los datos </p>
                   <!-- /FEATURED STAT SUBTITLE -->
         
                   <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">y en que equipo juegas</p>
+                  <p class="featured-stat-text">en que equipo juegas</p>
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
@@ -487,6 +487,44 @@ function sendMsj() {
       return false;
 
 }
+
+
+function MostrarDetallePista(idpista) {
+
+$("#msjesCabecera").hide();
+$('#msjeDetalle').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+$('#msjeDetalle').fadeIn();
+$('#msjeDetalle').load('/pista/mensaje?idpista='+idpista);
+
+}
+
+function Volver(from,to) {
+
+  $(from).hide();
+  $(to).fadeIn();
+}
+
+function MostrarDetallesGrupo(idgrupo) {
+alert('mostrarDetallesGrupo');
+
+}
+
+/*****
+FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
+***** */
+function CargarGrupos() {
+// si estoy en el mobile me muevo para abajo automaticamente
+var fromTop = $('#headerWeb').height();
+
+if(($('#pistascentro').offset().top - fromTop)>500)
+  $(window).scrollTop($('#pistascentro').offset().top - fromTop);
+
+$('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+
+$('#pistascentro').load('/pista/grupos?idUser={{ $userLogueado}}');
+
+}
+
 
 /*****
 FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
