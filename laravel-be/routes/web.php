@@ -29,10 +29,11 @@ Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 
 //marketplace
+Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');
 Route::get('/store', 'RegalosController@index');
 
 
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();

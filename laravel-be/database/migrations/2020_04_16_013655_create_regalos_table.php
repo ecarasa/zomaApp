@@ -16,9 +16,16 @@ class CreateRegalosTable extends Migration
         Schema::create('regalos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('url');
+            $table->string('descripcion');
+            $table->float('importe');
+            $table->float('importe_promo')->nullable();
+            $table->datetime('importe_promo_fecha_fin')->nullable();
+            $table->string('url')->nullable();
             $table->string('botondepago');
-            $table->string('blabla');
+            $table->integer('categoria');
+            $table->integer('empresa');
+            $table->json('datos_varios_1')->nullable();
+            $table->json('datos_varios_2')->nullable();
             $table->timestamps();
         });
     }
