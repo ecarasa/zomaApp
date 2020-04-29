@@ -1,15 +1,15 @@
-<div class="account-hub-content" id="pistascentro" href="#tg">
+<div class="account-hub-content" id="pistascentro">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle"> 
+            <p class="section-pretitle">
             </p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title"></h2>
+            <h2 class="section-title">Pistas Recibididas</h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -17,11 +17,11 @@
           <!-- SECTION HEADER ACTIONS -->
           <div class="section-header-actions">
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action">Marcar como leidas</p>
+            <p class="section-header-action" onclick="MostrarDivUnico('DivEnviarPista')">Enviar Pista</p>
             <!-- /SECTION HEADER ACTION -->
       
             <!-- SECTION HEADER ACTION -->
-            <p class="section-header-action" onclick="MostrarDivUnico('msjRecibidos')"> Ver Pistas </p>
+            <p class="section-header-action" onclick="MostrarDivUnico('msjEnviados')"> Ver Pistas </p>
             <!-- /SECTION HEADER ACTION -->
           </div>
         <!-- /SECTION HEADER ACTIONS -->
@@ -29,6 +29,7 @@
         <!-- /SECTION HEADER -->
         <!-- CHAT WIDGET FORM -->
         <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
+         <h3 class="section-title">Enviar Pista</h3>
         <form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
          @csrf
             <!-- FORM ROW -->
@@ -110,17 +111,17 @@
         </div>
         <!-- /CHAT WIDGET FORM -->
         <!-- CHAT WIDGET WRAP -->
-        <div class="chat-widget-wrap" id="msjEnviados">
+        <div class="chat-widget-wrap" id="msjEnviados" >
           <!-- CHAT WIDGET -->
-          <div class="chat-widget static">
+          <div class="chat-widget static" id="msjesCabecera" style="width:100%">
             <!-- CHAT WIDGET MESSAGES -->
             <div class="chat-widget-messages" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
               <!-- CHAT WIDGET MESSAGE 
               for cada mensaje mio   -->
               
               @foreach ($mensajes as $mensaje)
-              <div class="chat-widget-message">
                 <!-- USER STATUS -->
+              <div class="chat-widget-message" onclick="MostrarDetallePista({{$mensaje->id}})" >
                 <div class="user-status">
                   <!-- USER STATUS AVATAR -->
                   <div class="user-status-avatar">
@@ -179,7 +180,7 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><span class="bold" readonly>Tu Amigo Invisible:</span></p>
+                  <p class="user-status-title"><span class="bold" readonly>Tu amigo Invisible</span></p>
                   <p class="user-status-timestamp ">Grupo: {{$mensaje->GrupoNombre}}</p>
                   <!-- /USER STATUS TITLE -->
               
@@ -199,11 +200,10 @@
               @endforeach
               
         
-             
-            </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height:auto;"></div></div>
+              
+            </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: auto;"></div></div>
             <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
-            <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
-            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+            <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;">
             <div class="simplebar-scrollbar" style="height: auto; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
             <!-- /CHAT WIDGET MESSAGES -->
         
@@ -239,7 +239,7 @@
           <!-- /CHAT WIDGET -->
       
           <!-- CHAT WIDGET -->
-          <div class="chat-widget">
+          <div class="chat-widget" id="msjeDetalle"style="width:100%; display:none">
             <!-- CHAT WIDGET HEADER -->
             <div class="chat-widget-header">
               <!-- CHAT WIDGET SETTINGS -->

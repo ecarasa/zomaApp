@@ -74,8 +74,8 @@
               <!-- CHAT WIDGET SPEAKER -->
               <div class="chat-widget-speaker left">
                 <!-- CHAT WIDGET SPEAKER MESSAGE -->
-                <p class="chat-widget-speaker-message" style="color:white;background-color:#615dfa">Pista: {{$mensaje->mensaje}}</p>
-                <p class="chat-widget-speaker-message" style="color:white;background-color:#615dfa">Buenas Noticias! Tu amigo te dejó un regalo</p>
+                <p class="chat-widget-speaker-message" style="color:white;background-color:#615dfa">Pista:<br> {{$mensaje->mensaje}}</p>
+                <p class="chat-widget-speaker-message" style="color:white;background-color:#0c2134">Buenas Noticias! Tu amigo te dejó un regalo</p>
                 <p></p>
                 <div class="product-preview">        
                     <figure class="product-preview-image liquid" style="background: url(&quot;https://www.infobae.com/new-resizer/5iHq3D_WRtu1vURNMoDp7WW4yw8=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/18202233/papas-fritas-dupla.jpg&quot;) center center / cover no-repeat;">

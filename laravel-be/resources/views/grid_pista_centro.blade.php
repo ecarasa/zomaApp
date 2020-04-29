@@ -31,7 +31,7 @@
         <!-- /SECTION HEADER -->
         <!-- CHAT WIDGET FORM -->
         <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
-         <h2 class="section-title">Enviar Pista</h2>
+         <h3 class="section-title">Enviar Pista</h3>
         <form class="chat-widget-form" id="FormPistaEnv"  action="/pista/crear" method="post">
          @csrf
             <!-- FORM ROW -->

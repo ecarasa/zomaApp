@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Pistas;
 use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Validator;
+use Twilio\Rest\Client;
+use GuzzleHttp\Exception\RequestException;
 
 
 class PistasController extends Controller
@@ -19,6 +22,51 @@ class PistasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function responder(request $request)
+    {
+
+// Find your Account Sid and Auth Token at twilio.com/console
+// DANGER! This is insecure. See http://twil.io/secure
+$sid    = "AC3e1ec249aef4408bab3c26fdc49fc497";
+$token  = "29f593f9c1d301f1fb5ee98e260b7a68";
+$twilio = new Client($sid, $token);
+/*
+$message = $twilio->messages 
+                  ->create("whatsapp:$request->From", // to 
+                           array( 
+                               "from" => "whatsapp:+14155238886",       
+                               "body" => "dijiste $request->Body"  
+                           ) 
+                  ); 
+
+                  print($message->sid);
+                  */
+
+}
+
+
+    public function enviarw()
+    {
+
+// Find your Account Sid and Auth Token at twilio.com/console
+// DANGER! This is insecure. See http://twil.io/secure
+$sid    = "AC3e1ec249aef4408bab3c26fdc49fc497";
+$token  = "29f593f9c1d301f1fb5ee98e260b7a68";
+$twilio = new Client($sid, $token);
+/*
+$message = $twilio->messages 
+                  ->create("whatsapp:+5491159389952", // to 
+                           array( 
+                               "from" => "whatsapp:+14155238886",       
+                               "body" => "Your Amore" 
+                           ) 
+                  ); 
+
+                  print($message->sid);
+*/
+
+}
+
     public function mensaje( request $request )
     {
       
@@ -128,6 +176,34 @@ class PistasController extends Controller
         return view('grid_grupos_pista')->with(compact('mensajes','userLogueado','grupos'));
        // return view('grid_pista_centro');
     }
+
+    public function grupodetalle(request $request )
+    { 
+            
+        $idgrupo=$request->idgrupo;
+        $grupos =  DB::table('participante_grupos as pg')->where('g.id','like',$idgrupo)
+                    ->join('users as u', 'pg.idUsuario', '=', 'u.id')
+                    ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
+                    ->select('g.id'
+                            ,'g.nombre as NombreGrupo',
+                            'pg.idUserAmigoInvible',
+                            'u.email as usuario',
+                            'u.name as usuarioN',
+                            'g.fechaFin',
+                            DB::raw( '(CASE WHEN u.id = g.idUsuarioAdmin THEN \'Admin\' ELSE \'Participante\' END) AS rol')
+                    )
+                    ->get();
+        $gruposdato =  DB::table('grupos')->where('grupos.id','like',$idgrupo)
+                    
+                    ->select('grupos.*')
+                    ->get();
+
+        //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
+
+        return view('pista_grupodetalle')->with(compact('grupos','gruposdato'));
+       // return view('grid_pista_centro');
+    }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -35,7 +35,7 @@
         <!-- BAR PROGRESS WRAP -->
         <div class="bar-progress-wrap">
           <!-- BAR PROGRESS INFO -->
-          <p class="bar-progress-info">Next: <span class="bar-progress-text"></span></p>
+          <p class="bar-progress-info" onclick="MandarWts();">MANDARW: <span class="bar-progress-text"></span></p>
           <!-- /BAR PROGRESS INFO -->
         </div>
         <!-- /BAR PROGRESS WRAP -->
@@ -498,6 +498,7 @@ $('#msjeDetalle').load('/pista/mensaje?idpista='+idpista);
 
 }
 
+
 function Volver(from,to) {
 
   $(from).hide();
@@ -505,7 +506,10 @@ function Volver(from,to) {
 }
 
 function MostrarDetallesGrupo(idgrupo) {
-alert('mostrarDetallesGrupo');
+$("#msjesCabecera").hide();
+$('#msjeDetalle').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+$('#msjeDetalle').fadeIn();
+$('#msjeDetalle').load('/pista/grupodetalle?idgrupo='+idgrupo);
 
 }
 
