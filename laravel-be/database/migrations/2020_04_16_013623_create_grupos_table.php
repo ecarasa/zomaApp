@@ -24,7 +24,7 @@ class CreateGruposTable extends Migration
             
             //nulleables
             $table->longText('msjBienvenida')->nullable();
-            $table->string('imagen')->nullable();
+            $table->longText('imagen')->nullable();
             $table->integer('maxJugadores')->nullable();
             $table->boolean('permiteAdivinar')->nullable();
             $table->dateTime('fechaInicio')->nullable();

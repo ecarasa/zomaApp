@@ -19,7 +19,7 @@ class CreatePistasTable extends Migration
             $table->integer('idUserEmisor'); // de emi 
             $table->integer('idGrupo')->nullable(); // idGrupo
             $table->integer('idUserReceptor'); // para franco
-            $table->string('mensaje'); // mensaje de la pista
+            $table->longText('mensaje'); // mensaje de la pista
             $table->timestamp('fecha')->nullable(); // fecha de envio
             $table->integer('idRegalo')->nullable(); // opcional regalo
             
