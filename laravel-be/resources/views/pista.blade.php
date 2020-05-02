@@ -139,7 +139,9 @@
               <!-- /PROFILE STATS COVER TITLE -->
         
               <!-- PROFILE STATS COVER TEXT -->
-              <p class="profile-stats-cover-text">{{ $userLogueado  }}</p>
+              @foreach ($users as $usuario)
+              <p class="profile-stats-cover-text">{{ $usuario->nombre  }}</p>
+              @endforeach
               <!-- /PROFILE STATS COVER TEXT -->
             </div>
             <!-- /PROFILE STATS COVER -->
@@ -258,67 +260,68 @@
               <!-- /FEATURED STAT LIST -->
         
               <!-- FEATURED STAT LIST -->
-              <div class="featured-stat-list" >
-                <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="window.location.href='/store'">
-                  <!-- PROGRESS ARC WRAP -->
-                  <div class="progress-arc-wrap small">
-                    <!-- PROGRESS ARC -->
-                    <div class="progress-arc"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas id="posts-engagement-chart" width="100" height="100" class="chartjs-render-monitor" style="display: block; height: 80px; width: 80px;"></canvas>
-                    </div>
-                    <!-- PROGRESS ARC -->
               
+                <!-- FEATURED STAT -->
+                <div class="sidebar-menu-item"onclick="window.location.href='/store'">
+                  <!-- PROGRESS ARC WRAP -->
+                  <div class="sidebar-menu-header accordion-trigger-linked">
+                  <svg class="sidebar-menu-header-icon icon-store">
+                      <use xlink:href="#svg-store">
+                      
+                      </use>
+                    </svg>
+        
                     <!-- PROGRESS ARC INFO -->
-                    <div class="progress-arc-info">
+                    <div class="sidebar-menu-header-control-icon" >
                       <!-- PROGRESS ARC TITLE -->
-                      <p class="progress-arc-title">Regalar</p>
-                      <!-- /PROGRESS ARC TITLE -->
+                        <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                           <use xlink:href="#svg-minus-small"></use>
+                         </svg>
+                        <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                            <use xlink:href="#svg-plus-small"></use>
+                        </svg>
+                        <p class="sidebar-menu-header-title">Regalar</p>
+                        <p class="sidebar-menu-header-text">Encontrá el mejor regalo para tu amigo invisible!</p>
                     </div>
-                    <!-- /PROGRESS ARC INFO -->
                   </div>
                   <!-- /PROGRESS ARC WRAP -->
         
-                  <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Elige un regalo</p>
-                  <!-- /FEATURED STAT SUBTITLE -->
-        
-                  <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">acorde al perfil de tu AI</p>
-                  <!-- /FEATURED STAT TEXT -->
+                  
                 </div>
                 <!-- /FEATURED STAT -->
         
                 <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="CargarGrupos();">
+                <div class="sidebar-menu-item" onclick="CargarGrupos();">
                   <!-- PROGRESS ARC WRAP -->
-                  <div class="progress-arc-wrap small">
-                    <!-- PROGRESS ARC -->
-                    <div class="progress-arc"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas id="posts-shared-chart" width="100" height="100" class="chartjs-render-monitor" style="display: block; height: 80px; width: 80px;"></canvas>
-                    </div>
-                    <!-- PROGRESS ARC -->
+                  <div class="sidebar-menu-header accordion-trigger-linked">
+                    <svg class="sidebar-menu-header-icon icon-group">
+                      <use xlink:href="#svg-group">
+                      
+                      </use>
+                    </svg>
         
                     <!-- PROGRESS ARC INFO -->
-                    <div class="progress-arc-info" >
+                    <div class="sidebar-menu-header-control-icon" >
                       <!-- PROGRESS ARC TITLE -->
-                      <p class="progress-arc-title">Grupos</p>
-                      <!-- /PROGRESS ARC TITLE -->
+                        <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                           <use xlink:href="#svg-minus-small"></use>
+                         </svg>
+                        <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                            <use xlink:href="#svg-plus-small"></use>
+                        </svg>
+                        <p class="sidebar-menu-header-title">Grupos</p>
+                        <p class="sidebar-menu-header-text">Mira con quien juegas y en que grupos participas!</p>
+                     <!-- /PROGRESS ARC TITLE -->
                     </div>
                     <!-- /PROGRESS ARC INFO -->
                   </div>
                   <!-- /PROGRESS ARC WRAP -->
         
-                  <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Mira los datos </p>
-                  <!-- /FEATURED STAT SUBTITLE -->
-        
-                  <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">en que equipo juegas</p>
+                  
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
-              </div>
+              
               <!-- /FEATURED STAT LIST -->
             </div>
             <!-- /PROFILE STATS INFO -->
