@@ -31,7 +31,7 @@
         <!-- /SECTION HEADER -->
         <!-- CHAT WIDGET FORM -->
         <div class="chat-widget-wrap" id="DivEnviarPista" style="display:none">
-        @include('grid_enviarpista');
+        @include('grid_enviarpista')
         
         </div>
         <!-- /CHAT WIDGET FORM -->
@@ -46,7 +46,8 @@
               
               @foreach ($mensajes as $mensaje)
                 <!-- USER STATUS -->
-              <div class="chat-widget-message" onclick="MostrarDetallePista({{$mensaje->id}})" >
+              <div class="chat-widget-message" onclick="MostrarDetallePista({{$mensaje->id}})" style="border-bottom-style: groove;
+    border-bottom-width: thin; border-bottom-color: #615dfa;" >
                 <div class="user-status">
                   <!-- USER STATUS AVATAR -->
                   <div class="user-status-avatar">

@@ -22,7 +22,7 @@
                   <p class="user-status-title">Tu amigo invisible es:
                   <span class="bold" id="receptorEmail" > </span>
                   </p>
-                  <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="">
+                  <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="0">
                  
                 </div>
                 

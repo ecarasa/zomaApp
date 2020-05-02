@@ -9,7 +9,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">Pistas Recibididas</h2>
+            <h2 class="section-title">Pistas Recibidas</h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -43,7 +43,8 @@
               
               @foreach ($mensajes as $mensaje)
                 <!-- USER STATUS -->
-              <div class="chat-widget-message" onclick="MostrarDetallePista({{$mensaje->id}})" >
+              <div class="chat-widget-message" onclick="MostrarDetallePista({{$mensaje->id}})"  style="border-bottom-style: groove;
+    border-bottom-width: thin; border-bottom-color: #615dfa;">
                 <div class="user-status">
                   <!-- USER STATUS AVATAR -->
                   <div class="user-status-avatar">
@@ -111,7 +112,7 @@
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">fecha</p>
+                  <p class="user-status-timestamp floaty">{{ date('d-m-Y h:s', strtotime($mensaje->fecha)) }} </p>
                   <!-- /mensaje pista grupo-->
                  
                 </div>

@@ -17,6 +17,11 @@ Use \Carbon\Carbon;
 class PistasController extends Controller
 {
     
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     /**
      * Display a listing of the resource.
@@ -91,6 +96,7 @@ $message = $twilio->messages
         $userLogueado=0;
         if (Auth::id()>0)
             $userLogueado=Auth::id();
+       
         
         $mensajes = DB::table('pistas')->where('idUserEmisor','like',$userLogueado)
                     ->join('users', 'pistas.idUserEmisor', '=', 'users.id')

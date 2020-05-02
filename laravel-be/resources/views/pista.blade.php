@@ -212,60 +212,69 @@
               <!-- /USER AVATAR -->
         
               <!-- FEATURED STAT LIST -->
-              <div class="featured-stat-list" onover="cursor:pointer">
-                <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="CargarRecibidos();">
+                              <!-- FEATURED STAT -->
+
+
+
+                <div class="sidebar-menu-item" onclick="CargarRecibidos();">
                   <!-- FEATURED STAT ICON -->
-                  <svg class="featured-stat-icon icon-status">
-                    <use xlink:href="#svg-status"></use>
-                  </svg>
-                  <!-- /FEATURED STAT ICON -->
+                  <div class="sidebar-menu-header accordion-trigger-linked" >
+                    <svg class="sidebar-menu-header-icon icon-store">
+                      <use xlink:href="#svg-store">                      
+                      </use>
+                    </svg>
         
-                  <!-- FEATURED STAT TITLE -->
-                  <p class="featured-stat-title">Adivinar</p>
-                  <!-- /FEATURED STAT TITLE -->
-        
-                  <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Pistas Recibidas</p>
-                  <!-- /FEATURED STAT SUBTITLE -->
-        
-                  <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">por un amigo invisible</p>
-                  <!-- /FEATURED STAT TEXT -->
+                    <!-- PROGRESS ARC INFO -->
+                    <div class="sidebar-menu-header-control-icon" >
+                      <!-- PROGRESS ARC TITLE -->
+                        <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                           <use xlink:href="#svg-minus-small"></use>
+                         </svg>
+                        <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                            <use xlink:href="#svg-plus-small"></use>
+                        </svg>
+                        <p class="sidebar-menu-header-title">Adivinar</p>
+                        <p class="sidebar-menu-header-text">Pistas recibidas</p>
+                    </div>
+
+                  </div>
                 </div>
                 <!-- /FEATURED STAT -->
         
                 <!-- FEATURED STAT -->
-                <div class="featured-stat" onclick="CargarEnviados();">
-                  <!-- FEATURED STAT ICON -->
-                  <svg class="featured-stat-icon icon-comment">
-                    <use xlink:href="#svg-comment"></use>
-                  </svg>
-                  <!-- /FEATURED STAT ICON -->
+                <div class="sidebar-menu-item" onclick="CargarEnviados();" style="cursor:pointer">
+                  <div class="sidebar-menu-header accordion-trigger-linked" >
+                    <svg class="sidebar-menu-header-icon icon-store">
+                      <use xlink:href="#svg-store">                      
+                      </use>
+                    </svg>
         
-                  <!-- FEATURED STAT TITLE -->
-                  <p class="featured-stat-title">Enviar</p>
-                  <!-- /FEATURED STAT TITLE -->
-        
-                  <!-- FEATURED STAT SUBTITLE -->
-                  <p class="featured-stat-subtitle">Pistas</p>
-                  <!-- /FEATURED STAT SUBTITLE -->
-        
-                  <!-- FEATURED STAT TEXT -->
-                  <p class="featured-stat-text">a tu amigo invisible</p>
-                  <!-- /FEATURED STAT TEXT -->
+                    <!-- PROGRESS ARC INFO -->
+                    <div class="sidebar-menu-header-control-icon" >
+                      <!-- PROGRESS ARC TITLE -->
+                        <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                           <use xlink:href="#svg-minus-small"></use>
+                         </svg>
+                        <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                            <use xlink:href="#svg-plus-small"></use>
+                        </svg>
+                        <p class="sidebar-menu-header-title">Enviar</p>
+                        <p class="sidebar-menu-header-text">Pistas a un amigo invisible</p>
+                    </div>
+
+                  </div>
                 </div>
                 <!-- /FEATURED STAT -->
-              </div>
+              
               <!-- /FEATURED STAT LIST -->
         
               <!-- FEATURED STAT LIST -->
               
                 <!-- FEATURED STAT -->
-                <div class="sidebar-menu-item"onclick="window.location.href='/store'">
+                <div class="sidebar-menu-item" onclick="window.location.href='/store'">
                   <!-- PROGRESS ARC WRAP -->
                   <div class="sidebar-menu-header accordion-trigger-linked">
-                  <svg class="sidebar-menu-header-icon icon-store">
+                    <svg class="sidebar-menu-header-icon icon-store">
                       <use xlink:href="#svg-store">
                       
                       </use>
@@ -449,6 +458,17 @@ function slReceptor() {
 }
 
 function sendMsj() {
+
+if ( $("#ComboGr").val() == 0) 
+{
+  alert("Debe seleccionar un grupo en el que está paricipando")
+  return false;
+}
+if (document.getElementById("receptor").value == 0)
+{
+  alert ("No hay amigo invisble asociado al grupo. Por favor contactate con el Admin del grupo para que realice el sorteo y puedas comenzar a enviar pistas")
+  return false;
+}
 
   var datos = new FormData();
       datos.append("_token", $("input[name=_token]").val());
