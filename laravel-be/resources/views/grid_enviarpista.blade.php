@@ -19,9 +19,9 @@
               </div>
               <div class="form-row split">
                 <div class="form-item" >
-                  <p class="user-status-title">Tu amigo invisible es:
+                  <span class="user-status-title">Tu amigo invisible es:</span>
                   <span class="bold" id="receptorEmail" > </span>
-                  </p>
+                  
                   <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="0">
                  
                 </div>
@@ -31,8 +31,8 @@
               <!-- /FORM ITEM -->
               <div class="form-row split">
                   <div class="form-item">
-                  <p> Querés incluir un regalo de tu Baulera? </p>
-                  <select class="form-control" id="ComboRegalo" onchange="slReceptor();" >
+                  <span> Querés incluir un regalo? (podes elegirlo pagarlo ahora o arreglar con el vendedor después) </span>
+                  <select class="form-control" id="ComboRegalo" onchange="slRegalo();" >
                   <option value=0 regalourl="" nombreregalo=0> No...</option>
                   @foreach ($regalos as $regalo)
                   <option value={{$regalo->id}} regalourl="{{$regalo->url}}" nombreregalo="{{$regalo->nombre}}"> 

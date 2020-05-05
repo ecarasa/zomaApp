@@ -141,6 +141,13 @@ $message = $twilio->messages
         return view('grid_recibidos')->with(compact('mensajes','userLogueado','grupos','regalos'));
        // return view('grid_pista_centro');
     }
+    public function mensajeregalo(request $request )
+    { 
+        $regalos= DB::table('regalos as r')->where('id','like',$request->idregalo)
+        ->select('r.*')->get();
+        return view('grid_mensajeregalo')->with(compact('regalos'));
+      
+    }
 
     public function enviados(request $request )
     { 
@@ -230,12 +237,17 @@ $message = $twilio->messages
     */
     public function register ( Request $request )
     {
+        if (!$request->has(['emisor', 'receptor', 'pistamsj', 'grupo'])) {
+            $output = array("status"=>false, "msj"=>"Faltan datos");
+            return response()->json($output);
+        }
         $pista =  new Pistas(); 
         $pista->idUserEmisor=$request->emisor;
         $pista->idUserReceptor=$request->receptor;
         $pista->mensaje=$request->pistamsj;
         $pista->fecha=Carbon::now();
         $pista->idgrupo=$request->grupo;
+        $pista->idregalo=$request->regalo;
         if ($pista->save()){
 
                 $output = array("status"=>true,"msj"=>"Pista Enviada!" );

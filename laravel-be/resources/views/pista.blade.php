@@ -450,7 +450,19 @@
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  
+function CargaRegaloenPista(idregalo){
+
+
+$("#regalo-detalle").html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+$("#regalo-detalle").fadeIn();
+$("#regalo-detalle").load('/pista/mensaje/regalo?idregalo='+idregalo);
+
+}
+function slRegalo() {
+  //$('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
+  //$('#receptorEmail').text($('#ComboGr option:selected').attr('emailamigoi'));
+
+}  
 function slReceptor() {
   $('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
   $('#receptorEmail').text($('#ComboGr option:selected').attr('emailamigoi'));
@@ -476,6 +488,7 @@ if (document.getElementById("receptor").value == 0)
       datos.append('emisor', {{ $userLogueado}} );
       datos.append('grupo', $("#ComboGr").val());
       datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
+      datos.append('regalo', $("#ComboRegalo").val()); 
  
       // AJAX CALL
       $.ajax({

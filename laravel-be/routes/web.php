@@ -22,6 +22,7 @@ Route::get('/basesycond', 'HomeController@show');
     Route::get('/pista/recibidos', 'PistasController@recibidos')->name('recibidos');
     Route::get('/pista/grupos', 'PistasController@grupos')->name('grupos');
     Route::get('/pista/mensaje', 'PistasController@mensaje')->name('mensaje');
+    Route::get('/pista/mensaje/regalo', 'PistasController@mensajeregalo')->name('mensajeregalo');
     Route::get('/pista/grupodetalle', 'PistasController@grupodetalle')->name('grupodetalle');
     Route::get('/pista/what', 'PistasController@enviarw')->name('enviarw');
     Route::post('/pista/rp', 'PistasController@responder')->name('responder');
