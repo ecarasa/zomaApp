@@ -21,6 +21,7 @@ class CreateRegalosTable extends Migration
             $table->float('importe_promo')->nullable();
             $table->datetime('importe_promo_fecha_fin')->nullable();
             $table->longText('url')->nullable();
+            $table->string('code')->nullable();
             $table->longText('botondepago');
             $table->integer('categoria');
             $table->integer('empresa');

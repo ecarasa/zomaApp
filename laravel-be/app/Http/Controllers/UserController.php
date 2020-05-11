@@ -101,6 +101,32 @@
                 }*/
         }
 
+        public function updateProfile(Request $request)
+        {
+           
+                if (!$request->has(['nya','email','tel','nick'])) {
+                        $output = array("status"=>false, "msj"=>"Tenes que completar todos los datos datos");
+                        return view('cuenta')->with(compact('output'));
+                }else{
+                        $user = User::findOrFail(Auth::user()->id);
 
+                        $user->name = $request->nya;
+                        $user->email= $request->email;
+                        $user->telefono= $request->tel;
+                        $user->json= $request->nick;
+                        $user->save();
+                        return redirect()->route('cuenta')->with(compact('user'));
+
+                }
+           
+        }
+
+        public function cuenta()
+        {
+                
+                        $user = User::find(Auth::user()->id);
+                        return view('cuenta')->with(compact('user'));
+                
+        }
 
     }

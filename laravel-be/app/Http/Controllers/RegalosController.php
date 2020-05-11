@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Regalos;
 use App\Categorias;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
+use DB;
 
 class RegalosController extends Controller
 {
@@ -18,7 +22,15 @@ class RegalosController extends Controller
         $regalos = Regalos::all();
         $categorias = Categorias::all();
         
-        return view('marketplace')->with(compact('regalos','categorias'));
+
+
+        $grupos = $users = DB::table('grupos')
+                    ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
+                    ->where('participante_grupos.idUsuario', '=', Auth::user()->id)
+                    ->select('grupos.id', 'grupos.nombre')
+                    ->get();
+
+        return view('marketplace')->with(compact('regalos','categorias','grupos'));
     }
 
 

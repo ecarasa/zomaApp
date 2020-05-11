@@ -12,6 +12,7 @@
             <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
             <link rel="stylesheet" href="css/styles.min.css">
             <link rel="icon" href="img/favicon.ico">
+            <link rel="stylesheet" href="css/bootstrap.min.css">
         </head>
     <body>
 
@@ -25,6 +26,14 @@
   @include('header')
   <!-- /NAVIGATION WIDGET -->
 
+<style>
+
+.modal-dialog {
+    max-width: 500px;
+    margin: 6.75rem auto!important;
+}
+
+</style>
 
   <!-- FLOATY BAR -->
   <aside class="floaty-bar">
@@ -170,7 +179,7 @@
           <p class="product-preview-text">{{$regalo->descripcion}}</p>
 
         
-          <a mp-mode="dftl"  target="_blank" style="width: 100%;" href="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=46588395-ac4fe9f8-4427-4c9c-8ca1-a256e01ad59d" name="MP-payButton" class='button small twitch blue-ar-l-rn-none'>Comprar</a>
+          <a style="width: 100%;" href="javascript:buyModal();"  class='button small twitch blue-ar-l-rn-none'>Comprar</a>
           <!-- /PRODUCT PREVIEW TEXT -->
         </div>
         <!-- /PRODUCT PREVIEW INFO -->
@@ -262,12 +271,104 @@
     <!-- /GRID -->
   </div>
   <!-- /CONTENT GRID -->
+  <div tabindex="-1" role="dialog" class="modal fade" id="buyModal" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="width: 100%;">Para quien es este regalo?</h5>
+      </div>
+      <div class="modal-body">
+      <div class="form-item">
+                  <!-- FORM SELECT -->
+                  <div class="form-select">
+                    <label for="billing-state">Grupo</label>
+                    <select id="grupo_regalo" name="grupo_regalo" onchange="javascript:fulfillSelect(this.value);">
+                      <option value="-1">Selecciona grupo ...</option>
+                      @foreach ($grupos as $grupo)
+                        <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                      @endforeach
+                    </select>
+                    <!-- FORM SELECT ICON -->
+                    <svg class="form-select-icon icon-small-arrow">
+                      <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                    <!-- /FORM SELECT ICON -->
+                  </div>
+                  <!-- /FORM SELECT -->
+                </div>
 
+
+                <div class="form-item">
+                  <!-- FORM SELECT -->
+                  <div class="form-select">
+                    <label for="billing-state">Amigo</label>
+                    <select id="billing-state" name="billing_state">
+                      <option value="0">a quien se lo regalas ?</option>
+                      <option value="1">...</option>
+                    </select>
+                    <!-- FORM SELECT ICON -->
+                    <svg class="form-select-icon icon-small-arrow">
+                      <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                    <!-- /FORM SELECT ICON -->
+                  </div>
+                  <!-- /FORM SELECT -->
+                </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Comprar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- app -->
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+
 <script>
- 
+
+function buyModal(){
+
+  $('#buyModal').modal('show');
+
+}
+
+
+
+function fulfillSelect(idGrupo){
+
+    var fd = new FormData(document.getElementById('formJuego'));
+    //fd.append("_token", $("input[name=_token]").val());
+
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/grupo/integrantes",
+        type: "POST",
+        data: fd,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+      beforeSend: function() {
+          console.log("before send request");
+      }
+      }).done(function(data) {
+        
+        console.log(data);
+        
+        if (data.status == true){
+          // window.location.href = "grupo/" + data.codigo;
+          
+        }else{
+          console.log(data);
+        }
+
+      });
+}
+
+
 </script>
 </body>
 </html> 

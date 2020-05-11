@@ -11,6 +11,8 @@
             
             <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
             <link rel="stylesheet" href="css/styles.min.css">
+       
+            
             <link rel="icon" href="img/favicon.ico">
         </head>
     <body>

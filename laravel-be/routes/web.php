@@ -31,13 +31,20 @@ Route::get('/basesycond', 'HomeController@show');
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
+Route::get('/grupo/integrantes', 'GruposController@integrantes')->name('sortear');
+
 
 //marketplace
 Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');
 Route::get('/store', 'RegalosController@index');
 
 
+Route::get('/buy/{hash}/{CuponCode}/{estado}/success', 'RegalosController@success'); // estado 1
+Route::get('/buy/{hash}/{CuponCode}/{estado}/pendind', 'RegalosController@pending'); // estado 2
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/cuenta', 'UserController@cuenta');
+Route::post('/cuenta/edit', 'UserController@updateProfile');
 
 Auth::routes();

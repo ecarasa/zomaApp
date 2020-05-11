@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\RegalosParticipantes;
 use Illuminate\Http\Request;
-
+use App\Regalos;
+use App\Categorias;
 class RegalosParticipantesController extends Controller
 {
     /**
@@ -15,6 +16,32 @@ class RegalosParticipantesController extends Controller
     public function index()
     {
         //
+    }
+
+
+    //Route::get('/buy/{hash}/{giftCode}/{estado}/success', 'RegalosController@success'); // estado 1
+    //Route::get('/buy/{hash}/{giftCode}/{estado}/pendind', 'RegalosController@pending'); // estado 2
+    public function success(Request $request, $hash, $giftCode, $estado)
+    {
+        /* 
+            $table->bigIncrements('id');
+            $table->integer('idUserEmisor')->nullable();
+            $table->integer('idUserReceptor');
+            $table->integer('idRegalo');
+            $table->integer('idGrupo');
+            $table->longText('idPista')->nullable();
+            $table->longText('mensaje')->nullable();
+            $table->timestamps();
+        */
+        if (Auth::id()){
+
+            $regalo = Regalo::where('code', $giftCode)->first();
+            
+
+
+
+        }
+
     }
 
     /**
