@@ -31,7 +31,8 @@ Route::get('/basesycond', 'HomeController@show');
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
-Route::get('/grupo/integrantes', 'GruposController@integrantes')->name('sortear');
+Route::post('/grupo/integrantes/{codigoGrupo}', 'GruposController@integrantes')->name('integrantes');
+Route::post('/grupo/regalar', 'GruposController@regalar')->name('regalar');
 
 
 //marketplace

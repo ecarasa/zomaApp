@@ -179,7 +179,7 @@
           <p class="product-preview-text">{{$regalo->descripcion}}</p>
 
         
-          <a style="width: 100%;" href="javascript:buyModal();"  class='button small twitch blue-ar-l-rn-none'>Comprar</a>
+          <a style="width: 100%;" href="javascript:buyModal({{ $regalo->id }});"  class='button small twitch blue-ar-l-rn-none'>Comprar</a>
           <!-- /PRODUCT PREVIEW TEXT -->
         </div>
         <!-- /PRODUCT PREVIEW INFO -->
@@ -280,12 +280,14 @@
       <div class="modal-body">
       <div class="form-item">
                   <!-- FORM SELECT -->
+                  <form id="formregalo">
+                  <input type='number' value name="idRegalo" id="idRegalo">
                   <div class="form-select">
                     <label for="billing-state">Grupo</label>
                     <select id="grupo_regalo" name="grupo_regalo" onchange="javascript:fulfillSelect(this.value);">
                       <option value="-1">Selecciona grupo ...</option>
                       @foreach ($grupos as $grupo)
-                        <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                        <option value="{{ $grupo->codigo }}">{{ $grupo->nombre }}</option>
                       @endforeach
                     </select>
                     <!-- FORM SELECT ICON -->
@@ -295,14 +297,14 @@
                     <!-- /FORM SELECT ICON -->
                   </div>
                   <!-- /FORM SELECT -->
-                </div>
+                
 
 
                 <div class="form-item">
                   <!-- FORM SELECT -->
                   <div class="form-select">
                     <label for="billing-state">Amigo</label>
-                    <select id="billing-state" name="billing_state">
+                    <select id="amigo_a_regalar" name="amigo_a_regalar">
                       <option value="0">a quien se lo regalas ?</option>
                       <option value="1">...</option>
                     </select>
@@ -314,10 +316,11 @@
                   </div>
                   <!-- /FORM SELECT -->
                 </div>
+                </form>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <a href="javascript:regalar();" class="btn btn-primary">Comprar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -328,23 +331,38 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
 
-<script>
+ @if (Auth::check())
 
-function buyModal(){
-
+ <script>
+function buyModal(idregalo){
   $('#buyModal').modal('show');
+  $('#idRegalo').val(idregalo);
+}
+</script>
+
+ @else
+
+ <script>
+function buyModal(idregalo){
+  window.location.href = "{{ env('APP_URL_PUERTO') }}/login";
 
 }
+</script>
+
+ @endif
 
 
 
-function fulfillSelect(idGrupo){
+<script>
 
-    var fd = new FormData(document.getElementById('formJuego'));
-    //fd.append("_token", $("input[name=_token]").val());
 
+
+function regalar(){
+if ($('#grupo_regalo').val() != '-1' && $('#amigo_a_regalar').val() != '-1' )
+    var fd = new FormData(document.getElementById('formregalo'));
+    fd.append("_token", $("input[name=_token]").val());
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupo/integrantes",
+        url: "{{ env('APP_URL_PUERTO') }}/grupo/regalar/",
         type: "POST",
         data: fd,
         dataType: 'json',
@@ -352,19 +370,37 @@ function fulfillSelect(idGrupo){
         processData: false,
         contentType: false,
       beforeSend: function() {
-          console.log("before send request");
+          console.log("estamos preparando la compra");
       }
       }).done(function(data) {
-        
-        console.log(data);
-        
-        if (data.status == true){
-          // window.location.href = "grupo/" + data.codigo;
-          
-        }else{
-          console.log(data);
-        }
+        console.log(data)
+      }).error(function() {
+          alert(data.status);
+       });
+}
 
+function fulfillSelect(codigoGrupo){
+if ($('#grupo_regalo').val() != '-1')
+    var fd = new FormData(document.getElementById('formregalo'));
+    fd.append("_token", $("input[name=_token]").val());
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/grupo/integrantes/"+codigoGrupo,
+        type: "POST",
+        data: fd,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+      beforeSend: function() {
+          //console.log("before send request");
+          $('#amigo_a_regalar').empty().append($('<option></option>').attr('value', '-1').text('Cargando...'));
+      }
+      }).done(function(data) {
+        $('#amigo_a_regalar').empty();
+        $('#amigo_a_regalar').append($('<option></option>').attr('value', '-1').text('Para quien es ? Elegi'));
+          $.each(data, function (key, entry) {
+              $('#amigo_a_regalar').append($('<option></option>').attr('value', entry.id).text(entry.name));
+          })
       });
 }
 

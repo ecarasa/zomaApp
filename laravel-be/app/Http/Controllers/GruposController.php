@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Grupos;
+use App\Regalos;
 use App\User;
+use App\RegalosParticipantes;
 use App\ParticipanteGrupos;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
+use Debugbar;
 use Illuminate\Support\Facades\Validator;
 
 class GruposController extends Controller
@@ -135,7 +139,7 @@ class GruposController extends Controller
         //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
         $grupo = Grupos::where('codigo', $codigoGrupo)->get();
         
-        if ($grupo->soyIntegrante(Auth::id())){
+        if ($grupo->soyIntegrante(Auth::user()->id)){
             echo 'ok soy';
         }else{
             echo 'tomatelas';
@@ -173,9 +177,71 @@ class GruposController extends Controller
      *
      * @param  \App\Grupos  $grupos
      * @return \Illuminate\Http\Response
-     */
-    public function destroy(Grupos $grupos)
+*/
+
+    public function integrantes(Request $request, $codigoGrupo)
     {
-        //
+        //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
+        $grupo = Grupos::where('codigo', $codigoGrupo)->get();
+
+        Debugbar::info($grupo);
+
+
+
+
+            $grupos = $users = DB::table('grupos')
+            ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
+            ->join('users', 'users.id', '=', 'participante_grupos.idUsuario')
+            ->where('participante_grupos.idUsuario', '=', Auth::user()->id)
+            ->select('users.name', 'users.id')
+            ->get();
+
+            return json_encode($grupos);
+        
+        
+
     }
+
+
+
+    public function regalar(Request $request)
+    {
+
+        if (!$request->has(['grupo_regalo','idRegalo', 'amigo_a_regalar'])) {
+            return response()->json([
+                'boton' => null,
+                'status' => 'Faltan datos'
+            ], 400); 
+        }else{
+        
+        $grupo = Grupos::where('codigo', $request->grupo_regalo)->get();
+        $regalo = Regalos::where('id', $request->idRegalo)->get();
+        $amigo = User::where('id', $request->amigo_a_regalar)->get();
+        
+
+
+
+        $tmp = new RegalosParticipantes();
+        $tmp->idUserEmisor = Auth::user()->id;
+        $tmp->idUserReceptor = $amigo->id;
+        $tmp->idRegalo = $regalo->id;
+        $tmp->idGrupo = $grupo->id;
+
+        if ($tmp->save()){
+            return response()->json([
+                'boton' => $regalo->botondepago,
+                'status' => true
+            ],200);
+        }else{
+            return response()->json([
+                'boton' => null,
+                'status' => 'Hubo un error. Intenta de nuevo'
+            ], 400); 
+        }
+
+
+    }
+
+    }
+
 }

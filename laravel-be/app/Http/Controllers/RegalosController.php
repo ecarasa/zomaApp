@@ -22,12 +22,10 @@ class RegalosController extends Controller
         $regalos = Regalos::all();
         $categorias = Categorias::all();
         
-
-
         $grupos = $users = DB::table('grupos')
                     ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
                     ->where('participante_grupos.idUsuario', '=', Auth::user()->id)
-                    ->select('grupos.id', 'grupos.nombre')
+                    ->select('grupos.codigo', 'grupos.nombre')
                     ->get();
 
         return view('marketplace')->with(compact('regalos','categorias','grupos'));
