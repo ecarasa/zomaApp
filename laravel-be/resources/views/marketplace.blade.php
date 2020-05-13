@@ -281,7 +281,7 @@
       <div class="form-item">
                   <!-- FORM SELECT -->
                   <form id="formregalo">
-                  <input type='number' value name="idRegalo" id="idRegalo">
+                  <input type='hidden' value name="idRegalo" id="idRegalo">
                   <div class="form-select">
                     <label for="billing-state">Grupo</label>
                     <select id="grupo_regalo" name="grupo_regalo" onchange="javascript:fulfillSelect(this.value);">
