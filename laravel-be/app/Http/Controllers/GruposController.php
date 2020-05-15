@@ -219,15 +219,16 @@ class GruposController extends Controller
         $amigo = User::where('id', $request->amigo_a_regalar)->get();
         
 
-
-
+        
         $tmp = new RegalosParticipantes();
-        $tmp->idUserEmisor = Auth::user()->id;
-        $tmp->idUserReceptor = $amigo->id;
-        $tmp->idRegalo = $regalo->id;
-        $tmp->idGrupo = $grupo->id;
+        $tmp->idUserEmisor =  Auth::user()->id;
+        
+        $tmp->idUserReceptor = $amigo->get(0)->id;
+       $tmp->idRegalo = $regalo->get(0)->id;
+       $tmp->idGrupo = $grupo->get(0)->id;
+       $tmp->idPista = 0;
 
-        if ($tmp->save()){
+     if ($tmp->save()){
             return response()->json([
                 'boton' => $regalo->botondepago,
                 'status' => true
@@ -237,7 +238,7 @@ class GruposController extends Controller
                 'boton' => null,
                 'status' => 'Hubo un error. Intenta de nuevo'
             ], 400); 
-        }
+        } 
 
 
     }
