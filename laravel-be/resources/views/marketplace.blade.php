@@ -281,7 +281,7 @@
       <div class="form-item">
                   <!-- FORM SELECT -->
                   <form id="formregalo">
-                  <input type='hidden' value name="idRegalo" id="idRegalo">
+                  <input type='number' value name="idRegalo" id="idRegalo">
                   <div class="form-select">
                     <label for="billing-state">Grupo</label>
                     <select id="grupo_regalo" name="grupo_regalo" onchange="javascript:fulfillSelect(this.value);">
@@ -370,13 +370,12 @@ if ($('#grupo_regalo').val() != '-1' && $('#amigo_a_regalar').val() != '-1' )
         processData: false,
         contentType: false,
       beforeSend: function() {
-          console.log("estamos preparando la compra");
+          //console.log("before send request");
+          //$('#amigo_a_regalar').empty().append($('<option></option>').attr('value', '-1').text('Cargando...'));
       }
       }).done(function(data) {
         console.log(data)
-      }).error(function() {
-          alert(data.status);
-       });
+      });
 }
 
 function fulfillSelect(codigoGrupo){
