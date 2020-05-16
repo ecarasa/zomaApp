@@ -23,9 +23,27 @@
                         <!-- PRODUCT PREVIEW TEXT -->
                         <p class="product-preview-text">{{$regalo->descripcion}}</p>
 
-                      
-                        <a mp-mode="dftl" target="_blank" style="width: 100%;" href="" name="MP-payButton" class="button small twitch blue-ar-l-rn-none">Ver Voucher</a>
+                        <div tabindex="-1" role="dialog" class="modal fade" id="buyModal" >
+                          <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" style="width: 100%;">Canjea tu regalo llamando o via Whastapp al nro EMPRESA.NROCEL  "</h5>
+                            </div>
+                              
+                            <div class="modal-body">
+                            <p> entregando el codigo "CHEAMIGO {{$regalo->id}}</p>
+                            </div>
+                            
+                            <div class="modal-footer">
+                            
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                        <a style="width: 100%;" href="javascript:InfoCanjeRegaloModal()" name="" class="button small twitch blue-ar-l-rn-none modal-footer">Ver Voucher</a>
                         <!-- /PRODUCT PREVIEW TEXT -->
+
+
                       </div>
                       <!-- /PRODUCT PREVIEW INFO -->
                   

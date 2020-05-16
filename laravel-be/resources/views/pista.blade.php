@@ -23,6 +23,14 @@
   <!-- /NAVIGATION WIDGET -->
   <!-- MENU  DE NAV WIDGET -->
   @include('header')
+  <style>
+
+.modal-dialog {
+    max-width: 500px;
+    margin: 6.75rem auto!important;
+}
+
+</style>
   <!-- /NAVIGATION WIDGET -->
 
 
@@ -447,9 +455,17 @@
   <!-- /CONTENT GRID -->
 
 <!-- app -->
+
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script>
+
+function InfoCanjeRegaloModal() {
+  
+  $('#buyModal').modal('show');
+
+}
 function CargaRegaloenPista(idregalo){
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Pistas;
+use App\RegalosParticipantes;
 use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -248,7 +249,20 @@ $message = $twilio->messages
         $pista->fecha=Carbon::now();
         $pista->idgrupo=$request->grupo;
         $pista->idregalo=$request->regalo;
+        /*genero el registro regalo participante*/
+       
+
+      
+
         if ($pista->save()){
+            $tmp = new RegalosParticipantes();
+            $tmp->idUserEmisor = $request->emisor;
+            $tmp->idUserReceptor = $request->receptor;
+            $tmp->idRegalo = $request->regalo;
+            $tmp->idGrupo = $request->grupo;
+            $tmp->idpista = $pista->id;
+            $tmp->mensaje = $request->pistamsj;
+            if ($tmp->save()){
 
                 $output = array("status"=>true,"msj"=>"Pista Enviada!" );
                 return response()->json($output);
@@ -258,9 +272,18 @@ $message = $twilio->messages
                 // googlear return view compact data laraval para ver ejemplos
 
             }else{
-                $output = array("status"=>false, "msj"=>"Error.");
+                $output = array("status"=>false, "msj"=>"Error al enviar pista.");
                 return response()->json($output);
             }
+
+        }else{
+            return response()->json([
+                'boton' => null,
+                'status' => 'Hubo un error al registrar tu regalo; la pista no fue enviada. Intenta de nuevo'
+            ], 400); 
+        }
+
+        
     }
 
 
