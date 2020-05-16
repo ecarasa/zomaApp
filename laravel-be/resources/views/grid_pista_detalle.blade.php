@@ -77,8 +77,8 @@
                 
                 <p class="chat-widget-speaker-message" style="color:white;background-color:#615dfa">Pista:<br> {{$mensaje->mensaje}}</p>
                
-                @if ($mensaje->idRegalo>0) 
-                <p class="chat-widget-speaker-message" style="cursor:pointer;color:white;background-color:#0c2134" onclick="CargaRegaloenPista({{$mensaje->idRegalo}})" >Buenas Noticias! Tu amigo te dejó un regalo, haz click para descubrirlo.</p>
+                @if ($mensaje->tieneregalo>0) 
+                <p class="chat-widget-speaker-message" style="cursor:pointer;color:white;background-color:#0c2134" onclick="CargaRegaloenPista({{$mensaje->regalo}})" >Buenas Noticias! Tu amigo te dejó un regalo, haz click para descubrirlo.</p>
                 
                 <div class="product-preview" id="regalo-detalle">        
                 <!-- CARGAR REGALO -->

@@ -23,24 +23,25 @@
                         <!-- PRODUCT PREVIEW TEXT -->
                         <p class="product-preview-text">{{$regalo->descripcion}}</p>
 
-                        <div tabindex="-1" role="dialog" class="modal fade" id="buyModal" >
+                        <div tabindex="-1" role="dialog" class="modal" id="buyModal" >
                           <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" style="width: 100%;">Canjea tu regalo llamando o via Whastapp al nro EMPRESA.NROCEL  "</h5>
-                            </div>
+                            <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" style="width: 100%;">Canjea tu regalo llamando o via Whastapp  al nro .NROCEL FALTANTE.  </h5>
+                              </div>
                               
-                            <div class="modal-body">
-                            <p> entregando el codigo "CHEAMIGO {{$regalo->id}}</p>
-                            </div>
+                              <div class="modal-body">
+                              <p>Empresa a cargo: {{$regalo->empresa}} </p>
+                              <p>Canje Code: CH/{{$regalo->created_at}}/{{$regalo->id}}</p>
+                              </div>
                             
-                            <div class="modal-footer">
-                            
+                              <div class="modal-footer">                                
+                                <button style="background-color:#615dfa" type="button" class="btn btn-secondary" data-dismiss="modal"  data-backdrop="false">Close</button>
+                              </div>
                             </div>
-                          </div>
                           </div>
                         </div>
-                        <a style="width: 100%;" href="javascript:InfoCanjeRegaloModal()" name="" class="button small twitch blue-ar-l-rn-none modal-footer">Ver Voucher</a>
+                        <a style="width: 100%;" href="javascript:InfoCanjeRegaloModal()" name="" class="button small twitch blue-ar-l-rn-none ">Ver Voucher</a>
                         <!-- /PRODUCT PREVIEW TEXT -->
 
 

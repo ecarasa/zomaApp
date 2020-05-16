@@ -75,6 +75,10 @@
                   </div>
                   <!-- /INTERACTIVE INPUT -->
                 </div>
+
+                
+
+
                 
                 <div class="form-item auto-width" onclick="sendMsj();">
                   <!-- BUTTON -->

@@ -122,6 +122,23 @@
 
   <!-- CONTENT GRID -->
   <div class="content-grid">
+ 
+      <div tabindex="-1" role="dialog" class="modal" id="MD" >
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" style="width: 100%;">Finaliza la compra de tu regalo llamando o via Whastapp</h5>
+                              </div>
+                              <div class="modal-body" id="modalDinamicoDiv">
+                               <p> cargando...</p>
+                              </div> 
+                              <div class="modal-footer">                                
+                                <button style="background-color:#615dfa" type="button" class="btn btn-secondary" data-dismiss="modal"  >Ok</button>
+                              </div>
+                            </div>
+                          </div>
+        </div>
+  
     <!-- SECTION BANNER -->
     <div class="dropdown-box" id="msfConfirm" style="display:none">
       <div class="dropdown-box-header"> Pista Mensaje Enviad@ 
@@ -354,6 +371,7 @@
     
     </div>  
     <!-- / englobador de grids  -->
+
     <!-- GRID -->
     <div class="grid grid-3-3-3-3 centered">
       <!-- PRODUCT CATEGORY BOX -->
@@ -463,7 +481,7 @@
 
 function InfoCanjeRegaloModal() {
   
-  $('#buyModal').modal('show');
+  $('#buyModal').appendTo("body").modal('show');
 
 }
 function CargaRegaloenPista(idregalo){
@@ -477,6 +495,7 @@ $("#regalo-detalle").load('/pista/mensaje/regalo?idregalo='+idregalo);
 function slRegalo() {
   //$('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
   //$('#receptorEmail').text($('#ComboGr option:selected').attr('emailamigoi'));
+ 
 
 }  
 function slReceptor() {
@@ -497,6 +516,21 @@ if (document.getElementById("receptor").value == 0)
   alert ("No hay amigo invisble asociado al grupo. Por favor contactate con el Admin del grupo para que realice el sorteo y puedas comenzar a enviar pistas")
   return false;
 }
+
+
+
+if ( $("#pistamsj_enviar").val() == "") 
+{
+  alert("El mensje no puede estar vacío.")
+  return false;
+}
+if ( $("#ComboRegalo").val() >0) 
+{
+  alert("La compra de este regalo se hará efectiva cuando acuerdes el pago con el proveedor.")
+  
+}
+
+
 
   var datos = new FormData();
       datos.append("_token", $("input[name=_token]").val());
@@ -525,10 +559,17 @@ if (document.getElementById("receptor").value == 0)
         }).done(function(data) {
           
           if (data.status == true){
-           // window.location.reload();
-          //  document.getElementById('msjesExistentes').style.display='none';
+          
+          if (data.idregalo>0)
+          {
+            $("#modalDinamicoDiv").html("Cargando...");
+            $("#modalDinamicoDiv").load('/pista/mensaje/regalo/modal?idregalo='+data.idregalo);
+            $("#MD").appendTo("body").modal('show');
+
+          }
           $('#msfConfirm').show();
           $('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+          
            
           }else{
             console.log(data);

@@ -74,6 +74,17 @@ $message = $twilio->messages
 
 }
 
+    public function modaldinamico (request $request) 
+    {
+        $datosEmp = DB::table('regalos_participantes as r')->where('r.id','like',$request->idregalo)
+        ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
+        ->join('empresas as e', 'e.id', '=', 'r2.empresa')
+        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe')->get();
+        return view('modaldinamico_regalopista')->with(compact('datosEmp'));
+
+    }
+
+
     public function mensaje( request $request )
     {
       
@@ -82,7 +93,8 @@ $message = $twilio->messages
         ->join('users', 'pistas.idUserEmisor', '=', 'users.id')
         ->join('users as u2', 'pistas.idUserReceptor', '=', 'u2.id') 
         ->join('grupos as g', 'pistas.idGrupo', '=', 'g.id')
-        ->select('pistas.*', 'users.email as emisor' ,'u2.email as receptor','g.nombre as grupo' )
+        ->leftjoin('regalos_participantes as r', 'pistas.id', '=', 'r.idpista')
+        ->select('pistas.*', 'users.email as emisor' ,'u2.email as receptor','g.nombre as grupo','r.idpista as tieneregalo','r.id as regalo' )
         ->get();
         return view('grid_pista_detalle')->with(compact('mensajes'));
     }
@@ -144,8 +156,10 @@ $message = $twilio->messages
     }
     public function mensajeregalo(request $request )
     { 
-        $regalos= DB::table('regalos as r')->where('id','like',$request->idregalo)
-        ->select('r.*')->get();
+        $regalos= DB::table('regalos_participantes as r')->where('r.id','like',$request->idregalo)
+                     ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
+                     ->join('empresas as e', 'e.id', '=', 'r2.empresa')
+                       ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa')->get();
         return view('grid_mensajeregalo')->with(compact('regalos'));
       
     }
@@ -248,33 +262,41 @@ $message = $twilio->messages
         $pista->mensaje=$request->pistamsj;
         $pista->fecha=Carbon::now();
         $pista->idgrupo=$request->grupo;
-        $pista->idregalo=$request->regalo;
+        // se deprecó, ahora los regalos se graban en regalosparticipantes $pista->idregalo=$request->regalo;
         /*genero el registro regalo participante*/
        
 
       
 
         if ($pista->save()){
-            $tmp = new RegalosParticipantes();
-            $tmp->idUserEmisor = $request->emisor;
-            $tmp->idUserReceptor = $request->receptor;
-            $tmp->idRegalo = $request->regalo;
-            $tmp->idGrupo = $request->grupo;
-            $tmp->idpista = $pista->id;
-            $tmp->mensaje = $request->pistamsj;
-            if ($tmp->save()){
+            // si aplica genero instancia de regalo participante */
+            if ($request->regalo>0)
+            {
+                $tmp = new RegalosParticipantes();
+                $tmp->idUserEmisor = $request->emisor;
+                $tmp->idUserReceptor = $request->receptor;
+                $tmp->idRegalo = $request->regalo;
+                $tmp->idGrupo = $request->grupo;
+                $tmp->idpista = $pista->id;
+                $tmp->mensaje = $request->pistamsj;
+                // el codigo se resuelve con la columna timestamps default ver bd --- $tmp->codigo = 'CH-'.useCurrent().'-'.$request->regalo;
+                if ($tmp->save()){
 
-                $output = array("status"=>true,"msj"=>"Pista Enviada!" );
-                return response()->json($output);
-                // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
-                //A LA RUTA DE ADMINISTRCION DEL GRUPO 
-             
-                // googlear return view compact data laraval para ver ejemplos
+                    $output = array("status"=>true,"msj"=>"Pista con Regalo Enviada!","idregalo"=>$tmp->id );
+                    return response()->json($output);
+                    // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
+                    //A LA RUTA DE ADMINISTRCION DEL GRUPO 
+                
+                    // googlear return view compact data laraval para ver ejemplos
 
-            }else{
-                $output = array("status"=>false, "msj"=>"Error al enviar pista.");
-                return response()->json($output);
+                }else{
+                    $output = array("status"=>false, "msj"=>"Error al enviar pista.");
+                    return response()->json($output);
+                }
             }
+            $output = array("status"=>true,"msj"=>"Pista Enviada!" ,"idregalo"=>0);
+            return response()->json($output);
+
 
         }else{
             return response()->json([
