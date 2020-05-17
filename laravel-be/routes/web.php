@@ -39,6 +39,7 @@ Route::post('/grupo/regalar', 'GruposController@regalar')->name('regalar');
 //marketplace
 Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');
 Route::get('/store', 'RegalosController@index');
+Route::get('/', 'RegalosController@index');
 
 
 Route::get('/buy/{hash}/{CuponCode}/{estado}/success', 'RegalosController@success'); // estado 1

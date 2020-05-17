@@ -278,6 +278,7 @@
         <h5 class="modal-title" style="width: 100%;">Para quien es este regalo?</h5>
       </div>
       <div class="modal-body">
+      @if ($grupos != null)
       <div class="form-item">
                   <!-- FORM SELECT -->
                   <form id="formregalo">
@@ -319,6 +320,12 @@
                 </form>
 
       </div>
+      @else
+      <div class="form-item">
+                  <h3>Tenes que iniciar sesion.</>
+
+      </div>
+      @endif
       <div class="modal-footer">
         <a href="javascript:regalar();" class="btn btn-primary">Comprar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

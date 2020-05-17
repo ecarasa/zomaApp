@@ -30,6 +30,14 @@
     margin: 6.75rem auto!important;
 }
 
+.sidebar-menu-header {
+    height: 81px!important;
+    padding: 22px 28px 1px 65px!important;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
 </style>
   <!-- /NAVIGATION WIDGET -->
 
@@ -370,109 +378,9 @@
 
     
     </div>  
-    <!-- / englobador de grids  -->
 
-    <!-- GRID -->
-    <div class="grid grid-3-3-3-3 centered">
-      <!-- PRODUCT CATEGORY BOX -->
-      <a class="product-category-box category-all" href="marketplace-category.html">
-        <!-- PRODUCT CATEGORY BOX TITLE -->
-        <p class="product-category-box-title">Browse All</p>
-        <!-- /PRODUCT CATEGORY BOX TITLE -->
-    
-        <!-- PRODUCT CATEGORY BOX TEXT -->
-        <p class="product-category-box-text">Check out all items</p>
-        <!-- /PRODUCT CATEGORY BOX TEXT -->
-    
-        <!-- PRODUCT CATEGORY BOX TAG -->
-        <p class="product-category-box-tag">1360 items</p>
-        <!-- /PRODUCT CATEGORY BOX TAG -->
-      </a>
-      <!-- /PRODUCT CATEGORY BOX -->
-    
-      <!-- PRODUCT CATEGORY BOX -->
-      <a class="product-category-box category-featured" href="marketplace-category.html">
-        <!-- PRODUCT CATEGORY BOX TITLE -->
-        <p class="product-category-box-title">Featured</p>
-        <!-- /PRODUCT CATEGORY BOX TITLE -->
-    
-        <!-- PRODUCT CATEGORY BOX TEXT -->
-        <p class="product-category-box-text">Handpicked by us</p>
-        <!-- /PRODUCT CATEGORY BOX TEXT -->
-    
-        <!-- PRODUCT CATEGORY BOX TAG -->
-        <p class="product-category-box-tag">254 items</p>
-        <!-- /PRODUCT CATEGORY BOX TAG -->
-      </a>
-      <!-- /PRODUCT CATEGORY BOX -->
-    
-      <!-- PRODUCT CATEGORY BOX -->
-      <a class="product-category-box category-digital" href="marketplace-category.html">
-        <!-- PRODUCT CATEGORY BOX TITLE -->
-        <p class="product-category-box-title">Digital</p>
-        <!-- /PRODUCT CATEGORY BOX TITLE -->
-    
-        <!-- PRODUCT CATEGORY BOX TEXT -->
-        <p class="product-category-box-text">Logos, banners...</p>
-        <!-- /PRODUCT CATEGORY BOX TEXT -->
-    
-        <!-- PRODUCT CATEGORY BOX TAG -->
-        <p class="product-category-box-tag">1207 items</p>
-        <!-- /PRODUCT CATEGORY BOX TAG -->
-      </a>
-      <!-- /PRODUCT CATEGORY BOX -->
-    
-      <!-- PRODUCT CATEGORY BOX -->
-      <a class="product-category-box category-physical" href="marketplace-category.html">
-        <!-- PRODUCT CATEGORY BOX TITLE -->
-        <p class="product-category-box-title">Physical</p>
-        <!-- /PRODUCT CATEGORY BOX TITLE -->
-    
-        <!-- PRODUCT CATEGORY BOX TEXT -->
-        <p class="product-category-box-text">Prints, joysticks...</p>
-        <!-- /PRODUCT CATEGORY BOX TEXT -->
-    
-        <!-- PRODUCT CATEGORY BOX TAG -->
-        <p class="product-category-box-tag">153 items</p>
-        <!-- /PRODUCT CATEGORY BOX TAG -->
-      </a>
-      <!-- /PRODUCT CATEGORY BOX -->
-    </div>
-    <!-- /GRID -->
-
-    <!-- SECTION HEADER -->
-    <div class="section-header">
-      <!-- SECTION HEADER INFO -->
-      <div class="section-header-info">
-        <!-- SECTION PRETITLE -->
-        <p class="section-pretitle">See what's new!</p>
-        <!-- /SECTION PRETITLE -->
-  
-        <!-- SECTION TITLE -->
-        <h2 class="section-title">Latest Items</h2>
-        <!-- /SECTION TITLE -->
-      </div>
-      <!-- /SECTION HEADER INFO -->
-  
-      <!-- SECTION HEADER ACTIONS -->
-      <div class="section-header-actions">
-        <!-- SECTION HEADER ACTION -->
-        <a class="section-header-action" href="marketplace-category.html">Browse All Latest</a>
-        <!-- /SECTION HEADER ACTION -->
-      </div>
-      <!-- /SECTION HEADER ACTIONS -->
-    </div>
-    <!-- /SECTION HEADER -->
-
-    <!-- GRID -->
-    <div class="grid grid-3-3-3-3 centered">
-
-    </div>
-    <!-- /GRID -->
   </div>
-  <!-- /CONTENT GRID -->
 
-<!-- app -->
 
 <script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
