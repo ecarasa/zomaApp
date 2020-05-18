@@ -19,6 +19,7 @@ Route::get('/pista/mensaje/regalo/modal', 'PistasController@modaldinamico')->nam
 Route::get('/pista/grupodetalle', 'PistasController@grupodetalle')->name('grupodetalle');
 Route::get('/pista/what', 'PistasController@enviarw')->name('enviarw');
 Route::post('/pista/rp', 'PistasController@responder')->name('responder');
+Route::get('/pista/regalosenviados', 'PistasController@regalosenviados')->name('regalosenviados');
     
 //grupos
 Route::get('/grupos/crear', 'GruposController@index')->name('index');

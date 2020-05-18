@@ -82,4 +82,9 @@ class EmpresasController extends Controller
     {
         //
     }
+
+    public function listarRegalosVendidos (Request $request) {
+
+        
+    }
 }
