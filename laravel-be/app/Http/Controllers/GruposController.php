@@ -88,11 +88,14 @@ class GruposController extends Controller
     {
         // if (Auth::check()) {
    
-        if (!$request->has(['nombreGrupo', 'email', 'fechaFin', 'maxDinero'])) {
+        if (!$request->has(['nombreGrupo', 'fechaFin', 'maxDinero'])) {
             $output = array("status"=>false, "msj"=>"Faltan datos");
             return response()->json($output);
         }else{
 
+
+
+            if (!Auth::check()){
             $usuario  = User::where('email', '=', $request->email)->first();
 
             if (!$usuario){
@@ -100,22 +103,38 @@ class GruposController extends Controller
                 $usuario = new User();
                 $usuario->email = $request->email;
                 $usuario->save();
+                $idUsuarioCreador = $usuario->id;
             }
+
+        }else{
+
+            $idUsuarioCreador = Auth::user()->id;
 
             $grupo = new Grupos();
             $grupo->nombre = $request->nombreGrupo;
             $grupo->estado = 1; //activo ?
             $grupo->fechaFin = $request->fechaFin;
             $grupo->maxDinero = $request->maxDinero;
-            $grupo->idUsuarioAdmin = $usuario->id;
+            $grupo->idUsuarioAdmin = $idUsuarioCreador;
             // falta hacer logica para cheaquear que no exista 
             // ya en la Db el codigo recien generado
             $grupo->codigo = rand(10000,99999);
             
             if ($grupo->save()){
 
-                $output = array("status"=>true,"msj"=>"Perfecto, grupo creado. Ahora invita a tus amigos.", "codigoGrupo"=>$grupo->codigo );
+                $output = array("status"=>true,"msj"=>"Perfecto, grupo creado. Ahora invita a tus amigos.", "codigo"=>$grupo->codigo );
+
+                $tmp = new ParticipanteGrupos();
+
+                $tmp->codigoGrupo = $grupo->codigo;
+                $tmp->idUsuario = $idUsuarioCreador;
+                $tmp->idUserAmigoInvible = 0;
+                $tmp->idRegalo = 0;
+                
+                $tmp->save();
+                
                 return response()->json($output);
+                
                 // EN LUGAR DE DEVOLVER UN JSON, PODRIAMOS REENVIARLO 
                 //A LA RUTA DE ADMINISTRCION DEL GRUPO 
                 //return view('grupoDetalle'); + compact para mandarle info del grupo
@@ -127,6 +146,7 @@ class GruposController extends Controller
             }
         }
     }
+    }
 
     /**
      * Display the specified resource.
@@ -136,8 +156,11 @@ class GruposController extends Controller
      */
     public function show(Request $request, $codigoGrupo)
     {
+
+
+        
         //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
-        $grupo = Grupos::where('codigo', $codigoGrupo)->get();
+        $grupo = Grupos::where('codigo', $codigoGrupo)->first();
         
         if ($grupo->soyIntegrante(Auth::user()->id)){
             echo 'ok soy';
