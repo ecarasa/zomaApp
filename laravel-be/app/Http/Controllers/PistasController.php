@@ -212,9 +212,9 @@ $message = $twilio->messages
 
         $userLogueado=$request->idUser;
         $grupos =  DB::table('participante_grupos as pg')->where('idUsuario','like',$userLogueado)
-                    ->join('users', 'pg.idUserAmigoInvible', '=', 'users.id')
+                    ->leftjoin('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
-                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible','users.email','g.fechaFin'  )                    
+                    ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible',DB::raw('coalesce(users.email,"Sin Asignar Che, comunicate con el Admin del grupo para que haga el sorteo y comiencen a jugar") as email'),'g.fechaFin'  )                    
                     ->get();
 
         //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
