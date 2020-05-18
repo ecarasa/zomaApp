@@ -4,11 +4,11 @@
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle"> Tus Grupos </p>
+            <p class="section-pretitle"> Regalos Seleccionados </p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title"><a href="">Crear Amigo Invisible</a></h2>
+            <h2 class="section-pretitle"><a href="">Recordá acordar el pago con el proveedor para que tu amigo pueda canjear el regalo</a></h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -105,9 +105,11 @@
                   <p class="user-status-title ">CheAmigo:{{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->
-                  <p class="user-status-text"> Codigo de Referencia ->CH/{{ $regalo->created_at }}/{{ $regalo->id }} </p>
+                  <p class="user-status-text"> Codigo de Referencia CH/{{ $regalo->created_at }}/{{ $regalo->id }} </p>
                   <p class="user-status-text"> Empresa: {{ $regalo->empresa }} </p>
                   <p class="user-status-timestamp"> $:  {{ $regalo->importe}} </p>
+                  <p class="user-status-timestamp">  Recordá acordar el pago con el proveedor para que tu amigo pueda canjear el regalo ! </p>
+                 
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->

@@ -363,7 +363,36 @@
                   <!-- /FEATURED STAT TEXT -->
                 </div>
                 <!-- /FEATURED STAT -->
-              
+              <!-- FEATURED STAT -->
+              <div class="sidebar-menu-item" onclick="CargarRegalosEnviados();">
+                  <!-- PROGRESS ARC WRAP -->
+                  <div class="sidebar-menu-header accordion-trigger-linked">
+                    <svg class="sidebar-menu-header-icon icon-group">
+                      <use xlink:href="#svg-group">
+                      
+                      </use>
+                    </svg>
+        
+                    <!-- PROGRESS ARC INFO -->
+                    <div class="sidebar-menu-header-control-icon" >
+                      <!-- PROGRESS ARC TITLE -->
+                        <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                           <use xlink:href="#svg-minus-small"></use>
+                         </svg>
+                        <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                            <use xlink:href="#svg-plus-small"></use>
+                        </svg>
+                        <p class="sidebar-menu-header-title">Regalos Enviados</p>
+                        <p class="sidebar-menu-header-text">Chequea la info para realizar el pago</p>
+                     <!-- /PROGRESS ARC TITLE -->
+                    </div>
+                    <!-- /PROGRESS ARC INFO -->
+                  </div>
+                  <!-- /PROGRESS ARC WRAP -->
+        
+                  
+                  <!-- /FEATURED STAT TEXT -->
+                </div>
               <!-- /FEATURED STAT LIST -->
             </div>
             <!-- /PROFILE STATS INFO -->
@@ -527,6 +556,22 @@ if(($('#pistascentro').offset().top - fromTop)>500)
 $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
 
 $('#pistascentro').load('/pista/grupos?idUser={{ $userLogueado}}');
+
+}
+
+/*****
+FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
+***** */
+function CargarRegalosEnviados() {
+// si estoy en el mobile me muevo para abajo automaticamente
+var fromTop = $('#headerWeb').height();
+
+if(($('#pistascentro').offset().top - fromTop)>500)
+  $(window).scrollTop($('#pistascentro').offset().top - fromTop);
+
+$('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+
+$('#pistascentro').load('/pista/regalosenviados?idEmisor={{$userLogueado}}');
 
 }
 
