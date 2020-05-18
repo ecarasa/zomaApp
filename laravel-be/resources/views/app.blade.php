@@ -7,13 +7,13 @@
 
             <title>{{ config('app.name', 'TuAmigoFiel.com') }}</title>
             <meta charset="utf-8">
+            
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="css/styles.min.css">
-       
-            
-            <link rel="icon" href="img/favicon.ico">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
+            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
+            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
         </head>
     <body>
 
@@ -54,7 +54,7 @@
         <!-- /TAB SWITCH BUTTON -->
 
         <!-- TAB SWITCH BUTTON -->
-        <p class="tab-switch-button login-register-form-trigger">POR QUE SI, POR QUE NO ?</p>
+        <p style="display:none" class="tab-switch-button login-register-form-trigger">POR QUE SI, POR QUE NO ?</p>
         <!-- /TAB SWITCH BUTTON -->
       </div>
       <!-- /TAB SWITCH -->
@@ -76,6 +76,7 @@
               </div>
             </div>
           </div>
+          @if (!Auth::check())
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
@@ -84,6 +85,8 @@
               </div>
             </div>
           </div>
+          @endif
+
           <div class="form-row">
             <div class="form-item">
               <div class="form-input">
@@ -115,6 +118,16 @@
           </div>
           <div class="form-row">
             <div class="form-item">
+            <div class="page-loader-indicator loader-bars" style='display: none;'>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+    </div>
               <a href="javascript:crear();" class="button medium secondary" style="width: 100%;">CREAR</a>
             </div>
           </div>
@@ -124,125 +137,17 @@
     
       <!-- start.2do FORM -->
       <div class="form-box login-register-form-element">
-        <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration" src="img/landing/rocket.png" alt="rocket">
-        <!-- /FORM BOX DECORATION -->
-
-        <!-- FORM BOX TITLE -->
-        <h2 class="form-box-title">Create your Account!</h2>
-        <!-- /FORM BOX TITLE -->
-    
-        <!-- FORM -->
         <form class="form">
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-email">Your Email</label>
-                <input type="text" id="register-email" name="register_email">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-username">Username</label>
-                <input type="text" id="register-username" name="register_username">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-password">Password</label>
-                <input type="password" id="register-password" name="register_password">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-password-repeat">Repeat Password</label>
-                <input type="password" id="register-password-repeat" name="register_password_repeat">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- CHECKBOX WRAP -->
-              <div class="checkbox-wrap">
-                <input type="checkbox" id="register-newsletter" name="register_newsletter" checked>
-                <!-- CHECKBOX BOX -->
-                <div class="checkbox-box">
-                  <!-- ICON CROSS -->
-                  <svg class="icon-cross">
-                    <use xlink:href="#svg-cross"></use>
-                  </svg>
-                  <!-- /ICON CROSS -->
-                </div>
-                <!-- /CHECKBOX BOX -->
-                <label for="register-newsletter">Send me news and updates via email</label>
-              </div>
-              <!-- /CHECKBOX WRAP -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- BUTTON -->
-              <button class="button medium primary">Register Now!</button>
-              <!-- /BUTTON -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
         </form>
-        <!-- /FORM -->
-    
-        <!-- FORM TEXT -->
-        <p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account. If you have any problems, <a href="#">contact us</a>!</p>
-        <!-- /FORM TEXT -->
       </div>
       <!-- end.2do FORM -->
     </div>
   </div>
   
 
-<script src="js/app.bundle.min.js"></script>
+  <script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 <script>
     function crear() {
@@ -260,16 +165,18 @@
         contentType: false,
         beforeSend: function() {
             console.log("before send request");
+            $('.page-loader-indicator').show()
         }
         }).done(function(data) {
           
           console.log(data);
-          
+          $('.page-loader-indicator').hide()
           if (data.status == true){
-            // window.location.href = "grupo/" + data.codigo;
-            console.log("grupo/" + data.codigo);
+            alert('Grupo Creado');
+            window.location.href = "{{ env('APP_URL_PUERTO') }}/grupo/" + data.codigo;
+            //console.log("grupo/" + data.codigo);
           }else{
-            console.log(data);
+            alert('Hubo un error, intenta nuevamente')
           }
 
         });

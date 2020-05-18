@@ -3,6 +3,7 @@
 namespace App;
 use ParticipanteGrupos;
 use User;
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Grupos extends Model
@@ -23,16 +24,15 @@ class Grupos extends Model
 
     public function soyIntegrante($userID){
         //return $this->hasOne('App\ParticipanteGrupos', 'idUsuario', 'id');
-        $usuarios= $this->hasManyThrough(
-            'App\User',
-            'App\ParticipanteGrupos',
-            'codigoGrupo',
-            'id',
-            'codigo',
-            'idUsuario'
-        );
+
+        $usuarios = DB::table('grupos')
+        ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
+        ->join('users', 'users.id', '=', 'participante_grupos.idUsuario')
+        ->select('users.id')
+        ->get();
 
         foreach($usuarios as $usuario){
+            //dd($usuario);
             if ($usuario->id == $userID){
                 return true;
             }
