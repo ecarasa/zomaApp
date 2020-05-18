@@ -8,7 +8,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title"></h2>
+            <h2 class="section-title"><a href="">Crear Amigo Invisible</a></h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->

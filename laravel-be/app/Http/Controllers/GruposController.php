@@ -22,7 +22,7 @@ class GruposController extends Controller
      */
     public function index()
     {
-        //
+        return view('app');
     }
 
     /**
@@ -217,16 +217,6 @@ class GruposController extends Controller
         $grupo = Grupos::where('codigo', $request->grupo_regalo)->get();
         $regalo = Regalos::where('id', $request->idRegalo)->get();
         $amigo = User::where('id', $request->amigo_a_regalar)->get();
-<<<<<<< HEAD
-       
-        $tmp = new RegalosParticipantes();
-        $tmp->idUserEmisor = Auth::user()->id;
-        $tmp->idUserReceptor = $amigo->pluck('id');
-        $tmp->idRegalo = $regalo->pluck('id');
-        $tmp->idGrupo = $grupo->pluck('id');
-=======
-        
-
         
         $tmp = new RegalosParticipantes();
         $tmp->idUserEmisor =  Auth::user()->id;
@@ -235,7 +225,6 @@ class GruposController extends Controller
        $tmp->idRegalo = $regalo->get(0)->id;
        $tmp->idGrupo = $grupo->get(0)->id;
        $tmp->idPista = 0;
->>>>>>> e3964f40ee6b790617e3f85a6907d620205fb3fb
 
      if ($tmp->save()){
             return response()->json([

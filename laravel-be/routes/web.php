@@ -21,6 +21,7 @@ Route::get('/pista/what', 'PistasController@enviarw')->name('enviarw');
 Route::post('/pista/rp', 'PistasController@responder')->name('responder');
     
 //grupos
+Route::get('/grupos/crear', 'GruposController@index')->name('index');
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');

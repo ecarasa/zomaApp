@@ -390,7 +390,8 @@
           <li class="menu-main-item">
             <form method="post" action="/logout" id="salida">
               @csrf
-              <button class="btnbtn" type="submit">{{Auth::user()->name}} - {{Auth::user()->id}} - Salir</button>
+              <!--<button class="btnbtn" type="submit">{{Auth::user()->name}} - {{Auth::user()->id}} - Salir</button>-->
+              <button class="btnbtn" type="submit">Hola, {{Auth::user()->name}} - Salir</button>
             </form>
           </li>
 

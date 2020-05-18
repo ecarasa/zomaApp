@@ -124,9 +124,14 @@
         public function cuenta()
         {
                 
-                        $user = User::find(Auth::user()->id);
-                        return view('cuenta')->with(compact('user'));
-                
+    
+                if (Auth::check()){
+                $user = User::find(Auth::user()->id);
+                return view('cuenta')->with(compact('user'));
+                }else{
+                        return redirect()->route('login');
+
+                }           
         }
 
     }
