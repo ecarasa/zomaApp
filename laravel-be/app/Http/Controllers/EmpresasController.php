@@ -85,6 +85,13 @@ class EmpresasController extends Controller
 
     public function listarRegalosVendidos (Request $request) {
 
-        
+        $regalosenviados = DB::table('regalos_participantes as r')->where('r.idUserEmisor','like',$request->idEmisor)
+        ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
+        ->join('empresas as e', 'e.id', '=', 'r2.empresa')
+        ->join('users as u', 'u.id', '=', 'r.idUserReceptor')
+        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe','u.name as receptor','u.email as eReceptor')
+        ->orderby('r.id' ,'desc')
+        ->get();
+        return view('grid_regalosenviados')->with(compact('regalosenviados'));
     }
 }

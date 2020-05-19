@@ -383,7 +383,7 @@
                             <use xlink:href="#svg-plus-small"></use>
                         </svg>
                         <p class="sidebar-menu-header-title">Regalos Enviados</p>
-                        <p class="sidebar-menu-header-text">Chequea la info para realizar el pago</p>
+                        <p class="sidebar-menu-header-text">Chequea la info de los regalos que realizaste</p>
                      <!-- /PROGRESS ARC TITLE -->
                     </div>
                     <!-- /PROGRESS ARC INFO -->

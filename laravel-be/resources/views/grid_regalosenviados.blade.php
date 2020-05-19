@@ -41,7 +41,8 @@
               for cada mensaje mio   -->
               
               @foreach ($regalosenviados as $regalo)
-              <div class="chat-widget-message" id="{{$regalo->id}}" onclick="MostrarDetallesGrupo({{$regalo->id}});">
+              <div class="chat-widget-message" id="{{$regalo->id}}" onclick="MostrarDetallesGrupo({{$regalo->id}});" style="border-bottom-style: groove;
+    border-bottom-width: thin; border-bottom-color: #615dfa;">
                 <!-- USER STATUS -->
                 <div class="user-status">
                   <!-- USER STATUS AVATAR -->
@@ -134,32 +135,7 @@
             <!-- /CHAT WIDGET MESSAGES -->
         
             <!-- CHAT WIDGET FORM -->
-            <form class="chat-widget-form">
-              <!-- INTERACTIVE INPUT -->
-              <div class="interactive-input small">
-                <input type="text" id="chat-widget-search-2" name="chat_widget_search_2" placeholder="Search Messages...">
-                <!-- INTERACTIVE INPUT ICON WRAP -->
-                <div class="interactive-input-icon-wrap">
-                  <!-- INTERACTIVE INPUT ICON -->
-                  <svg class="interactive-input-icon icon-magnifying-glass">
-                    <use xlink:href="#svg-magnifying-glass"></use>
-                  </svg>
-                  <!-- /INTERACTIVE INPUT ICON -->
-                </div>
-                <!-- /INTERACTIVE INPUT ICON WRAP -->
-        
-                <!-- INTERACTIVE INPUT ACTION -->
-                <div class="interactive-input-action">
-                  <!-- INTERACTIVE INPUT ACTION ICON -->
-                  <svg class="interactive-input-action-icon icon-cross-thin">
-                    <use xlink:href="#svg-cross-thin"></use>
-                  </svg>
-                  <!-- /INTERACTIVE INPUT ACTION ICON -->
-                </div>
-                <!-- /INTERACTIVE INPUT ACTION -->
-              </div>
-              <!-- /INTERACTIVE INPUT -->
-            </form>
+            
             <!-- /CHAT WIDGET FORM -->
           </div>
           <!-- /CHAT WIDGET -->

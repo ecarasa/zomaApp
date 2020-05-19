@@ -7,7 +7,7 @@
             <use xlink:href="#svg-logo-vikinger"></use>
           </svg>
         </div>
-        <h1 class="header-brand-text">zomaApp</h1>
+        <h1 class="header-brand-text">CheAmigo</h1>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
           <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
             <!-- MENU MAIN ITEM LINK -->
-            <a class="menu-main-item-link" href="/store">cheRegalos</a>
+            <a class="menu-main-item-link" href="/store">CheRegalos</a>
             <!-- /MENU MAIN ITEM LINK -->
           </li>
           <!-- /MENU MAIN ITEM -->
@@ -49,7 +49,7 @@
           <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
             <!-- MENU MAIN ITEM LINK -->
-            <a class="menu-main-item-link" href="/pista">Amigo Invisible</a>
+            <a class="menu-main-item-link" href="/pista">CheAmigo Invisible</a>
             <!-- /MENU MAIN ITEM LINK -->
           </li>
           <!-- /MENU MAIN ITEM -->
