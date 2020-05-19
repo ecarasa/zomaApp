@@ -110,11 +110,12 @@
                   </div>
                   <!-- /FORM ITEM -->
                 </div>
-
-
                 <!-- /FORM ROW -->
                 <!-- /FORM ROW -->
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-primary">Editar
+
+                {{ $output }}
+                </button>
               </form>
               <!-- /FORM -->
             </div>

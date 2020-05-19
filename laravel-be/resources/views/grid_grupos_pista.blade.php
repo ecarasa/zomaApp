@@ -8,7 +8,9 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title"><a href="">Crear Amigo Invisible</a></h2>
+            <h2 class="section-title">
+            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary" href="/grupos/crear" target="_blank"><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
+            </h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -91,7 +93,9 @@
                         <!-- /USER AVATAR BADGE CONTENT -->
                   
                         <!-- USER AVATAR BADGE TEXT -->
-                        <p class="user-avatar-badge-text">6</p>
+                        <p class="user-avatar-badge-text">
+                        <div class="demo-box-icon-wrap"><svg class="icon-group demo-box-icon"><use xlink:href="#svg-group"></use></svg></div>
+                        </p>
                         <!-- /USER AVATAR BADGE TEXT -->
                       </div>
                       <!-- /USER AVATAR BADGE -->

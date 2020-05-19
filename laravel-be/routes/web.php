@@ -25,7 +25,7 @@ Route::get('/pista/regalosenviados', 'PistasController@regalosenviados')->name('
 Route::get('/grupos/crear', 'GruposController@index')->name('index');
 Route::post('/grupos/crear', 'GruposController@crear')->name('crear');
 Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
-Route::get('/grupo/sortear', 'GruposController@sortear')->name('sortear');
+Route::post('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 Route::post('/grupo/integrantes/{codigoGrupo}', 'GruposController@integrantes')->name('integrantes');
 Route::post('/grupo/regalar', 'GruposController@regalar')->name('regalar');
 
@@ -38,8 +38,8 @@ Route::get('/buy/{hash}/{CuponCode}/{estado}/success', 'RegalosController@succes
 Route::get('/buy/{hash}/{CuponCode}/{estado}/pendind', 'RegalosController@pending'); // estado 2
 
 // cuenta
-Route::get('/cuenta', 'UserController@cuenta');
-Route::post('/cuenta/edit', 'UserController@updateProfile');
+Route::get('/cuenta', 'UserController@cuenta')->name('cuenta');
+Route::post('/cuenta/edit', 'UserController@updateProfile')->name('editcuenta');
 
 //authenticacion
 Auth::routes();

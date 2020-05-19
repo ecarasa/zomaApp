@@ -530,9 +530,40 @@ $('#msjeDetalle').load('/pista/mensaje?idpista='+idpista);
 
 
 function Volver(from,to) {
-
   $(from).hide();
   $(to).fadeIn();
+}
+
+
+function sortear(idGrupo) {
+
+      var datos = new FormData();
+      datos.append("_token", $("input[name=_token]").val());
+      datos.append('idGrupo', idGrupo);
+
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/grupo/sortear",
+        type: "POST",
+        data: datos,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+          $('#msjeDetalle').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+          var fromTop = $('#fixed-header').height();
+          $(window).scrollTop($('#msjeDetalle').offset().top - fromTop)
+        }
+        }).done(function(data) {
+          if (data.status == true){
+            $('#msjeDetalle').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+            $('#msjeDetalle').load('/pista/grupodetalle?idgrupo='+idGrupo);
+          }else{
+            console.log(data);
+          }
+        });
+      //return false;
+
 }
 
 function MostrarDetallesGrupo(idgrupo) {
