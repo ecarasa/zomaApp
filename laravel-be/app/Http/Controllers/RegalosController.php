@@ -31,22 +31,30 @@ class RegalosController extends Controller
         }else{
             $grupos = null;
         }
-
-        return view('marketplace')->with(compact('regalos','categorias','grupos'));
+        $categoriaSelected = '';
+        return view('marketplace')->with(compact('regalos','categorias','grupos','categoriaSelected'));
     }
 
 
-    public function busquedaCategoria(Request $request, $nombreCateg){
+    public function busquedaCategoria(Request $request, $idCateg){
 
 
         // Todas para el header, pasar a cache desp.
         $categorias = Categorias::all();
 
-        
-        $categoriaSelected = Categorias::where('nombre', $nombreCateg)->first();
+        if (Auth::check()) {
+            $grupos = $users = DB::table('grupos')
+                    ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
+                    ->where('participante_grupos.idUsuario', '=', Auth::user()->id)
+                    ->select('grupos.codigo', 'grupos.nombre')
+                    ->get();
+        }else{
+            $grupos = null;
+        }
+        $categoriaSelected = Categorias::where('id', $idCateg)->first();
         if ($categoriaSelected){
             $regalos = Regalos::where('categoria', $categoriaSelected->id)->get();
-            return view('marketplace')->with(compact('regalos','categorias'));
+            return view('marketplace')->with(compact('regalos','categorias','grupos','categoriaSelected'));
         }else{
             return response(404);
         }

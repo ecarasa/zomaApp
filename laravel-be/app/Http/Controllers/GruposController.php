@@ -51,12 +51,15 @@ class GruposController extends Controller
             foreach ($participantes as $participante){
                 $randIndex = $this->selRandomFromArray($participantesTemp, $participante->mail);
                 $amigoInvDelEach = $participantesTemp[$randIndex]; 
-                echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
+                //echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
                 $pivotTable = ParticipanteGrupos::where('idUsuario', $participante->id)->where('codigoGrupo',$grupo->codigo)->first();
                 $pivotTable->idUserAmigoInvible = $amigoInvDelEach['id'];
                 $pivotTable->save();
                 unset($participantesTemp[$randIndex]);
             }
+            $output = array("status"=>true);
+            return response()->json($output);
+
         }
     }
 

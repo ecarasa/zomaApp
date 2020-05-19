@@ -9,10 +9,10 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="css/styles.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
             <link rel="icon" href="img/favicon.ico">
-            <link rel="stylesheet" href="css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/bootstrap.min.css">
         </head>
     <body>
 
@@ -126,7 +126,7 @@
     <div class="grid  mobile-prefer-content" style="  grid-template-columns: auto auto auto auto ;grid-template-rows: auto;">
       @foreach ($categorias as $categoria)
         <div class="grid  centered" >
-          <a class="product-category-box category-all" href="/store/categoria/{{$categoria->nombre}}"     
+          <a class="product-category-box category-all" href="/store/categoria/{{$categoria->id}}"     
           style="background-image: url({{$categoria->imagen}});background-size: cover;">
               <p class="product-category-box-title">{{$categoria->nombre}}</p>
               <p class="product-category-box-text"></p>
@@ -146,7 +146,7 @@
         <!-- /SECTION PRETITLE -->
   
         <!-- SECTION TITLE -->
-        <h2 class="section-title">Vouchers</h2>
+        <h2 class="section-title">Vouchers {{ isset($categoriaSelected->nombre) ? $categoriaSelected->nombre : 'Todos'}}{{ ' tenemos ' . count($regalos) }}</h2>
         <!-- /SECTION TITLE -->
       </div>
     </div>
@@ -334,9 +334,9 @@
   </div>
 </div>
 <!-- app -->
-<script src="js/app.bundle.min.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+ <script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
 
  @if (Auth::check())
 
