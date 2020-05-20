@@ -41,7 +41,7 @@
               for cada mensaje mio   -->
               
               @foreach ($regalosenviados as $regalo)
-              <div class="chat-widget-message" id="{{$regalo->id}}" onclick="MostrarDetallesGrupo({{$regalo->id}});" style="border-bottom-style: groove;
+              <div class="chat-widget-message" id="{{$regalo->id}}" onclick="" style="border-bottom-style: groove;
     border-bottom-width: thin; border-bottom-color: #615dfa;">
                 <!-- USER STATUS -->
                 <div class="user-status">
@@ -102,7 +102,7 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title" class="accordion-trigger-linked"><span class="bold" readonly> Nombre: {{$regalo->nombre}}</span></p>
+                  <p class="user-status-title" class="accordion-trigger-linked"><span class="bold" readonly> Nombre: {{$regalo->nombre}} - Contacto : {{$regalo->telefono}} </span></p>
                   <p class="user-status-title ">CheAmigo:{{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->

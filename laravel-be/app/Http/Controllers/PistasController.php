@@ -80,7 +80,7 @@ $message = $twilio->messages
         ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
         ->join('empresas as e', 'e.id', '=', 'r2.empresa')
         ->join('users as u', 'u.id', '=', 'r.idUserReceptor')
-        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe','u.name as receptor','u.email as eReceptor')
+        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe','u.name as receptor','u.email as eReceptor','e.telefono')
         ->orderby('r.id' ,'desc')
         ->get();
         return view('grid_regalosenviados')->with(compact('regalosenviados'));
@@ -92,7 +92,7 @@ $message = $twilio->messages
         $datosEmp = DB::table('regalos_participantes as r')->where('r.id','like',$request->idregalo)
         ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
         ->join('empresas as e', 'e.id', '=', 'r2.empresa')
-        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe')->get();
+        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe','e.telefono')->get();
         return view('modaldinamico_regalopista')->with(compact('datosEmp'));
 
     }
@@ -172,7 +172,7 @@ $message = $twilio->messages
         $regalos= DB::table('regalos_participantes as r')->where('r.id','like',$request->idregalo)
                      ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
                      ->join('empresas as e', 'e.id', '=', 'r2.empresa')
-                       ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa')->get();
+                       ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa', 'e.telefono')->get();
         return view('grid_mensajeregalo')->with(compact('regalos'));
       
     }

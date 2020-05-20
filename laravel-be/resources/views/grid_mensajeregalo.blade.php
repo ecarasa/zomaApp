@@ -27,7 +27,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                              <h5 class="modal-title" style="width: 100%;">Canjea tu regalo llamando o via Whastapp  al nro .NROCEL FALTANTE.  </h5>
+                              <h5 class="modal-title" style="width: 100%;">Canjea tu regalo llamando o via Whastapp  al nro {{$regalo->telefono}}  </h5>
                               </div>
                               
                               <div class="modal-body">

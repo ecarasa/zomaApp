@@ -89,7 +89,7 @@
 
           <div class="form-row">
             <div class="form-item">
-              <div class="form-input">
+              <div class="form-input active">
                 <label for="login-password">Cuando Termina ?</label>
                 <input type="date" id="fechaFin"  class="dateInput" name="fechaFin" autocomplete="off">
               </div>

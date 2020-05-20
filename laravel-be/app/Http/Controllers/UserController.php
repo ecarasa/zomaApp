@@ -111,7 +111,7 @@
                 
                         $user->name = $request->nya;
                         $user->email= $request->email;
-                        $user->telefono= $request->tel;
+                        $user->telefono= $request->phone;
                         $user->json= $request->nick;
                         $user->save();
                         $output = "<h1>Actualizado correctamente.</h1>";
@@ -127,7 +127,7 @@
                 if (Auth::check()){
                 $user = User::find(Auth::user()->id);
                 $output ='';
-                return view('cuenta')->with(compact('user','output'));
+                return view('cuenta2')->with(compact('user','output'));
                 }else{
                         return redirect()->route('login');
                 }           
