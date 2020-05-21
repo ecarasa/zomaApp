@@ -69,7 +69,7 @@
 
           <div class="form-row">
             <div class="form-item">
-              <div class="form-input">
+              <div class="form-input active">
                 <label for="login-password">Email</label>
                 <input type="text" id="email"  name="email" autocomplete="off">
               </div>
@@ -77,7 +77,7 @@
           </div>
           <div class="form-row">
             <div class="form-item">
-              <div class="form-input">
+              <div class="form-input active">
                 <label for="login-password">Contraseña</label>
                 <input type="password" id="password" class="dateInput" name="password" autocomplete="off">
               </div>
@@ -110,7 +110,7 @@
             <!-- FORM ITEM -->
             <div class="form-item">
               <!-- FORM INPUT -->
-              <div class="form-input">
+              <div class="form-input active">
                 <label for="register-email">Your Email</label>
                 <input type="text" id="register-email" name="register_email">
               </div>
