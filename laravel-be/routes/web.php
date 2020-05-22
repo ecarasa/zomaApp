@@ -1,8 +1,8 @@
 <?php
 
 // home
-Route::get('/', 'RegalosController@index');
-Route::get('/home', 'HomeController@index');
+//Route::get('/', 'RegalosController@index');
+Route::get('/', 'HomeController@index');
 
 // bases y condiciones
 Route::get('/basesycond', 'HomeController@show');
