@@ -31,6 +31,7 @@ Route::post('/grupo/integrantes/{codigoGrupo}', 'GruposController@integrantes')-
 Route::post('/grupo/regalar', 'GruposController@regalar')->name('regalar');
 Route::post('/grupo/cambiarestado/2', 'GruposController@iniciar')->name('iniciar');
 Route::post('/grupo/cambiarestado/3', 'GruposController@finalizar')->name('finalizar');
+Route::get('/grupo/testsql/t', 'GruposController@testsql')->name('testsql');
 Route::post('/grupo/terminar', 'GruposController@terminar')->name('terminar');
 Route::post('/grupo/agregarparticipante', 'GruposController@agregarParticipante')->name('agregarParticipante');
 

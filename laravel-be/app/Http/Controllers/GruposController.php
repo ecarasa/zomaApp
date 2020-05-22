@@ -30,12 +30,29 @@ class GruposController extends Controller
     {
         return view('admingrupocrear');
     }
+    public function testsql() {
+        $grupo = Grupos::where('id', 38)->first();
+         $datos=$grupo->checkgrupoAmigos(38);
+         $participantes=ParticipanteGrupos::where('codigogrupo','22972')->get();
+         return view('testsql')->with(compact('datos','participantes'));
+    }
 
     /**
      * funcion que cambia el estado de un grupo - 1 para iniciado - 2 para terminado
      */
     public function CambiarEstadoGrupo($estado,$idgrupo) {
+        
         $grupo = Grupos::where('id', $idgrupo)->first();
+       
+        // si la operacion es 2 debo verificar antes de iniciar el juego que todos tengan un amigo invisible asignado
+        if($estado==2) {
+            $tienentodosamigo=$grupo->checkgrupoAmigos($idgrupo);
+            if ($tienentodosamigo>0){
+                return false;
+                
+            }
+        }
+
         $grupo->estado = $estado;
         if($grupo->save())
             return true;

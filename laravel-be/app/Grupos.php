@@ -24,6 +24,19 @@ class Grupos extends Model
         );
     }
 
+    /* valido si todos tienen amigos */
+    public function checkgrupoAmigos($idgrupo) {
+        $amigos =   DB::table(DB::RAW('participante_grupos AS G,grupos AS gr')) 
+                    -> whereraw('gr.id='.$idgrupo.' and idUserAmigoInvible=0 and gr.id=G.id')
+                   
+                    ->select(DB::RAW('COUNT(G.id) as cant'))->get();
+                    foreach($amigos as $amigo){
+                        //dd($usuario);
+                       return $amigo->cant;
+                    }
+
+    }
+
     /* valido si existe el usuario */
     public function existeEmail ($email) {
 
