@@ -24,6 +24,9 @@
             height: 165px!important;
             position: relative;
         }
+        .section {
+    padding: 50px 0 50px!important;
+}
         </style>
   <!-- NAVIGATION WRAP -->
   <div class="navigation-wrap">
@@ -38,9 +41,10 @@
       <!-- /LOGO -->
 
 
-      <!-- BUTTON -->
-      <a class="button small primary" href="#" target="_blank">Crear Cuenta</a>
-      <!-- /BUTTON -->
+      <div>
+      <a class="button small primary" href="/register" target="_blank">Crear Cuenta</a>
+      <a class="button small primary" href="/login" target="_blank">Ingresar</a>
+    </div>
     </nav>
     <!-- /NAVIGATION -->
   </div>
@@ -204,7 +208,9 @@
       <div class="section-info">
         
         <h2 class="section-title">
-       <a href="/grupos/crear"> >>     A JUGAR!</a>
+            <img src="{{ env('APP_URL_PUERTO') }}/img/face.png">
+            <br>
+            <a class="button" href="/grupos/crear" style="width: 40%;">A JUGAR!</a>
         </h2>
 
       </div>
