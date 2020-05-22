@@ -215,6 +215,7 @@ $message = $twilio->messages
                     ->leftjoin('users', 'pg.idUserAmigoInvible', '=', 'users.id')
                     ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
                     ->select('g.id','g.nombre as codigoGrupo','pg.idUserAmigoInvible',DB::raw('coalesce(users.email,"Sin Asignar Che, comunicate con el Admin del grupo para que haga el sorteo y comiencen a jugar") as email'),'g.fechaFin'  )                    
+                    ->orderBy('id', 'DESC')
                     ->get();
 
         //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();
@@ -225,7 +226,10 @@ $message = $twilio->messages
 
     public function grupodetalle(request $request )
     { 
-            
+        $userLogueado=0;
+        if (Auth::id()>0)
+            $userLogueado=Auth::id(); 
+        
         $idgrupo=$request->idgrupo;
         $grupos =  DB::table('participante_grupos as pg')->where('g.id','like',$idgrupo)
                     ->join('users as u', 'pg.idUsuario', '=', 'u.id')
@@ -238,12 +242,14 @@ $message = $twilio->messages
                             'u.telefono as usuarioT',
                             'g.fechaFin',
                             'g.codigo',
+                            'g.estado',
                             DB::raw( '(CASE WHEN u.id = g.idUsuarioAdmin THEN \'Admin\' ELSE \'Participante\' END) AS rol')
+                            
                     )
                     ->get();
         $gruposdato =  DB::table('grupos')->where('grupos.id','like',$idgrupo)
                     
-                    ->select('grupos.*')
+                    ->select('grupos.*',DB::RAW($userLogueado.' as userlogueado'))
                     ->get();
 
         //$users = DB::table('users')->where('id','like',$userLogueado)->select('name as nombre','email')->get();

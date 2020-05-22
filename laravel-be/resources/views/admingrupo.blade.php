@@ -3,7 +3,7 @@
     <div class="widget-box login-register-form-element">
         
         
-        <form class="form" id="formJuego" action="/grupos/crear" method="post">
+        <form class="form" id="addParticipanteForm" action="" method="post">
         
         @csrf
 
@@ -73,7 +73,7 @@
 
     function addParticipante() {
 
-        var fd = new FormData(document.getElementById('formJuego'));
+        var fd = new FormData(document.getElementById('addParticipanteForm'));
         fd.append("_token", $("input[name=_token]").val());
         fd.append("codgrupo",{{$grupo->codigo}});
 
@@ -95,7 +95,7 @@
           $('.page-loader-indicator').hide()
           if (data.status == true){
             alert('Participante Agregado!');
-            document.getElementById('formJuego').reset();
+            document.getElementById('addParticipanteForm').reset();
            
             $('#msjeDetalle').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
             $('#msjeDetalle').load('/pista/grupodetalle?idgrupo='+data.idgrupo);

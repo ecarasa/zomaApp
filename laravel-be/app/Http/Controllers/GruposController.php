@@ -31,6 +31,44 @@ class GruposController extends Controller
         return view('admingrupocrear');
     }
 
+    /**
+     * funcion que cambia el estado de un grupo - 1 para iniciado - 2 para terminado
+     */
+    public function CambiarEstadoGrupo($estado,$idgrupo) {
+        $grupo = Grupos::where('id', $idgrupo)->first();
+        $grupo->estado = $estado;
+        if($grupo->save())
+            return true;
+        
+            return false;
+
+    }
+
+    /**
+     * Marco como terminado un grupo  
+     */
+    public function finalizar(request $request){
+        $pudecerrar=GruposController::CambiarEstadoGrupo(3,$request->idgrupo); // lo paso a iniciado
+        if (!$pudecerrar) 
+                $output = array("status"=>false, "msj"=>"No se pudo cerrar el grupo");
+        else 
+                $output = array("status"=>true, "msj"=>"Grupo Terminado","idgrupo"=>$request->idgrupo,"fechafin"=>"sin definir");
+        return response()->json($output);
+    }
+
+
+    /**
+     * Marco como iniciado un grupo iniciado = 1 ; para terminar es iniciado =2
+     */
+    public function iniciar(request $request){
+        $pudeiniciar=GruposController::CambiarEstadoGrupo(2,$request->idgrupo); // lo paso a iniciado
+        if (!$pudeiniciar) 
+                $output = array("status"=>false, "msj"=>"No se pudo iniciar el grupo");
+        else 
+                $output = array("status"=>true, "msj"=>"Grupo Iniciado","idgrupo"=>$request->idgrupo,"fechafin"=>"sin definir");
+        return response()->json($output);
+    }
+
      /**
      * Display a listing of the resource.
      *
@@ -43,10 +81,11 @@ class GruposController extends Controller
     /* si no existe el usuario lo doy de alta */   
     if ($participanteId==0){
                 $user = User::create([
-                        'name' => $request->nombreusuario,
+                        'name' => $request->nombreusuario, 
                         'email' => $request->email,
                         'password' => Hash::make('1234'),
-                        'telefono'=> $request->telefono
+                        'telefono'=> $request->telefono,
+                        'forzarcambioclave'=>99 // como es un invitado y la cuenta no existia le voy a pedir clave nueva con captha=codigo grupo
                 ]);
                 $participanteId=$user->id;
         }
@@ -101,11 +140,18 @@ class GruposController extends Controller
                 //echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
                 $pivotTable = ParticipanteGrupos::where('idUsuario', $participante->id)->where('codigoGrupo',$grupo->codigo)->first();
                 $pivotTable->idUserAmigoInvible = $amigoInvDelEach['id'];
-                $pivotTable->save();
+                if(!$pivotTable->save())
+                    $output = array("status"=>false,"msj"=>"Error al sortear");
                 unset($participantesTemp[$randIndex]);
             }
-            $output = array("status"=>true);
-            return response()->json($output);
+            /* lo dejo en estado sorteado */
+            $pudesortear=GruposController::CambiarEstadoGrupo(1,$request->idGrupo);
+            if ($pudesortear)
+                $output = array("status"=>true);
+            else
+                $output = array("status"=>false,"msj"=>"Error al cambiar estado de grupo realice el sorte nuevamente.");
+            
+                return response()->json($output);
 
         }
     }
@@ -162,10 +208,11 @@ class GruposController extends Controller
 
             $grupo = new Grupos();
             $grupo->nombre = $request->nombreGrupo;
-            $grupo->estado = 1; //activo ?
+            $grupo->estado = 0; // 0 creado 1 sorteado 2 iniciado  3 terminado
             $grupo->fechaFin = $request->fechaFin;
             $grupo->maxDinero = $request->maxDinero;
             $grupo->idUsuarioAdmin = $idUsuarioCreador;
+            $grupo->iniciado = 0;
             // falta hacer logica para cheaquear que no exista 
             // ya en la Db el codigo recien generado
             $grupo->codigo = rand(10000,99999);

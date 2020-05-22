@@ -129,35 +129,53 @@
           <!-- /TAG STICKER ICON -->
         </div>
         <!-- /TAG STICKER -->
-
-        
         <div class="profile-header-info-actions">
-        <a class="profile-header-info-action button" href="javascript:sortear(@foreach ($gruposdato as $dato){{$dato->id}}@endforeach);" alt="Sortear amigo invisible">
-            Sortear
-          </a>
-          <a class="profile-header-info-action button" href="#" onclick="irAgregarParticipante( @foreach ($gruposdato as $dato){{$dato->codigo}}@endforeach)" alt="">
-          + Participante
-          </a>
-          
-          <a class="profile-header-info-action button" href="#" onclick="Volver('#msjeDetalle','#msjesCabecera')" alt="Volver">
-          Volver
-          </a>
-        </div>
+        <a class="profile-header-info-action button" href="#" onclick="Volver('#msjeDetalle','#msjesCabecera')" alt="Volver"> Volver</a> 
+        </div> 
+        
         
       </div>
       <!-- /PROFILE HEADER INFO -->
     </div>
-
-
-
-
-
-              
-
-
-                <div class="featured-stat-list" style="margin-top: 20px;">
-                  <div class="featured-stat">
-                    <!-- USER STATUS -->
+   <div class="featured-stat-list" style="margin-top: 20px;">
+      <div class="featured-stat">
+        @if ($dato->idUsuarioAdmin==$dato->userlogueado)
+        <div class="profile-header-info-actions">
+        @foreach ($gruposdato as $dato)
+        
+        @if( $dato->estado<2 ) 
+           <a class="profile-header-info-action button" href="javascript:sortear('{{$dato->id}}');" alt="Sortear amigo invisible">
+           &nbsp;&nbsp; Sortear &nbsp;&nbsp;
+          </a>
+       
+          
+          <a class="profile-header-info-action button" href="#" onclick="irAgregarParticipante('{{$dato->codigo}}')" alt="">
+          &nbsp;&nbsp; Agregar Participante &nbsp;&nbsp;
+          </a>
+          @endif
+          @if($dato->estado==1)
+           <a class="profile-header-info-action button" href="javascript:CambiarEGrupo( 2, '{{$dato->id}}');" alt="Iniciar Juego ">
+            Iniciar
+          </a>
+          
+        @endif
+        @if($dato->estado==2)
+        </a>
+           <a class="profile-header-info-action button" href="javascript:CambiarEGrupo(3, '{{$dato->id}}');" alt="Terminar Juego ">
+           &nbsp;&nbsp; Terminar y Ver Resultados &nbsp;&nbsp;&nbsp;
+          </a>
+        @endif
+        @if($dato->estado==3)
+        </a>
+           <a class="profile-header-info-action button" href="" alt="Juego ">
+           &nbsp;&nbsp;Juego finalizado&nbsp;&nbsp;
+          </a>
+          @endif
+        @endforeach
+          
+        </div>
+        @endif
+            <!-- USER STATUS -->
                     <span class="bold">Participantes</span>
                     <div class="grid grid-1 centered" style="margin-top: 20px;">
                     @foreach ($grupos as $grupo)
@@ -183,34 +201,6 @@
                     </div>
                   </div>
                 </div>    
-
-
-        
-            <!-- CHAT WIDGET CONVERSATION
-            <div class="chat-widget-conversation" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -35px -28px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 35px 28px;">
-              
-              <div class="chat-widget-speaker left">
-                
-                <div class="chat-widget-speaker-avatar">
-                
-                  <div class="user-avatar tiny no-border">
-                
-                    <div class="user-avatar-content">
-                
-                      <div class="hexagon-image-24-26" data-src="img/avatar/03.jpg" style="width: 24px; height: 26px; position: relative;"><canvas width="24" height="26" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                
-                    </div>
-                
-                  </div>
-                
-                </div>
-                
-        
-              
-              
-              
-            </div>
-            -->
         </div>
         
 

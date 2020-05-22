@@ -4,6 +4,8 @@ namespace App;
 use ParticipanteGrupos;
 use User;
 use DB;
+
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -38,6 +40,7 @@ class Grupos extends Model
 
     }
 
+    
    
 
     public function soyIntegranteAdmin($userID,$codgrupo){

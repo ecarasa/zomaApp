@@ -8,9 +8,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">
-            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary" href="/grupos/crear" target="_blank"><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
-            </h2>
+            
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->

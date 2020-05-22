@@ -188,8 +188,7 @@
           <!-- /PROFILE STATS -->
      </div>
     <!-- / grid izquierdo -->
-    <!--grid centro -->
-    
+    <!--grid centro -->    
     @include ('cuenta')
      <!--grid centro -->
 

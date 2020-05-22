@@ -38,7 +38,7 @@
       <!-- /LANDING INFO PRETITLE -->
 
       <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">AMIGO FIEL</h1>
+      <h1 class="landing-info-title">CHEAMIGO</h1>
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
@@ -70,14 +70,14 @@
           <div class="form-row">
             <div class="form-item">
               <div class="form-input active">
-                <label for="login-password">Email</label>
+                <label for="login-email">Email</label>
                 <input type="text" id="email"  name="email" autocomplete="off">
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-item">
-              <div class="form-input active">
+              <div class="form-input ">
                 <label for="login-password">Contraseña</label>
                 <input type="password" id="password" class="dateInput" name="password" autocomplete="off">
               </div>
@@ -216,6 +216,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
+$("input").focus();
     function login() {
 
         var fd = new FormData(document.getElementById('formJuego'));

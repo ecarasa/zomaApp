@@ -1,6 +1,4 @@
-
-
-  <div class="account-hub-content" style="padding: 30px;">
+<div class="account-hub-content" style="padding: 30px;">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->

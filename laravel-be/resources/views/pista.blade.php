@@ -676,6 +676,7 @@ function irCrearGrupo() {
   $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
   $('#pistascentro').load('/pista/creargrupo');
 }
+
 function irAgregarParticipante(codgrupo){
             $("#modalDinamicoDiv").html("Cargando...");
             $("#modalDinamicoDiv").load('/grupo/'+codgrupo);
@@ -688,11 +689,51 @@ FUNCION PARA CREAR GRUPO
 ***** */
 function crearGrupo() {
 
-var fd = new FormData(document.getElementById('formJuego'));
+var fd = new FormData(document.getElementById('formCrearGrupo'));
 fd.append("_token", $("input[name=_token]").val());
 
 $.ajax({
 url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+type: "POST",
+data: fd,
+dataType: 'json',
+enctype: 'multipart/form-data',
+processData: false,
+contentType: false,
+beforeSend: function() {
+    console.log("before send request");
+    $('.page-loader-indicator').show();
+}
+}).done(function(data) {
+  
+  console.log(data);
+  $('.page-loader-indicator').hide();
+  if (data.status == true){
+    alert('Grupo Creado'); 
+    MostrarDetallesGrupo(data.idgrupo);
+    //console.log("grupo/" + data.codigo);
+  }else{
+    alert('Hubo un error, intenta nuevamente')
+  }
+
+});
+}
+
+function SendWebWths(numerowts,codgrupo,emailU) {
+
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
+
+}
+
+function CambiarEGrupo(op,idgrupo) {
+
+
+var fd = new FormData();
+fd.append("_token", $("input[name=_token]").val());
+fd.append("idgrupo", idgrupo);
+
+$.ajax({
+url: "{{ env('APP_URL_PUERTO') }}/grupo/cambiarestado/"+op,
 type: "POST",
 data: fd,
 dataType: 'json',
@@ -708,7 +749,7 @@ beforeSend: function() {
   console.log(data);
   $('.page-loader-indicator').hide()
   if (data.status == true){
-    alert('Grupo Creado');
+    alert('Has iniciado el Juego. Ya pueden empezar a jugar y tienen tiempo hasta '+data.fechafin+' para adivinar. Podés publicar los resultados cuando gustes haciendo click en Terminar');
     MostrarDetallesGrupo(data.idgrupo);
     //console.log("grupo/" + data.codigo);
   }else{
@@ -716,12 +757,6 @@ beforeSend: function() {
   }
 
 });
-}
-
-function SendWebWths(numerowts,codgrupo,emailU) {
-
- window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
-
 }
 
 
