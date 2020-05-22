@@ -13,6 +13,7 @@ Route::post('/pista/crear', 'PistasController@register')->name('register');
 Route::get('/pista/enviados', 'PistasController@enviados')->name('enviados');
 Route::get('/pista/recibidos', 'PistasController@recibidos')->name('recibidos');
 Route::get('/pista/grupos', 'PistasController@grupos')->name('grupos');
+Route::get('/pista/creargrupo', 'GruposController@mostrardesdepista')->name('mostrardesdepista');
 Route::get('/pista/mensaje', 'PistasController@mensaje')->name('mensaje');
 Route::get('/pista/mensaje/regalo', 'PistasController@mensajeregalo')->name('mensajeregalo');
 Route::get('/pista/mensaje/regalo/modal', 'PistasController@modaldinamico')->name('modaldinamico');   
@@ -28,6 +29,7 @@ Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
 Route::post('/grupo/sortear', 'GruposController@sortear')->name('sortear');
 Route::post('/grupo/integrantes/{codigoGrupo}', 'GruposController@integrantes')->name('integrantes');
 Route::post('/grupo/regalar', 'GruposController@regalar')->name('regalar');
+Route::post('/grupo/agregarparticipante', 'GruposController@agregarParticipante')->name('agregarParticipante');
 
 //marketplace
 Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');

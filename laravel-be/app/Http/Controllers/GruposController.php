@@ -12,6 +12,7 @@ use DB;
 use Auth;
 use Debugbar;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class GruposController extends Controller
 {
@@ -23,6 +24,52 @@ class GruposController extends Controller
     public function index()
     {
         return view('app');
+    }
+
+    public function mostrardesdepista()
+    {
+        return view('admingrupocrear');
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function agregarParticipante(request $request)   
+    {
+    $gruposfns= Grupos::where('codigo', $request->codgrupo)->first();
+    $participanteId=$gruposfns->existeEmail($request->email,$request->codgrupo);
+    /* si no existe el usuario lo doy de alta */   
+    if ($participanteId==0){
+                $user = User::create([
+                        'name' => $request->nombreusuario,
+                        'email' => $request->email,
+                        'password' => Hash::make('1234'),
+                        'telefono'=> $request->telefono
+                ]);
+                $participanteId=$user->id;
+        }
+        
+        /* chekeo que el idusuario no exista en este grupo */
+        if ($gruposfns->soyIntegrante($participanteId,$request->codgrupo)) {
+            /* salgo y aviso */
+            $output = array("status"=>false, "msj"=>"Este participante ya existe en este Grupo");
+              return response()->json($output);
+        }
+        
+
+        /* asociarlo al grupo */
+        $participante = new ParticipanteGrupos();
+        $participante->idUsuario = $participanteId;
+        $participante->codigoGrupo = $request->codgrupo;
+        $participante->idUserAmigoInvible=0;
+        $participante->idregalo=0;
+
+        if ($participante->save()){
+            $output = array("status"=>true, "msj"=>"Participante agregado","idgrupo"=>$gruposfns->id);
+            return response()->json($output);
+        }
     }
 
     /**
@@ -125,7 +172,8 @@ class GruposController extends Controller
             
             if ($grupo->save()){
 
-                $output = array("status"=>true,"msj"=>"Perfecto, grupo creado. Ahora invita a tus amigos.", "codigo"=>$grupo->codigo );
+                $output = array("status"=>true,"msj"=>"Perfecto, grupo creado. Ahora invita a tus amigos.",
+                 "codigo"=>$grupo->codigo,"idgrupo"=>$grupo->id );
 
                 $tmp = new ParticipanteGrupos();
 
@@ -164,14 +212,13 @@ class GruposController extends Controller
         
         //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
         $grupo = Grupos::where('codigo', $codigoGrupo)->first();
-        
-        if ($grupo->soyIntegrante(Auth::user()->id)){
-            echo 'ok soy';
-        }else{
-            echo 'tomatelas';
-        }
-
-        return $grupo;
+        if(!empty($grupo))
+            if ($grupo->soyIntegranteAdmin(Auth::user()->id,$codigoGrupo)){
+                return view('admingrupo')->with(compact('grupo'));
+             }else{
+                return view('app');
+            }
+         
 
     }
 

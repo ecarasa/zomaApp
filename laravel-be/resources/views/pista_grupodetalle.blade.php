@@ -135,6 +135,9 @@
         <a class="profile-header-info-action button" href="javascript:sortear(@foreach ($gruposdato as $dato){{$dato->id}}@endforeach);" alt="Sortear amigo invisible">
             Sortear
           </a>
+          <a class="profile-header-info-action button" href="#" onclick="irAgregarParticipante( @foreach ($gruposdato as $dato){{$dato->codigo}}@endforeach)" alt="">
+          + Participante
+          </a>
           
           <a class="profile-header-info-action button" href="#" onclick="Volver('#msjeDetalle','#msjesCabecera')" alt="Volver">
           Volver
@@ -162,8 +165,14 @@
                       <div class="earning-stat-box">
                         <div class="earning-stat-box-info">
                           <div class="earning-stat-box-icon-wrap stat-item">
-                          <svg class="icon-friend demo-box-icon"><use xlink:href="#svg-friend"></use></svg>
+                          <svg class="icon-friend demo-box-icon"><use xlink:href="#svg-friend"></use></svg>                          
                           </div>
+                          <div class="earning-stat-box-icon-wrap " style="left:100%" >
+                          <img width="100%" src="https://img.icons8.com/clouds/2x/whatsapp.png" onclick="SendWebWths( '{{$grupo->usuarioT}}','{{$grupo->codigo}}','{{$grupo->usuario}}' )"> </img>                         
+                          </div>
+                          
+                           
+
                           <p class="earning-stat-box-title">{{$grupo->usuarioN}}: {{$grupo->usuario}}</p>
                           <p class="featured-stat-text user-status-tag @if ($grupo->rol=='Admin') {{ 'online' }} @endif">
                             <span class="bold">{{$grupo->rol}}</span>

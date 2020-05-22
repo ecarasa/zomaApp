@@ -135,7 +135,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                              <h5 class="modal-title" style="width: 100%;">Finaliza la compra de tu regalo llamando o via Whastapp</h5>
+                              <h5 class="modal-title" style="width: 100%;"></h5>
                               </div>
                               <div class="modal-body" id="modalDinamicoDiv">
                                <p> cargando...</p>
@@ -155,6 +155,11 @@
                   </svg>
       </div>
     </div>
+
+    <h2 class="section-title">
+            Empezá a jugar al amigo invisible 100% online con muchos premios pistas y descuentos regalos ahora!
+            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
+    </h2>
     <!-- /SECTION BANNER -->
 
    
@@ -658,6 +663,67 @@ $(divamostrar).fadeIn();
 
 
 }
+/*****
+FUNCION PARA CARGAR DIV PHP DE CREAR GRUPO
+***** */
+function irCrearGrupo() {
+  // si estoy en el mobile me muevo para abajo automaticamente
+  var fromTop = $('#headerWeb').height();
+ 
+  if(($('#pistascentro').offset().top - fromTop)>500)
+    $(window).scrollTop($('#pistascentro').offset().top - fromTop);
+
+  $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+  $('#pistascentro').load('/pista/creargrupo');
+}
+function irAgregarParticipante(codgrupo){
+            $("#modalDinamicoDiv").html("Cargando...");
+            $("#modalDinamicoDiv").load('/grupo/'+codgrupo);
+            $("#MD").appendTo("body").modal('show');
+            
+  //          $('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+}
+/*****
+FUNCION PARA CREAR GRUPO 
+***** */
+function crearGrupo() {
+
+var fd = new FormData(document.getElementById('formJuego'));
+fd.append("_token", $("input[name=_token]").val());
+
+$.ajax({
+url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+type: "POST",
+data: fd,
+dataType: 'json',
+enctype: 'multipart/form-data',
+processData: false,
+contentType: false,
+beforeSend: function() {
+    console.log("before send request");
+    $('.page-loader-indicator').show()
+}
+}).done(function(data) {
+  
+  console.log(data);
+  $('.page-loader-indicator').hide()
+  if (data.status == true){
+    alert('Grupo Creado');
+    MostrarDetallesGrupo(data.idgrupo);
+    //console.log("grupo/" + data.codigo);
+  }else{
+    alert('Hubo un error, intenta nuevamente')
+  }
+
+});
+}
+
+function SendWebWths(numerowts,codgrupo,emailU) {
+
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
+
+}
+
 
 </script>
 </body>

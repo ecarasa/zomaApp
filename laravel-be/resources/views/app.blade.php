@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'TuAmigoFiel.com') }}</title>
+            <title>{{ config('app.name', 'cheamigo.com.ar') }}</title>
             <meta charset="utf-8">
             
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,26 +25,18 @@
 
     <!-- LANDING INFO -->
     <div class="landing-info">
-      <!-- LOGO -->
-      <div class="logo">
-        <!-- ICON LOGO VIKINGER -->
-        <svg class="icon-logo-vikinger">
-          <use xlink:href="#svg-logo-vikinger"></use>
-        </svg>
-        <!-- /ICON LOGO VIKINGER -->
-      </div>
-      <!-- /LOGO -->
-
+  
       <!-- LANDING INFO PRETITLE -->
-      <h2 class="landing-info-pretitle">GRACIAS</h2>
+      <h2 class="landing-info-pretitle">JUGA AHORA</h2>
       <!-- /LANDING INFO PRETITLE -->
 
       <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">AMIGO FIEL</h1>
+      <h1 class="landing-info-title">AMIGO INVISIBLE</h1>
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <p class="landing-info-text">Creá tu grupo, agrega a los participantes del juego y comiencen a participar de este juego histórico ahora 100% Online!. Cada uno de los participantes
+      va a poder acceder a un panel interactivo dónde podrá intercambiar mensajes con su amigo invisible, seleccionar un regalo para enviarle y mucho más.</p>
       <!-- /LANDING INFO TEXT -->
 
       <!-- TAB SWITCH -->

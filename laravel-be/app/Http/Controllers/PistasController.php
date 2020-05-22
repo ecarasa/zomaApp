@@ -235,7 +235,9 @@ $message = $twilio->messages
                             'pg.idUserAmigoInvible',
                             'u.email as usuario',
                             'u.name as usuarioN',
+                            'u.telefono as usuarioT',
                             'g.fechaFin',
+                            'g.codigo',
                             DB::raw( '(CASE WHEN u.id = g.idUsuarioAdmin THEN \'Admin\' ELSE \'Participante\' END) AS rol')
                     )
                     ->get();
