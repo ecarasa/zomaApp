@@ -257,8 +257,8 @@
                 <div class="sidebar-menu-item" onclick="CargarRecibidos();">
                   <!-- FEATURED STAT ICON -->
                   <div class="sidebar-menu-header accordion-trigger-linked" >
-                    <svg class="sidebar-menu-header-icon icon-store">
-                      <use xlink:href="#svg-store">                      
+                    <svg class="sidebar-menu-header-icon icon-messages">
+                      <use xlink:href="#svg-messages">                      
                       </use>
                     </svg>
         
@@ -271,8 +271,8 @@
                         <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
                             <use xlink:href="#svg-plus-small"></use>
                         </svg>
-                        <p class="sidebar-menu-header-title">Adivinar</p>
-                        <p class="sidebar-menu-header-text">Pistas recibidas</p>
+                        <p class="sidebar-menu-header-title">Recibidos</p>
+                        <p class="sidebar-menu-header-text">Pistas recibidas para adivinar quién es tu AI</p>
                     </div>
 
                   </div>
@@ -282,8 +282,8 @@
                 <!-- FEATURED STAT -->
                 <div class="sidebar-menu-item" onclick="CargarEnviados();" style="cursor:pointer">
                   <div class="sidebar-menu-header accordion-trigger-linked" >
-                    <svg class="sidebar-menu-header-icon icon-store">
-                      <use xlink:href="#svg-store">                      
+                    <svg class="sidebar-menu-header-icon icon-messages">
+                      <use xlink:href="#svg-messages">                      
                       </use>
                     </svg>
         
@@ -296,8 +296,8 @@
                         <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
                             <use xlink:href="#svg-plus-small"></use>
                         </svg>
-                        <p class="sidebar-menu-header-title">Enviar</p>
-                        <p class="sidebar-menu-header-text">Pistas a un amigo invisible</p>
+                        <p class="sidebar-menu-header-title">Enviados</p>
+                        <p class="sidebar-menu-header-text">Pistas que envias a un amigo invisible</p>
                     </div>
 
                   </div>
