@@ -27,9 +27,9 @@ class Grupos extends Model
     /* valido si todos tienen amigos */
     public function checkgrupoAmigos($idgrupo) {
         $amigos =   DB::table(DB::RAW('participante_grupos AS G,grupos AS gr')) 
-                    -> whereraw('gr.id='.$idgrupo.' and idUserAmigoInvible=0 and gr.id=G.id')
+                    -> whereraw('gr.id='.$idgrupo.' and idUserAmigoInvible=0 and gr.codigo=G.codigoGrupo')
                    
-                    ->select(DB::RAW('COUNT(G.id) as cant'))->get();
+                    ->select(DB::RAW('count(*) as cant'))->get();
                     foreach($amigos as $amigo){
                         //dd($usuario);
                        return $amigo->cant;

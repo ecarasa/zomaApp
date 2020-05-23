@@ -217,6 +217,7 @@
 
 <script>
 $("input").focus();
+
     function login() {
 
         var fd = new FormData(document.getElementById('formJuego'));

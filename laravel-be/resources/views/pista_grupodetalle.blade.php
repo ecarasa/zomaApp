@@ -137,7 +137,8 @@
       </div>
       <!-- /PROFILE HEADER INFO -->
     </div>
-   <div class="featured-stat-list" style="margin-top: 20px;">
+   <div class="featured-stat-list" style="margin-top: 20px; display:none" id="resultadosGrupo"> </div>
+   <div class="featured-stat-list" style="margin-top: 20px;"id="listadoparticipantes">
       <div class="featured-stat">
         @if ($dato->idUsuarioAdmin==$dato->userlogueado)
         <div class="profile-header-info-actions">
@@ -149,7 +150,7 @@
           </a>
        
           
-          <a class="profile-header-info-action button" href="#" onclick="irAgregarParticipante('{{$dato->codigo}}')" alt="">
+          <a class="profile-header-info-action button"  onclick="irAgregarParticipante('{{$dato->codigo}}')" alt="">
           &nbsp;&nbsp; Agregar Participante &nbsp;&nbsp;
           </a>
           @endif
@@ -167,8 +168,8 @@
         @endif
         @if($dato->estado==3)
         </a>
-           <a class="profile-header-info-action button" href="" alt="Juego ">
-           &nbsp;&nbsp;Juego finalizado&nbsp;&nbsp;
+           <a class="profile-header-info-action button" href="javascript:VerResultadosGrupo( '{{$dato->id}}' );" alt="Ver resultados">
+           &nbsp;&nbsp;Ver Resultados&nbsp;&nbsp;
           </a>
           @endif
         @endforeach

@@ -30,6 +30,39 @@ class GruposController extends Controller
     {
         return view('admingrupocrear');
     }
+
+    /**
+     * 
+     * 
+     */
+    public function resultados(request $request) {
+        $grupos =  DB::table('participante_grupos as pg')
+        ->where('g.id','like',$request->idgrupo)
+        ->join('users as u', 'pg.idUsuario', '=', 'u.id')
+        ->join('users as ai', 'pg.idUserAmigoInvible', '=', 'ai.id')
+        ->join('grupos as g', 'g.codigo', '=', 'pg.codigoGrupo')
+        ->select('g.id'
+                ,'g.nombre as NombreGrupo',
+                'pg.idUserAmigoInvible',
+                'u.email as usuario',
+                'u.name as usuarioN',
+                'u.telefono as usuarioT',
+                'g.fechaFin',
+                'g.codigo',
+                'g.estado',
+                'ai.name as amigoinvisible',
+                'ai.email as amigoinvisible_email'
+                                
+        )
+        ->get();
+
+         return view('pista_gruporesultados')->with(compact('grupos'));
+    }
+
+    /**
+     * 
+     * 
+     */
     public function testsql() {
         $grupo = Grupos::where('id', 38)->first();
          $datos=$grupo->checkgrupoAmigos(38);
@@ -69,7 +102,9 @@ class GruposController extends Controller
         if (!$pudecerrar) 
                 $output = array("status"=>false, "msj"=>"No se pudo cerrar el grupo");
         else 
-                $output = array("status"=>true, "msj"=>"Grupo Terminado","idgrupo"=>$request->idgrupo,"fechafin"=>"sin definir");
+                $output = array("status"=>true, 
+                                "msj"=>"Grupo Terminado","idgrupo"=>$request->idgrupo,
+                                "fechafin"=>"sin definir","op"=>3);
         return response()->json($output);
     }
 
@@ -82,7 +117,9 @@ class GruposController extends Controller
         if (!$pudeiniciar) 
                 $output = array("status"=>false, "msj"=>"No se pudo iniciar el grupo");
         else 
-                $output = array("status"=>true, "msj"=>"Grupo Iniciado","idgrupo"=>$request->idgrupo,"fechafin"=>"sin definir");
+                $output = array("status"=>true, "msj"=>"Grupo Iniciado","idgrupo"=>$request->idgrupo
+                ,"fechafin"=>"sin definir","op"=>2
+            );
         return response()->json($output);
     }
 

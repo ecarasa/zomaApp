@@ -724,7 +724,9 @@ function SendWebWths(numerowts,codgrupo,emailU) {
  window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
 
 }
-
+/* *
+* function que cambia de estado un grupo 
+*/
 function CambiarEGrupo(op,idgrupo) {
 
 
@@ -749,16 +751,30 @@ beforeSend: function() {
   console.log(data);
   $('.page-loader-indicator').hide()
   if (data.status == true){
-    alert('Has iniciado el Juego. Ya pueden empezar a jugar y tienen tiempo hasta '+data.fechafin+' para adivinar. Podés publicar los resultados cuando gustes haciendo click en Terminar');
-    MostrarDetallesGrupo(data.idgrupo);
+    if (data.op==2){
+      alert('Has iniciado el Juego. Ya pueden empezar a jugar y tienen tiempo hasta '+data.fechafin+' para adivinar. Podés publicar los resultados cuando gustes haciendo click en Terminar');
+      MostrarDetallesGrupo(data.idgrupo);
+      }
+      if (data.op==3){
+        alert('Grupo terminado. Se muestran los resultados a continuación');
+        VerResultadosGrupo(data.idgrupo);
+      }
     //console.log("grupo/" + data.codigo);
   }else{
-    alert('Hubo un error, intenta nuevamente')
+    alert('Hubo un error, si agregaste participantes nuevos, por favor realizá el sorteo nuevamente y luego dale Iniciar')
   }
 
 });
 }
 
+function VerResultadosGrupo(idgrupo) { 
+  
+$("#listadoparticipantes").hide();
+$('#resultadosGrupo').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+$('#resultadosGrupo').fadeIn();
+$('#resultadosGrupo').load('/grupos/resultados?idgrupo='+idgrupo);
+
+}
 
 </script>
 </body>
