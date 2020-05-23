@@ -1,6 +1,6 @@
 <!-- USER STATUS -->
 <div class="featured-stat">
-  <span class="bold">Participantes</span>
+  <span class="bold"> Resultados del Grupo</span>
         <div class="grid grid-1 centered" style="margin-top: 20px;">
                     @foreach ($grupos as $grupo)
                                   
