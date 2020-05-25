@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('pista.name', 'CheAmigo.com.ar) }}</title>
+        <title>{{ config('pista.name', 'CheAmigo.com.ar') }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     </head>
     <body>
-{{ 'hola' }}
+
         @include('pageloader')
         @include('header')
 

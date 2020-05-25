@@ -115,7 +115,7 @@
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">{{ date('d-m-Y h:s', strtotime($mensaje->fecha)) }}</p>
+                  <p class="user-status-timestamp floaty">{{ date('d-m-Y h:M A', strtotime($mensaje->fecha)) }}</p>
                   <!-- /mensaje pista grupo-->
                  
                 </div>

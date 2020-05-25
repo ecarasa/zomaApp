@@ -9,7 +9,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">Pistas Recibidas</h2>
+            <h2 class="section-title">Pistas Recibidas </h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -112,7 +112,7 @@
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->
-                  <p class="user-status-timestamp floaty">{{ date('d-m-Y h:s', strtotime($mensaje->fecha)) }} </p>
+                  <p class="user-status-timestamp floaty">{{ date('d-m-Y h:M A', strtotime($mensaje->fecha)) }} </p>
                   <!-- /mensaje pista grupo-->
                  
                 </div>
