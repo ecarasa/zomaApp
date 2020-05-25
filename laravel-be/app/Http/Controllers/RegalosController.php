@@ -32,7 +32,7 @@ class RegalosController extends Controller
             $grupos = null;
         }
         $categoriaSelected = '';
-        return view('marketplace')->with(compact('regalos','categorias','grupos','categoriaSelected'));
+        return view('_marketplace')->with(compact('regalos','categorias','grupos','categoriaSelected'));
     }
 
 

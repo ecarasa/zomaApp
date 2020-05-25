@@ -245,7 +245,7 @@ class GruposController extends Controller
 
 
             $idUsuarioCreador=0;
-            if (!Auth::check()){
+        if (!Auth::check()){
             $usuario  = User::where('email', '=', $request->email)->first();
 
             if (!$usuario){
@@ -258,10 +258,9 @@ class GruposController extends Controller
             else
                 $idUsuarioCreador= $usuario->id;
 
-        }else{
-           
+        }else           
                 $idUsuarioCreador = Auth::user()->id;
-         }
+         
             $grupo = new Grupos();
             $grupo->nombre = $request->nombreGrupo;
             $grupo->estado = 0; // 0 creado 1 sorteado 2 iniciado  3 terminado
@@ -298,7 +297,7 @@ class GruposController extends Controller
                 $output = array("status"=>false, "msj"=>"Error.");
                 return response()->json($output);
             }
-        }
+        
     }
     }
 

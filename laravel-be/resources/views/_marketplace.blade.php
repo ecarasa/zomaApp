@@ -15,9 +15,16 @@
         <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     </head>
     <body>
-{{ 'hola' }}
+
+        <!-- PAGE LOADER -->
         @include('pageloader')
+        <!-- /PAGE LOADER -->
+        <!-- MENU  DE NAV WIDGET 
+         @ //include('nav_menu') -->
+        <!-- /NAVIGATION WIDGET -->
+        <!-- MENU  DE NAV WIDGET -->
         @include('header')
+        <!-- /NAVIGATION WIDGET -->
 
         <style>
 
