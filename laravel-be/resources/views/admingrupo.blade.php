@@ -66,7 +66,7 @@
         fd.append("codgrupo",{{$grupo->codigo}});
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupo/agregarparticipante",
+        url: "/grupo/agregarparticipante",
         type: "POST",
         data: fd,
         dataType: 'json',

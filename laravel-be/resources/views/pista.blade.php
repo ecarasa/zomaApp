@@ -257,8 +257,8 @@
                 <div class="sidebar-menu-item" onclick="CargarRecibidos();">
                   <!-- FEATURED STAT ICON -->
                   <div class="sidebar-menu-header accordion-trigger-linked" >
-                    <svg class="sidebar-menu-header-icon icon-store">
-                      <use xlink:href="#svg-store">                      
+                    <svg class="sidebar-menu-header-icon icon-messages">
+                      <use xlink:href="#svg-messages">                      
                       </use>
                     </svg>
         
@@ -271,8 +271,8 @@
                         <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
                             <use xlink:href="#svg-plus-small"></use>
                         </svg>
-                        <p class="sidebar-menu-header-title">Adivinar</p>
-                        <p class="sidebar-menu-header-text">Pistas recibidas</p>
+                        <p class="sidebar-menu-header-title">Recibidos</p>
+                        <p class="sidebar-menu-header-text">Pistas recibidas para adivinar quién es tu AI</p>
                     </div>
 
                   </div>
@@ -282,8 +282,8 @@
                 <!-- FEATURED STAT -->
                 <div class="sidebar-menu-item" onclick="CargarEnviados();" style="cursor:pointer">
                   <div class="sidebar-menu-header accordion-trigger-linked" >
-                    <svg class="sidebar-menu-header-icon icon-store">
-                      <use xlink:href="#svg-store">                      
+                    <svg class="sidebar-menu-header-icon icon-messages">
+                      <use xlink:href="#svg-messages">                      
                       </use>
                     </svg>
         
@@ -296,8 +296,8 @@
                         <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
                             <use xlink:href="#svg-plus-small"></use>
                         </svg>
-                        <p class="sidebar-menu-header-title">Enviar</p>
-                        <p class="sidebar-menu-header-text">Pistas a un amigo invisible</p>
+                        <p class="sidebar-menu-header-title">Enviados</p>
+                        <p class="sidebar-menu-header-text">Pistas que envias a un amigo invisible</p>
                     </div>
 
                   </div>
@@ -484,7 +484,7 @@ if ( $("#ComboRegalo").val() >0)
  
       // AJAX CALL
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        url: "{{ env('APP_URL') }}/pista/crear",
         type: "POST",
         data: datos,
         dataType: 'json',
@@ -547,7 +547,7 @@ function sortear(idGrupo) {
       datos.append('idGrupo', idGrupo);
 
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupo/sortear",
+        url: "{{ env('APP_URL') }}/grupo/sortear",
         type: "POST",
         data: datos,
         dataType: 'json',
@@ -693,7 +693,7 @@ var fd = new FormData(document.getElementById('formCrearGrupo'));
 fd.append("_token", $("input[name=_token]").val());
 
 $.ajax({
-url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+url: "{{ env('APP_URL') }}/grupos/crear",
 type: "POST",
 data: fd,
 dataType: 'json',
@@ -735,7 +735,7 @@ fd.append("_token", $("input[name=_token]").val());
 fd.append("idgrupo", idgrupo);
 
 $.ajax({
-url: "{{ env('APP_URL_PUERTO') }}/grupo/cambiarestado/"+op,
+url: "{{ env('APP_URL') }}/grupo/cambiarestado/"+op,
 type: "POST",
 data: fd,
 dataType: 'json',

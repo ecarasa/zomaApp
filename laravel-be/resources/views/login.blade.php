@@ -224,7 +224,7 @@ $("input").focus();
         //fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/login",
+        url: "{{ env('APP_URL') }}/login",
         type: "POST",
         data: fd,
         dataType: 'json',

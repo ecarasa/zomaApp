@@ -220,7 +220,7 @@ function sendMsj() {
  
       // AJAX CALL
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        url: "{{ env('APP_URL') }}/pista/crear",
         type: "POST",
         data: datos,
         dataType: 'json',
