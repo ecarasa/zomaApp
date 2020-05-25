@@ -5,11 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-            <title>{{ config('app.name', 'cheamigo.com.ar') }}</title>
-=======
             <title>{{ config('app.name', 'CheAmigo.com.ar') }}</title>
->>>>>>> fc3e1e5ab49c236e780bbaab800a0ee1afc1b19c
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
