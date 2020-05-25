@@ -193,7 +193,7 @@
               <!-- USER AVATAR CONTENT -->
               <div class="user-avatar-content">
                 <!-- HEXAGON -->
-                <div class="hexagon-image-18-20" data-src="img/avatar/01.jpg" style="width: 18px; height: 20px; position: relative;"><canvas width="18" height="20" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                <div class="hexagon-image-18-20" data-src="https://cheamigo.com.ar/public/img/avatar/01.jpg" style="width: 18px; height: 20px; position: relative;"><canvas width="18" height="20" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                 <!-- /HEXAGON -->
               </div>
               <!-- /USER AVATAR CONTENT -->

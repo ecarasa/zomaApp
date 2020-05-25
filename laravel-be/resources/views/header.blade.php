@@ -295,7 +295,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-40-44" data-src="img/avatar/24.jpg"></div>
+                    <div class="hexagon-image-40-44" data-src="https://cheamigo.com.ar/public/img/avatar/24.jpg"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -346,7 +346,7 @@
               <div class="user-status-avatar">
                 <!-- PICTURE -->
                 <figure class="picture small round liquid">
-                  <img src="img/marketplace/items/07.jpg" alt="item-07">
+                  <img src="https://cheamigo.com.ar/public/img/marketplace/items/07.jpg" alt="item-07">
                 </figure>
                 <!-- /PICTURE -->
               </div>

@@ -45,21 +45,21 @@ return [
 /*
 
 DB_CONNECTION=mysql
-DB_HOST=flexit.com.ar
+DB_HOST=localhost
 DB_PORT=3306
-DB_DATABASE=flexitco_app_testing
-DB_USERNAME=flexitco_test_amigofiel
-DB_PASSWORD=amigoamigo123
+DB_DATABASE=cheamigo_produccion_DB
+DB_USERNAME=cheamigo_user_prod
+DB_PASSWORD=32b&6Nz6v^pm
 
 */
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'flexit.com.ar'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'flexitco_app_testing'),
-            'username' => env('DB_USERNAME', 'flexitco_test_amigofiel'),
-            'password' => env('DB_PASSWORD', 'amigoamigo123'),
+            'database' => env('DB_DATABASE', 'cheamigo_produccion_DB'),
+            'username' => env('DB_USERNAME', 'cheamigo_user_prod'),
+            'password' => env('DB_PASSWORD', '32b&6Nz6v^pm'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

@@ -9,9 +9,9 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="css/styles.min.css">
-            <link rel="icon" href="img/favicon.ico">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
+            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
         </head>
     <body>
 
@@ -51,7 +51,7 @@
     <div class="landing-form">  
       <div class="form-box login-register-form-element">
         <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration" src="img/landing/rocket.png" alt="rocket">
+        <img class="form-box-decoration" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
         <!-- /FORM BOX DECORATION -->
 
         <!-- FORM BOX TITLE -->
@@ -188,7 +188,7 @@ padding: 0 18px;
 }
 </style>
 
-<script src="js/app.bundle.min.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
 <script>

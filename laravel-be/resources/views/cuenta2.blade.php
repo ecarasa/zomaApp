@@ -9,9 +9,9 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="css/styles.min.css">
-            <link rel="icon" href="img/favicon.ico">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
+            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
         </head>
     <body>
 
@@ -198,9 +198,9 @@
   </div>
 
 
-<script src="js/app.bundle.min.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
 <script>
 
 

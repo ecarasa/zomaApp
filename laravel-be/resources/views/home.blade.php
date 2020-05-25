@@ -13,7 +13,7 @@
 <body>
     <style>
         #top {
-            background: url(../img/landing/landing-background.jpg) no-repeat 0!important;
+            background: url(https://cheamigo.com.ar/public/img/landing/landing-background.jpg) no-repeat 0!important;
         }
         .architecture-item-list .architecture-item {
             display: -ms-flexbox;
