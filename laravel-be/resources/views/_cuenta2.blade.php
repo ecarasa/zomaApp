@@ -9,9 +9,9 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
-            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
+            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="css/styles.min.css">
+            <link rel="icon" href="img/favicon.ico">
         </head>
     <body>
 
@@ -198,8 +198,69 @@
   </div>
 
 
-<script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
+<script src="js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+
+
+function sendMsj() {
+
+
+
+
+  var datos = new FormData();
+      datos.append("_token", $("input[name=_token]").val());
+      datos.append('receptor', document.getElementById("receptor").value);
+      datos.append('emisor', {{ $user->id}} );
+      datos.append('grupo', $("#ComboGr").val());
+      datos.append('pistamsj', document.getElementById("pistamsj_enviar").value);
+      datos.append('regalo', $("#ComboRegalo").val()); 
+ 
+      // AJAX CALL
+      $.ajax({
+        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        type: "POST",
+        data: datos,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+          $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+         
+          var fromTop = $('#fixed-header').height();
+           $(window).scrollTop($('#pistascentro').offset().top - fromTop)
+          //$('html, body').animate({ scrollTop: $target.offset().top - fromTop }, 0);
+        }
+        }).done(function(data) {
+          
+          if (data.status == true){
+          
+          if (data.idregalo>0)
+          {
+            $("#modalDinamicoDiv").html("Cargando...");
+            $("#modalDinamicoDiv").load('/pista/mensaje/regalo/modal?idregalo='+data.idregalo);
+            $("#MD").appendTo("body").modal('show');
+
+          }
+          $('#msfConfirm').show();
+          
+          
+           
+          }else{
+            console.log(data);
+          }
+
+        });
+    
+      return false;
+
+}
+
+
+
+</script>
 </body>
 </html> 
