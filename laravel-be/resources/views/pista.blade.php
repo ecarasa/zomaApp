@@ -721,7 +721,7 @@ beforeSend: function() {
 
 function SendWebWths(numerowts,codgrupo,emailU) {
 
- window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/pista - ingresa con tu email ("+ emailU+ ") password 1234 en el grupo "+codgrupo );
 
 }
 /* *
