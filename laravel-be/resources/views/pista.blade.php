@@ -199,8 +199,8 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-82-90" data-src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;">
-                  <img src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;" ></img>
+                  <div class="hexagon-image-82-90" data-src="https://cheamigo.com.ar/public/img/avatar/01.png" style="width: 82px; height: 90px; position: relative;">
+                  <img src="https://cheamigo.com.ar/public/img/avatar/01.png" style="width: 82px; height: 90px; position: relative;" ></img>
                   <canvas width="82" height="90" style="position: absolute; top: 0px; left: 0px;"></canvas>
                   </div>
                   <!-- /HEXAGON -->
@@ -484,7 +484,7 @@ if ( $("#ComboRegalo").val() >0)
  
       // AJAX CALL
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        url: "{{ env('APP_URL') }}/pista/crear",
         type: "POST",
         data: datos,
         dataType: 'json',
@@ -547,7 +547,7 @@ function sortear(idGrupo) {
       datos.append('idGrupo', idGrupo);
 
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupo/sortear",
+        url: "{{ env('APP_URL') }}/grupo/sortear",
         type: "POST",
         data: datos,
         dataType: 'json',
@@ -693,7 +693,7 @@ var fd = new FormData(document.getElementById('formCrearGrupo'));
 fd.append("_token", $("input[name=_token]").val());
 
 $.ajax({
-url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+url: "{{ env('APP_URL') }}/grupos/crear",
 type: "POST",
 data: fd,
 dataType: 'json',
@@ -735,7 +735,7 @@ fd.append("_token", $("input[name=_token]").val());
 fd.append("idgrupo", idgrupo);
 
 $.ajax({
-url: "{{ env('APP_URL_PUERTO') }}/grupo/cambiarestado/"+op,
+url: "{{ env('APP_URL') }}/grupo/cambiarestado/"+op,
 type: "POST",
 data: fd,
 dataType: 'json',

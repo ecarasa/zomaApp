@@ -244,7 +244,7 @@ class GruposController extends Controller
         }else{
 
 
-
+            $idUsuarioCreador=0;
             if (!Auth::check()){
             $usuario  = User::where('email', '=', $request->email)->first();
 
@@ -255,10 +255,12 @@ class GruposController extends Controller
                 $usuario->save();
                 $idUsuarioCreador = $usuario->id;
             }
+            else
+                $idUsuarioCreador= $usuario->id;
 
         }else{
-
-            $idUsuarioCreador = Auth::user()->id;
+            if ($idUsuarioCreador==0)
+                $idUsuarioCreador = Auth::user()->id;
 
             $grupo = new Grupos();
             $grupo->nombre = $request->nombreGrupo;

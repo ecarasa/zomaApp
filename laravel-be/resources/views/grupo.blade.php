@@ -9,9 +9,9 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
-            <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-            <link rel="stylesheet" href="css/styles.min.css">
-            <link rel="icon" href="img/favicon.ico">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
+            <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
         </head>
     <body>
 
@@ -149,8 +149,8 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-82-90" data-src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;">
-                  <img src="img/avatar/01.png" style="width: 82px; height: 90px; position: relative;" ></img>
+                  <div class="hexagon-image-82-90" data-src="https://cheamigo.com.ar/public/img/avatar/01.png" style="width: 82px; height: 90px; position: relative;">
+                  <img src="https://cheamigo.com.ar/public/img/avatar/01.png" style="width: 82px; height: 90px; position: relative;" ></img>
                   <canvas width="82" height="90" style="position: absolute; top: 0px; left: 0px;"></canvas>
                   </div>
                   <!-- /HEXAGON -->
@@ -430,7 +430,7 @@
   <!-- /CONTENT GRID -->
 
 <!-- app -->
-<script src="js/app.bundle.min.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 function sendMsj() {
@@ -442,7 +442,7 @@ function sendMsj() {
  
       // AJAX CALL
       $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/pista/crear",
+        url: "{{ env('APP_URL') }}/pista/crear",
         type: "POST",
         data: datos,
         dataType: 'json',

@@ -20,7 +20,11 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 <IfModule mod_headers.c>
+<<<<<<< HEAD
        Header set Access-Control-Allow-Origin "cheamigo.com.ar"
+=======
+       Header set Access-Control-Allow-Origin "*"
+>>>>>>> fc3e1e5ab49c236e780bbaab800a0ee1afc1b19c
 </IfModule>
 
 RewriteEngine On 

@@ -56,7 +56,7 @@
     <div class="landing-form">  
       <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
-        <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
+        <img class="form-box-decoration overflowing" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
         <h2 class="form-box-title">Crear Grupo</h2>
         <form class="form" id="formJuego" action="/grupos/crear" method="post">
         @csrf
@@ -148,7 +148,7 @@
         fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+        url: "{{ env('APP_URL') }}/grupos/crear",
         type: "POST",
         data: fd,
         dataType: 'json',

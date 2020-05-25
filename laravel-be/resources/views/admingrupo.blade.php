@@ -1,34 +1,26 @@
 <div class="modal-body">  
-      <!-- start.1er FORM -->    
-    <div class="widget-box login-register-form-element">
-        
-        
         <form class="form" id="addParticipanteForm" action="" method="post">
-        
         @csrf
-
-          <div class="form-row split">
-            <div class="form-item">
-              <div class="form-input active">
+          <div class="form-row">
+            <div class="form-item"  style="margin-bottom: 10px">
+              <div class="form-item">
                 <label for="login-username">Nombre de integrante</label>
-                <input type="text" id="nombreusuario" name="nombreusuario" autocomplete="off">
+                <input type="text" id="nombreusuario" name="nombreusuario"  autocomplete="off" />
               </div>
             </div>  
-            <div class="form-item">
+            <div class="form-item" style="margin-bottom: 10px">
               <div class="form-input active">
                 <label for="login-username">Email</label>
-                <input type="text" id="email" name="email" autocomplete="off">
+                <input type="text" id="email" name="email" autocomplete="off" />
               </div>
             </div>
-            <div class="form-item">
+            <div class="form-item" style="margin-bottom: 10px">
               <div class="form-input active">
                 <label for="login-username">Whatsapp</label>
-                <input type="text" id="telefono" name="telefono" autocomplete="off">
+                <input type="text" id="telefono" name="telefono" autocomplete="off"/>
               </div>
             </div>
           </div>
-         
- 
           
         <div class="form-row">
             <div class="form-item">
@@ -44,21 +36,17 @@
               </div>
             </div>
         </div>
+
         <div class="form-row split">
           <div class="form-item">
-            <a href="javascript:addParticipante();" id="btnAdd" class="button medium primary" style="width: 50%;">Agregar Integrante</a>
+            <a href="javascript:addParticipante();" id="btnAdd" class="button medium primary" style="width: 100%;">Agregar Integrante</a>
           </div>
           <div class="form-item">
-            <a  id="btnfinish" href="javascript:FinishGrupo();" class="button medium secondary" style="width: 50%; display:none">Empezar a Jugar!/a>
+            <a id="btnfinish" href="javascript:FinishGrupo();" class="button medium secondary" style="width: 50%; display:none">Empezar a Jugar!/a>
           </div>    
         </div>
-      </div>
-    </form>
       
-      <!-- end.1er FORM -->
-    
-      
-      <!-- end.2do FORM -->
+        </form>
   </div>
 
   
@@ -78,7 +66,7 @@
         fd.append("codgrupo",{{$grupo->codigo}});
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupo/agregarparticipante",
+        url: "/grupo/agregarparticipante",
         type: "POST",
         data: fd,
         dataType: 'json',

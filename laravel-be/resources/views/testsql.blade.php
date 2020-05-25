@@ -33,7 +33,7 @@
         fd.append("_token", $("input[name=_token]").val());
 
         $.ajax({
-        url: "{{ env('APP_URL_PUERTO') }}/grupos/crear",
+        url: "{{ env('APP_URL') }}/grupos/crear",
         type: "POST",
         data: fd,
         dataType: 'json',
