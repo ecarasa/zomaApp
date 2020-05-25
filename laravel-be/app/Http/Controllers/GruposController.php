@@ -259,9 +259,9 @@ class GruposController extends Controller
                 $idUsuarioCreador= $usuario->id;
 
         }else{
-            if ($idUsuarioCreador==0)
+           
                 $idUsuarioCreador = Auth::user()->id;
-
+         }
             $grupo = new Grupos();
             $grupo->nombre = $request->nombreGrupo;
             $grupo->estado = 0; // 0 creado 1 sorteado 2 iniciado  3 terminado
