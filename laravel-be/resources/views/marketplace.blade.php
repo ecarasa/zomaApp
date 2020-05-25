@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('pista.name', 'TuAmigoFiel.com') }}</title>
+        <title>{{ config('pista.name', 'CheAmigo.com.ar) }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styles.min.css">
+        <link rel="stylesheet" href="/public/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="/public/css/styles.min.css">
         <link rel="icon" href="img/favicon.ico">
-        <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     </head>
     <body>
 
@@ -298,9 +298,9 @@
                 </div>
             </div>
             <!-- app -->
-            <script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
+            <script src="/public/js/app.bundle.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
+            <script src="/public/js/bootstrap.min.js"></script>
 
             @if (Auth::check())
             <script>
@@ -312,7 +312,7 @@
             @else
             <script>
                 function buyModal(idregalo) {
-                    window.location.href = "{{ env('APP_URL_PUERTO') }}/login";
+                    window.location.href = "/login";
                 }
             </script>
             @endif
