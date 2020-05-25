@@ -150,7 +150,7 @@
           </a>
        
           
-          <a class="profile-header-info-action button"  onclick="irAgregarParticipante('{{$dato->codigo}}')" alt="">
+          <a class="profile-header-info-action button"  href="javascript:irAgregarParticipante('{{$dato->codigo}}')" alt="">
           &nbsp;&nbsp; Agregar Participante &nbsp;&nbsp;
           </a>
           @endif

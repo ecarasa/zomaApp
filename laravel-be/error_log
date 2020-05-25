@@ -1,0 +1,63 @@
+[25-May-2020 19:44:12 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Http\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Http\\K...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Http\\K...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Http\\K...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:44:16 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Http\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Http\\K...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Http\\K...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Http\\K...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:49:19 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Console\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Consol...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Consol...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Consol...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:49:27 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Console\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Consol...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Consol...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Consol...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:53:00 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Console\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Consol...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Consol...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Consol...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:53:04 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Console\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Consol...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Consol...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Consol...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:56:24 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Http\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Http\\K...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Http\\K...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Http\\K...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:58:49 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Http\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Http\\K...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Http\\K...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Http\\K...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788
+[25-May-2020 19:58:52 UTC] PHP Fatal error:  Uncaught ReflectionException: Class Horsefly\Http\Kernel does not exist in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:788
+Stack trace:
+#0 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(788): ReflectionClass->__construct('Horsefly\\Http\\K...')
+#1 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->build('Horsefly\\Http\\K...')
+#2 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('Horsefly\\Http\\K...', Array, false)
+#3 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(785): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(667): Illuminate\Container\Container->bui in /home/cheamigo/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 788

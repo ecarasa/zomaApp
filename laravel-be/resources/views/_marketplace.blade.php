@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('pista.name', 'CheAmigo.com.ar') }}</title>
+        <title>{{ config('app.name', 'CheAmigo.com.ar') }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,12 +15,16 @@
         <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     </head>
     <body>
-<<<<<<< HEAD
-=======
-
->>>>>>> 12adf0b7ac9dd2d994e6b1e64d0a78cca6d60bc9
+        
+        <!-- PAGE LOADER -->
         @include('pageloader')
+        <!-- /PAGE LOADER -->
+        <!-- MENU  DE NAV WIDGET 
+         @ //include('nav_menu') -->
+        <!-- /NAVIGATION WIDGET -->
+        <!-- MENU  DE NAV WIDGET -->
         @include('header')
+        <!-- /NAVIGATION WIDGET -->
 
         <style>
 

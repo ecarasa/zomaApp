@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('pista.name', 'CheAmigo.com.ar') }}</title>
+            <title>{{ config('app.name', 'CheAmigo.com.ar') }}</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
@@ -721,7 +721,7 @@ beforeSend: function() {
 
 function SendWebWths(numerowts,codgrupo,emailU) {
 
- window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar - ingresa con tu email ("+ emailU+ ") en el grupo "+codgrupo);
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/pista - ingresa con tu email ("+ emailU+ ") password 1234 en el grupo "+codgrupo );
 
 }
 /* *

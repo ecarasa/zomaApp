@@ -9,6 +9,7 @@ Route::get('/basesycond', 'HomeController@show');
 
 //pistas
 Route::get('/pista', 'PistasController@index')->name('index');
+Route::get('/jugar', 'PistasController@index')->name('index');
 Route::post('/pista/crear', 'PistasController@register')->name('register');
 Route::get('/pista/enviados', 'PistasController@enviados')->name('enviados');
 Route::get('/pista/recibidos', 'PistasController@recibidos')->name('recibidos');
