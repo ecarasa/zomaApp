@@ -15,7 +15,10 @@
         <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     </head>
     <body>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 12adf0b7ac9dd2d994e6b1e64d0a78cca6d60bc9
         @include('pageloader')
         @include('header')
 
