@@ -356,22 +356,22 @@ class GruposController extends Controller
 
     public function integrantes(Request $request, $codigoGrupo)
     {
-        //Route::get('/grupo/{codigoGrupo}', 'GruposController@show')->name('show');
         $grupo = Grupos::where('codigo', $codigoGrupo)->get();
 
-        Debugbar::info($grupo);
+           // if ($grupo->soyIntegrante(Auth::user()->id, $codigoGrupo)){
 
+                    $usuariosParticipantes = DB::table('grupos')
+                        ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
+                        ->join('users', 'users.id', '=', 'participante_grupos.idUsuario')
+                        ->where('participante_grupos.codigoGrupo', '=', $codigoGrupo)
+                        ->select('users.name', 'users.id')
+                        ->get();
 
+                        return json_encode($usuariosParticipantes);
 
-
-            $grupos = $users = DB::table('grupos')
-            ->join('participante_grupos', 'grupos.codigo', '=', 'participante_grupos.codigoGrupo')
-            ->join('users', 'users.id', '=', 'participante_grupos.idUsuario')
-            ->where('participante_grupos.idUsuario', '=', Auth::user()->id)
-            ->select('users.name', 'users.id')
-            ->get();
-
-            return json_encode($grupos);
+//            }else{
+  //              return false;
+   //         }
         
         
 

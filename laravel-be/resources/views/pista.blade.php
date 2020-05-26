@@ -15,14 +15,9 @@
         </head>
     <body>
 
-  <!-- PAGE LOADER -->
-  @include('pageloader')
-  <!-- /PAGE LOADER -->
-  <!-- MENU  DE NAV WIDGET 
-   @ //include('nav_menu') -->
-  <!-- /NAVIGATION WIDGET -->
-  <!-- MENU  DE NAV WIDGET -->
-  @include('header')
+
+  @include('pageloader')  
+  @include('header_responsive')
   <style>
 
 .modal-dialog {
@@ -38,6 +33,18 @@
     position: relative;
 }
 
+
+@media (max-width: 480px) {
+  .botonCrearG{
+      width: 100%;
+      margin-top: 25px;
+  }
+
+  .section-title{
+    text-align: center!important;
+  }
+
+}
 </style>
   <!-- /NAVIGATION WIDGET -->
 
@@ -76,7 +83,7 @@
 
     <h2 class="section-title">
             Empezá a jugar al amigo invisible 100% online con muchos premios pistas y descuentos regalos ahora!
-            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
+            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary botonCrearG" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
     </h2>
     <!-- /SECTION BANNER -->
 

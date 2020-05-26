@@ -1,5 +1,4 @@
-
-  <header class="header" id="headerWeb">
+<header class="header">
     <div class="header-actions">
       <div class="header-brand">
         <div class="logo">
@@ -7,97 +6,45 @@
             <use xlink:href="#svg-logo-vikinger"></use>
           </svg>
         </div>
-        <h1 class="header-brand-text">CheAmigo</h1>
+        <h1 class="header-brand-text">Vikingeraaaaa</h1>
       </div>
     </div>
+    
+    <div class="header-actions" style='margin-left: -128px;'>
 
-
-
-
-      <!-- MOBILEMENU -->
-      <div class="mobilemenu-trigger navigation-widget-mobile-trigger">
-        <!-- BURGER ICON -->
+      <div class="mobilemenu-trigger navigation-widget-mobile-trigger2" onClick="javascript:toggleMenu();">
         <div class="burger-icon inverted">
-          <!-- BURGER ICON BAR -->
           <div class="burger-icon-bar"></div>
-          <!-- /BURGER ICON BAR -->
-
-          <!-- BURGER ICON BAR -->
           <div class="burger-icon-bar"></div>
-          <!-- /BURGER ICON BAR -->
-
-          <!-- BURGER ICON BAR -->
           <div class="burger-icon-bar"></div>
-          <!-- /BURGER ICON BAR -->
         </div>
-        <!-- /BURGER ICON -->
       </div>
-      <!-- /MOBILEMENU -->
 
-      <!-- NAVIGATION -->
       <nav class="navigation">
-        <!-- MENU MAIN -->
-        <ul class="menu-main" style="max-height: 100%;">
-          <!-- MENU MAIN ITEM -->
+        <ul class="menu-main">
           <li class="menu-main-item">
-            <!-- MENU MAIN ITEM LINK -->
             <a class="menu-main-item-link" href="/store">CheRegalos</a>
-            <!-- /MENU MAIN ITEM LINK -->
           </li>
-          <!-- /MENU MAIN ITEM -->
-
-          <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
-            <!-- MENU MAIN ITEM LINK -->
-            <a class="menu-main-item-link" href="/pista">CheAmigoInvisible</a>
-            <!-- /MENU MAIN ITEM LINK -->
+            <a class="menu-main-item-link" href="/pista">Jugar</a>
           </li>
-          <!-- /MENU MAIN ITEM -->
-
-          <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
-            <!-- MENU MAIN ITEM LINK -->
             <a class="menu-main-item-link" href="/cuenta">Cuenta</a>
-            <!-- /MENU MAIN ITEM LINK -->
           </li>
-          <!-- /MENU MAIN ITEM -->
+
 
         </ul>
-        <!-- /MENU MAIN -->
       </nav>
-      <!-- /NAVIGATION -->
     </div>
-    <!-- /HEADER ACTIONS -->
 
-    <!-- BARRA DE BUSQUEDA -->
-    <div class="header-actions search-bar">
+
+    <div class="header-actions search-bar" style="position: relative;">
       <!-- INTERACTIVE INPUT -->
-      <div class="interactive-input dark">
-        <input type="text" id="search-main" name="search_main" placeholder="Antares 2x1 + Papas bravas">
-        <!-- INTERACTIVE INPUT ICON WRAP -->
-        <div class="interactive-input-icon-wrap">
-          <!-- INTERACTIVE INPUT ICON -->
-          <svg class="interactive-input-icon icon-magnifying-glass">
-            <use xlink:href="#svg-magnifying-glass"></use>
-          </svg>
-          <!-- /INTERACTIVE INPUT ICON -->
-        </div>
-        <!-- /INTERACTIVE INPUT ICON WRAP -->
-
-        <!-- INTERACTIVE INPUT ACTION -->
-        <div class="interactive-input-action">
-          <!-- INTERACTIVE INPUT ACTION ICON -->
-          <svg class="interactive-input-action-icon icon-cross-thin">
-            <use xlink:href="#svg-cross-thin"></use>
-          </svg>
-          <!-- /INTERACTIVE INPUT ACTION ICON -->
-        </div>
-        <!-- /INTERACTIVE INPUT ACTION -->
-      </div>
+      
       <!-- /INTERACTIVE INPUT -->
 
       <!-- DROPDOWN BOX -->
-      <div class="dropdown-box padding-bottom-small header-search-dropdown">
+      <div class="dropdown-box padding-bottom-small header-search-dropdown" style="position: absolute; z-index: 9999; top: 57px; left: 0px; opacity: 0; visibility: hidden; transform: translate(0px, -40px); transition: transform 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s;">
         <!-- DROPDOWN BOX CATEGORY -->
         <div class="dropdown-box-category">
           <!-- DROPDOWN BOX CATEGORY TITLE -->
@@ -119,7 +66,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src=""></div>
+                    <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -127,7 +74,7 @@
                   <!-- USER AVATAR PROGRESS -->
                   <div class="user-avatar-progress">
                     <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
+                    <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR PROGRESS -->
@@ -135,7 +82,7 @@
                   <!-- USER AVATAR PROGRESS BORDER -->
                   <div class="user-avatar-progress-border">
                     <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
+                    <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR PROGRESS BORDER -->
@@ -145,7 +92,7 @@
                     <!-- USER AVATAR BADGE BORDER -->
                     <div class="user-avatar-badge-border">
                       <!-- HEXAGON -->
-                      <div class="hexagon-22-24"></div>
+                      <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR BADGE BORDER -->
@@ -153,7 +100,7 @@
                     <!-- USER AVATAR BADGE CONTENT -->
                     <div class="user-avatar-badge-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18"></div>
+                      <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR BADGE CONTENT -->
@@ -201,7 +148,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src=""></div>
+                    <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -209,7 +156,7 @@
                   <!-- USER AVATAR PROGRESS -->
                   <div class="user-avatar-progress">
                     <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
+                    <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR PROGRESS -->
@@ -217,7 +164,7 @@
                   <!-- USER AVATAR PROGRESS BORDER -->
                   <div class="user-avatar-progress-border">
                     <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
+                    <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR PROGRESS BORDER -->
@@ -227,7 +174,7 @@
                     <!-- USER AVATAR BADGE BORDER -->
                     <div class="user-avatar-badge-border">
                       <!-- HEXAGON -->
-                      <div class="hexagon-22-24"></div>
+                      <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR BADGE BORDER -->
@@ -235,7 +182,7 @@
                     <!-- USER AVATAR BADGE CONTENT -->
                     <div class="user-avatar-badge-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18"></div>
+                      <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR BADGE CONTENT -->
@@ -295,7 +242,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-40-44" data-src="https://cheamigo.com.ar/public/img/avatar/24.jpg"></div>
+                    <div class="hexagon-image-40-44" data-src="img/avatar/24.jpg" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -345,8 +292,8 @@
               <!-- USER STATUS AVATAR -->
               <div class="user-status-avatar">
                 <!-- PICTURE -->
-                <figure class="picture small round liquid">
-                  <img src="https://cheamigo.com.ar/public/img/marketplace/items/07.jpg" alt="item-07">
+                <figure class="picture small round liquid" style="background: url(&quot;img/marketplace/items/07.jpg&quot;) center center / cover no-repeat;">
+                  <img src="img/marketplace/items/07.jpg" alt="item-07" style="display: none;">
                 </figure>
                 <!-- /PICTURE -->
               </div>
@@ -378,8 +325,9 @@
       </div>
       <!-- /DROPDOWN BOX -->
     </div>
-
-
+    
+ 
+    
     <nav class="navigation">
         <!-- MENU MAIN -->
         <ul class="menu-main">
@@ -387,11 +335,11 @@
 
 
         @if (Auth::check())
-          <li class="menu-main-item">
+          <li class="menu-main-item" style="    margin-top: 25px;margin-right: 20px;">
             <form method="post" action="/logout" id="salida">
               @csrf
               <!--<button class="btnbtn" type="submit">{{Auth::user()->name}} - {{Auth::user()->id}} - Salir</button>-->
-              <button class="btnbtn" type="submit">Hola, {{Auth::user()->name}} - Salir</button>
+              <button class="btnbtn" style="padding-left: 10px;padding-right: 6px;" type="submit">Hola, {{Auth::user()->name}} - Salir</button>
             </form>
           </li>
 
@@ -405,9 +353,8 @@
         @endif
         </ul>
       </nav>
-  
-
   </header>
+
 
   <nav id="navigation-widget-mobile" class="navigation-widget navigation-widget-mobile sidebar left" data-simplebar="init" style="height: 936px; display: none;">
   <div class="simplebar-wrapper" style="margin: 0px 0px -40px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px 0px 40px;">
@@ -474,7 +421,7 @@
           <svg class="menu-item-link-icon icon-group">
             <use xlink:href="#svg-group"></use>
           </svg>
-          Jugar
+          Jugar CheAmigoInvisible
         </a>
       </li>
 
@@ -498,7 +445,7 @@
       </div>
     </div>
   </div>
-  <div class="simplebar-placeholder" style="width: auto; height: 1976px;"></div></div>
+  </div>
   <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
   <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
   <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
@@ -511,23 +458,5 @@
   <script>
   function toggleMenu(){
     $('#navigation-widget-mobile').toggle(200);
-  }
-  </script>
-  
-<style>
-.btnbtn{
-   background:none!important;
-    border:none; 
-    /*border is optional*/
-    color: white;
-    border-bottom: 0px solid #444;
-    position: initial;
-    margin-top: 27px;
-    margin-right: 35px;
-}
-</style>
-  <script>
-  function lo(){
-    $( "#salida" ).submit();
   }
   </script>
