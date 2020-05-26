@@ -6,12 +6,8 @@
             <use xlink:href="#svg-logo-vikinger"></use>
           </svg>
         </div>
-        <h1 class="header-brand-text">Vikingeraaaaa</h1>
+        <h1 class="header-brand-text">CheAmigo</h1>
       </div>
-    </div>
-    
-    <div class="header-actions" style='margin-left: -128px;'>
-
       <div class="mobilemenu-trigger navigation-widget-mobile-trigger2" onClick="javascript:toggleMenu();">
         <div class="burger-icon inverted">
           <div class="burger-icon-bar"></div>
@@ -19,6 +15,11 @@
           <div class="burger-icon-bar"></div>
         </div>
       </div>
+    </div>
+    
+    <div class="header-actions" >
+
+      
 
       <nav class="navigation">
         <ul class="menu-main">
@@ -26,7 +27,7 @@
             <a class="menu-main-item-link" href="/store">CheRegalos</a>
           </li>
           <li class="menu-main-item">
-            <a class="menu-main-item-link" href="/pista">Jugar</a>
+            <a class="menu-main-item-link" href="/pista"> CheAmigoInvisible</a>
           </li>
           <li class="menu-main-item">
             <a class="menu-main-item-link" href="/cuenta">Cuenta</a>

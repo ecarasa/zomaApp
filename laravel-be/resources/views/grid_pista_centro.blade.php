@@ -1,4 +1,4 @@
-<div class="account-hub-content" id="pistascentro" style="margin-top: 30px">
+<div class="account-hub-content" id="pistascentro" style="margin-top: 0px">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->
