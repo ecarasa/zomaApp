@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" id="headerWeb">
     <div class="header-actions">
       <div class="header-brand">
         <div class="logo">
