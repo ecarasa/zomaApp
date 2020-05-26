@@ -44,7 +44,7 @@
                 </div>  
                 <!-- FORM ITEM -->
               <!-- FORM ROW -->
-              <div class="form-row split">
+              <div class="form-row ">
                 <div class="form-item">
                   <!-- INTERACTIVE INPUT -->
                   <div class="interactive-input small">
@@ -79,7 +79,8 @@
                 
 
 
-                
+              </div>
+              <div class="form-row ">
                 <div class="form-item auto-width" onclick="sendMsj();">
                   <!-- BUTTON -->
                   <p class="button primary padded">

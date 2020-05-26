@@ -52,7 +52,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="https://cheamigo.com.ar/public/img/avatar/04.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                        <div class="hexagon-image-30-32" data-src="{{$regalo->img}}" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -79,6 +79,9 @@
                         <div class="user-avatar-badge-border">
                           <!-- HEXAGON -->
                           <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                          <div class="earning-stat-box-icon-wrap " style="left:100%" >
+                          <img width="100%" src="https://img.icons8.com/clouds/2x/whatsapp.png" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}}','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')"> </img>                         
+                          </div>
                           <!-- /HEXAGON -->
                         </div>
                         <!-- /USER AVATAR BADGE BORDER -->
@@ -102,15 +105,16 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title" class="accordion-trigger-linked"><span class="bold" readonly> Nombre: {{$regalo->nombre}} - Contacto : {{$regalo->telefono}} </span></p>
+                  <p class="user-status-title" class="accordion-trigger-linked"><span readonly> Nombre: {{$regalo->nombre}} - </span> <span class="bold" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}} ','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')" > Enviar whatsapp : {{$regalo->telefono}} </span></p>
+                  <p class="user-status-text"> Empresa: {{ $regalo->empresa }} </p>
                   <p class="user-status-title ">CheAmigo:{{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->
                   <p class="user-status-text"> Codigo de Referencia CH/{{ $regalo->created_at }}/{{ $regalo->id }} </p>
-                  <p class="user-status-text"> Empresa: {{ $regalo->empresa }} </p>
+                  
                   <p class="user-status-timestamp"> $:  {{ $regalo->importe}} </p>
                   <p class="user-status-timestamp">  Recordá acordar el pago con el proveedor para que tu amigo pueda canjear el regalo ! </p>
-                 
+                  
                   <!-- /USER STATUS TEXT -->
               
                   <!-- USER STATUS TIMESTAMP -->

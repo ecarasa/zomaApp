@@ -1,5 +1,5 @@
 
-  <header class="header">
+  <header class="header" id="headerWeb">
     <div class="header-actions">
       <div class="header-brand">
         <div class="logo">
@@ -37,7 +37,7 @@
       <!-- NAVIGATION -->
       <nav class="navigation">
         <!-- MENU MAIN -->
-        <ul class="menu-main">
+        <ul class="menu-main" style="max-height: 100%;">
           <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
             <!-- MENU MAIN ITEM LINK -->
@@ -49,7 +49,7 @@
           <!-- MENU MAIN ITEM -->
           <li class="menu-main-item">
             <!-- MENU MAIN ITEM LINK -->
-            <a class="menu-main-item-link" href="/pista">CheAmigo Invisible</a>
+            <a class="menu-main-item-link" href="/pista">CheAmigoInvisible</a>
             <!-- /MENU MAIN ITEM LINK -->
           </li>
           <!-- /MENU MAIN ITEM -->

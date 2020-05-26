@@ -43,89 +43,7 @@
 
 
   <!-- FLOATY BAR -->
-  <aside class="floaty-bar">
-    <!-- BAR ACTIONS -->
-    <div class="bar-actions">
-      <!-- PROGRESS STAT -->
-      <div class="progress-stat">
-        <!-- BAR PROGRESS WRAP -->
-        <div class="bar-progress-wrap">
-          <!-- BAR PROGRESS INFO -->
-          <p class="bar-progress-info" onclick="MandarWts();">MANDARW: <span class="bar-progress-text"></span></p>
-          <!-- /BAR PROGRESS INFO -->
-        </div>
-        <!-- /BAR PROGRESS WRAP -->
-    
-        <!-- PROGRESS STAT BAR -->
-        <div id="logged-user-level-cp" class="progress-stat-bar"></div>
-        <!-- /PROGRESS STAT BAR -->
-      </div>
-      <!-- /PROGRESS STAT -->
-    </div>
-    <!-- /BAR ACTIONS -->
-
-    <!-- BAR ACTIONS -->
-    <div class="bar-actions">
-      <!-- ACTION LIST -->
-      <div class="action-list dark">
-        <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="marketplace-cart.html">
-          <!-- ACTION LIST ITEM ICON -->
-          <svg class="action-list-item-icon icon-shopping-bag">
-            <use xlink:href="#svg-shopping-bag"></use>
-          </svg>
-          <!-- /ACTION LIST ITEM ICON -->
-        </a>
-        <!-- /ACTION LIST ITEM -->
-
-        <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="hub-profile-requests.html">
-          <!-- ACTION LIST ITEM ICON -->
-          <svg class="action-list-item-icon icon-friend">
-            <use xlink:href="#svg-friend"></use>
-          </svg>
-          <!-- /ACTION LIST ITEM ICON -->
-        </a>
-        <!-- /ACTION LIST ITEM -->
-
-        <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="hub-profile-messages.html">
-          <!-- ACTION LIST ITEM ICON -->
-          <svg class="action-list-item-icon icon-messages">
-            <use xlink:href="#svg-messages"></use>
-          </svg>
-          <!-- /ACTION LIST ITEM ICON -->
-        </a>
-        <!-- /ACTION LIST ITEM -->
-
-        <!-- ACTION LIST ITEM -->
-        <a class="action-list-item unread" href="hub-profile-notifications.html">
-          <!-- ACTION LIST ITEM ICON -->
-          <svg class="action-list-item-icon icon-notification">
-            <use xlink:href="#svg-notification"></use>
-          </svg>
-          <!-- /ACTION LIST ITEM ICON -->
-        </a>
-        <!-- /ACTION LIST ITEM -->
-      </div>
-      <!-- /ACTION LIST -->
-
-      <!-- ACTION ITEM WRAP -->
-      <a class="action-item-wrap" href="hub-profile-info.html">
-        <!-- ACTION ITEM -->
-        <div class="action-item dark">
-          <!-- ACTION ITEM ICON -->
-          <svg class="action-item-icon icon-settings">
-            <use xlink:href="#svg-settings"></use>
-          </svg>
-          <!-- /ACTION ITEM ICON -->
-        </div>
-        <!-- /ACTION ITEM -->
-      </a>
-      <!-- /ACTION ITEM WRAP -->
-    </div>
-    <!-- /BAR ACTIONS -->
-  </aside>
+  
   <!-- /FLOATY BAR -->
 
   <!-- CONTENT GRID -->
@@ -602,12 +520,14 @@ function CargarRegalosEnviados() {
 // si estoy en el mobile me muevo para abajo automaticamente
 var fromTop = $('#headerWeb').height();
 
-if(($('#pistascentro').offset().top - fromTop)>500)
-  $(window).scrollTop($('#pistascentro').offset().top - fromTop);
-
 $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
 
 $('#pistascentro').load('/pista/regalosenviados?idEmisor={{$userLogueado}}');
+
+//if(($('#pistascentro').offset().top - fromTop)>1)
+  $(window).scrollTop($('#pistascentro').offset().top - fromTop);
+
+
 
 }
 
@@ -721,7 +641,13 @@ beforeSend: function() {
 
 function SendWebWths(numerowts,codgrupo,emailU) {
 
- window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/pista - ingresa con tu email ("+ emailU+ ") password 1234 en el grupo "+codgrupo );
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/pista - ingresa con tu email ("+ emailU+ ") password 1234 "+String.fromCodePoint('0x1F60F')+ " en el grupo "+codgrupo );
+
+}
+
+function SendWebWthsVendedor(numerowts,vendedor,producto,codcanje) {
+
+window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola vendedor! compré un regalo en Cheamigo.com.ar ->"+ String.fromCodePoint('0x1F381') + " ("+ producto+ ") mi codigo de canje es:  "+codcanje );
 
 }
 /* *

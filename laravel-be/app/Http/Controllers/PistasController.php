@@ -80,7 +80,9 @@ $message = $twilio->messages
         ->join('regalos as r2', 'r2.id', '=', 'r.idRegalo')
         ->join('empresas as e', 'e.id', '=', 'r2.empresa')
         ->join('users as u', 'u.id', '=', 'r.idUserReceptor')
-        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa','r2.importe','u.name as receptor','u.email as eReceptor','e.telefono')
+        ->select('r.*','r2.url','r2.nombre','r2.descripcion','e.nombre as empresa'
+                ,'r2.url as img' 
+                ,'r2.importe','u.name as receptor','u.email as eReceptor','e.telefono')
         ->orderby('r.id' ,'desc')
         ->get();
         return view('grid_regalosenviados')->with(compact('regalosenviados'));
