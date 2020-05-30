@@ -43,6 +43,7 @@ Route::post('/grupo/agregarparticipante', 'GruposController@agregarParticipante'
 //marketplace
 Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');
 Route::get('/store', 'RegalosController@index');
+Route::post('/regalos/filtro', 'RegalosController@filtrarRegalos');
 
 // compras de cupones
 Route::get('/buy/{hash}/{CuponCode}/{estado}/success', 'RegalosController@success'); // estado 1

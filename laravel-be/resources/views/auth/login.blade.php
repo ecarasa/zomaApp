@@ -73,6 +73,14 @@
               </div>
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input ">
+                <a href="/password/reset" style="color:#615dfa">Olvidé/No Tengo Clave</a>
+                
+              </div>
+            </div>
+          </div>
 
           <div class="form-row">
             <div class="form-item">

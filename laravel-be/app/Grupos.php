@@ -75,7 +75,7 @@ class Grupos extends Model
 
         return false;
     }
-    public function soyIntegrante($userID, $codigogrupo){
+    public function soyIntegrante($userID,$codigogrupo){
         //return $this->hasOne('App\ParticipanteGrupos', 'idUsuario', 'id');
 
         $usuarios = DB::table('grupos')->where('codigogrupo','=',$codigogrupo)
