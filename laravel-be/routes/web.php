@@ -7,6 +7,8 @@ Route::get('/', 'HomeController@index');
 
 // bases y condiciones
 Route::get('/basesycond', 'HomeController@show');
+//tests
+Route::get('/testemail', 'UserController@EmailBienvenida');
 
 //pistas
 Route::get('/pista', 'PistasController@index')->name('index');
@@ -54,3 +56,4 @@ Route::post('/cuenta/edit', 'UserController@updateProfile')->name('editcuenta');
 
 //authenticacion
 Auth::routes();
+Auth::routes(['verify' => true]);

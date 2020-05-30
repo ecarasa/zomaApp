@@ -44,9 +44,9 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::getFromJson('Verify Email Address'))
-            ->line(Lang::getFromJson('Please click the button below to verify your email address.'))
-            ->action(Lang::getFromJson('Verify Email Address'), $verificationUrl)
+            ->subject(Lang::getFromJson('Bienvenid@ CheAmigo'))
+            ->line(Lang::getFromJson('Te damos la biencvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.'))
+            ->action(Lang::getFromJson('Click aqui!'), $verificationUrl)
             ->line(Lang::getFromJson('If you did not create an account, no further action is required.'));
     }
 

@@ -47,7 +47,7 @@
             ]);
 
             $token = JWTAuth::fromUser($user);
-
+            $enviarEmail= $user->EmailBienvenida($user);
             return response()->json(compact('user','token'),201);
         }
 
