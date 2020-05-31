@@ -286,7 +286,7 @@
 
     <script>
         function buyModal(idregalo) {
-            window.location.href = "{{ env('APP_URL_PUERTO') }}/login";
+            window.location.href = "/login";
 
         }
     </script>
