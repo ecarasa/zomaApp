@@ -58,10 +58,13 @@ class ResetPassword extends Notification
 
         return (new MailMessage)
             ->subject(Lang::getFromJson('Reset Password Notification'))
-            ->line(Lang::getFromJson('You are receiving this email because we received a password reset request for your account.'))
+           // ->line(Lang::getFromJson('You are receiving this email because we received a password reset request for your account.'))
+            ->line(Lang::getFromJson('Estás recibiendo este email para obtener o reiniciar tu clave en cheamigo.com.ar. Para continuar dale click al botón "Reset Passowrd"'))
             ->action(Lang::getFromJson('Reset Password'), url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
-            ->line(Lang::getFromJson('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
-            ->line(Lang::getFromJson('If you did not request a password reset, no further action is required.'));
+            //->line(Lang::getFromJson('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
+            ->line(Lang::getFromJson('El link expira en  :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
+            
+            ->line(Lang::getFromJson('Si no solicitaste este password reset, no te preocupes tu clave permanece igual como hasta ahora.'));
     }
 
     /**

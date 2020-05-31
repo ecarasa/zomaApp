@@ -142,8 +142,11 @@ class GruposController extends Controller
                         'forzarcambioclave'=>99 // como es un invitado y la cuenta no existia le voy a pedir clave nueva con captha=codigo grupo
                 ]);
                 $participanteId=$user->id;
-        }
-        
+                $enviaremail=$user->EmailBienvenida($user);
+                //envio email de bievenida
+               
+        }  
+     
         /* chekeo que el idusuario no exista en este grupo */
         if ($gruposfns->soyIntegrante($participanteId,$request->codgrupo)) {
             /* salgo y aviso */

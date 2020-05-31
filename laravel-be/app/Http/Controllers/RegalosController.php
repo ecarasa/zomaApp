@@ -18,7 +18,8 @@ class RegalosController extends Controller {
      */
     public function index() {
         $regalos = Regalos::all();
-        $categorias = Categorias::all();
+        //$categorias =     DB::table('categorias')->select('categoria.id, categoria.nombre')->join('regalos', 'categorias.id', '=', 'regalos.categoria')->groupBy('categoria.id','categoria.url','categoria.nombre',DB::raw('count(*) as total'))->orderBy('total')   ;
+        $categorias = Categorias::all()->take(4);
 
         if (Auth::check()) {
             $grupos = $users = DB::table('grupos')
@@ -62,42 +63,38 @@ class RegalosController extends Controller {
         $categoria = false;
         $importe = false;
 
-        if ((isset($req->categoria_filtro) && $req->categoria_filtro > 0 )){
+        if ((isset($req->categoria_filtro) && $req->categoria_filtro > 0)) {
             $categoria = true;
         }
 
-        if (isset($req->rangoMax_filtro) ){
+        if (isset($req->rangoMax_filtro)) {
             $importe = true;
         }
-        
-  
-        if ( $categoria && $importe){
+
+
+        if ($categoria && $importe) {
             $regalos = Regalos::where('importe', '<', $req->rangoMax_filtro)->where('categoria', '=', $req->categoria_filtro)->select('*')->get();
         }
 
-        if ( $categoria && !$importe){
+        if ($categoria && !$importe) {
             $regalos = Regalos::where('categoria', '=', $req->categoria_filtro)->select('*')->get();
         }
 
-        if ( $importe && !$categoria){
+        if ($importe && !$categoria) {
             $regalos = Regalos::where('importe', '<', $req->rangoMax_filtro)->select('*')->get();
         }
-        
+
         $html = '
-        
         <div class="section-header">
-        <div class="section-header-info">
-            <p class="section-pretitle">Mira todo lo que tenemos para vos</p>
-            <h2 class="section-title">Encontramos '. count($regalos). ' vouchers para que regales</h2>
+            <div class="section-header-info">
+                <p class="section-pretitle">Mira todo lo que tenemos para vos</p>
+                <h2 class="section-title">Encontramos ' . count($regalos) . ' vouchers para que regales</h2>
+            </div>
         </div>
-    </div>
-
+        <div class="grid grid-3-3-3-3 centered" id="grillaRegalos">
         ';
-
-
-
         foreach ($regalos as $regalo) {
-            $html = $html.'<div class="product-preview">';
+            $html = $html . '<div class="product-preview">';
             $html = $html . '<figure class="product-preview-image liquid" style="background: url(' . $regalo->url . ') center center / cover no-repeat;">';
             $html = $html . '<img src="{{ $regalo->url }}" alt="item-01" style="display: none;">';
             $html = $html . '</figure>';
@@ -123,7 +120,7 @@ class RegalosController extends Controller {
             $html = $html . '</div>';
             $html = $html . '</div>';
         }
-
+        $html = $html . '</div>';
         echo $html;
     }
 
