@@ -231,6 +231,16 @@
                                     </div>
                                     <!-- /FORM SELECT -->
                                 </div>
+
+                                <div class="form-item">
+                                    <!-- FORM SELECT -->
+                                    <div class="form-select" style="margin-bottom: 28px;">
+                                        <label for="billing-state">Mensaje</label>
+                                        <input type='text' value name="mensaje" id="mensaje">
+                                        <!-- /FORM SELECT ICON -->
+                                    </div>
+                                    <!-- /FORM SELECT -->
+                                </div>
                             </form>
 
                         </div>
@@ -240,8 +250,12 @@
 
                         </div>
                         @endif
+                        <div id="botonpagoml">
+                        
+                        </div>
+
                         <div class="modal-footer">
-                            <a href="javascript:regalar();" class="btn btn-primary boton_compra">Comprar</a>
+                            <a href="javascript:regalar();" class="btn btn-primary boton_compra" style="    width: 100%;">Comprar</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
@@ -261,6 +275,8 @@
 
     <script>
                                         function buyModal(idregalo) {
+                                            $('#botonpagoml').html('')
+                                            $('.modal-footer').show(100);
                                             $('#buyModal').modal('show');
                                             $('#idRegalo').val(idregalo);
                                         }
@@ -290,24 +306,35 @@
         }
 
         function regalar() {
-            if ($('#grupo_regalo').val() != '-1' && $('#amigo_a_regalar').val() != '-1')
-                var fd = new FormData(document.getElementById('formregalo'));
-            fd.append("_token", $("input[name=_token]").val());
-            $.ajax({
-                url: "/grupo/regalar/",
-                type: "POST",
-                data: fd,
-                dataType: 'json',
-                enctype: 'multipart/form-data',
-                processData: false,
-                contentType: false,
+            if ($('#grupo_regalo').val() != '-1' && $('#amigo_a_regalar').val() != '-1'){
+                
+                var fd = new FormData();
+                
+                fd.append("_token", $("input[name=_token]").val());
+                
+                fd.append("idRegalo", $("#idRegalo").val());
+                fd.append("amigo_a_regalar", $("#amigo_a_regalar").val());
+                fd.append("grupo_regalo", $("#grupo_regalo").val());
+                fd.append("mensaje", $("#mensaje").val());
+                
+                
+                $.ajax({
+                    url: "/grupo/regalar",
+                    type: "POST",
+                    data: fd,
+                    dataType: 'json',
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
                 beforeSend: function () {
                     //console.log("before send request");
-                    //$('#amigo_a_regalar').empty().append($('<option></option>').attr('value', '-1').text('Cargando...'));
+                    $("#botonpagoml").html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
                 }
-            }).done(function (data) {
-                console.log(data)
-            });
+                }).done(function (data) {
+                    $('#botonpagoml').html(data.boton)
+                    $('.modal-footer').hide(100)
+                });
+            }
         }
 
 
@@ -339,8 +366,15 @@
 
         }
 
+        function SendWebWthsVendedor(numerowts,vendedor,codcanje) {
+            window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola vendedor! compré un regalo en Cheamigo.com.ar ->"+ String.fromCodePoint('0x1F381') + " Mi codigo de canje es:  "+codcanje );
+        }
 
         function fulfillSelect(codigoGrupo) {
+
+            $('.modal-footer').show(100)
+            $('#botonpagoml').html('')
+
             if ($('#grupo_regalo').val() != '-1')
                 var fd = new FormData(document.getElementById('formregalo'));
             fd.append("_token", $("input[name=_token]").val());
