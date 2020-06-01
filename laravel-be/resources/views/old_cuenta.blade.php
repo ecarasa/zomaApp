@@ -61,7 +61,7 @@
                     <!-- FORM INPUT -->
                     <div class="form-input small active">
                     <label for="account-phone">Whatsapp </label>
-                      <input type="text" id="phone" name="phone" data-inputmask="'mask': '+99999 999 9 9999'" placeholder="" value="{{ $user->telefono }}">
+                      <input type="text" id="phone" name="phone" placeholder="+54911..." value="{{ $user->telefono }}">
                     </div>
                     <!-- /FORM INPUT -->
                   </div>

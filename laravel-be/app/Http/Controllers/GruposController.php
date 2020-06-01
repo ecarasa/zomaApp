@@ -132,21 +132,25 @@ class GruposController extends Controller
     {
     $gruposfns= Grupos::where('codigo', $request->codgrupo)->first();
     $participanteId=$gruposfns->existeEmail($request->email,$request->codgrupo);
-    /* si no existe el usuario lo doy de alta */   
+    /* si no existe el usuario lo doy de alta */ 
+    $forz=rand(999,99999);  
     if ($participanteId==0){
                 $user = User::create([
                         'name' => $request->nombreusuario, 
                         'email' => $request->email,
-                        'password' => Hash::make('1234'),
+                        'password' => Hash::make('CH'.$forz),
                         'telefono'=> $request->telefono,
-                        'forzarcambioclave'=>99 // como es un invitado y la cuenta no existia le voy a pedir clave nueva con captha=codigo grupo
+                        'forzarcambioclave'=>$forz // como es un invitado y la cuenta no existia le voy a pedir clave nueva con captha=codigo grupo
                 ]);
                 $participanteId=$user->id;
                 $enviaremail=$user->EmailBienvenida($user);
                 //envio email de bievenida
                
         }  
-     
+     //else
+       // $user=User::find($participanteId);
+
+     //$enviaremail=$user->EmailBienvenida($user);
         /* chekeo que el idusuario no exista en este grupo */
         if ($gruposfns->soyIntegrante($participanteId,$request->codgrupo)) {
             /* salgo y aviso */
