@@ -34,104 +34,59 @@
       <!-- /LOGO -->
 
       <!-- LANDING INFO PRETITLE -->
-      <h2 class="landing-info-pretitle">Bienvenido</h2>
+      <h2 class="landing-info-pretitle">Hola !</h2>
       <!-- /LANDING INFO PRETITLE -->
 
       <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">REGISTRATE</h1>
+      <h1 class="landing-info-title">INGRESÁ</h1>
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
       <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
       <!-- /LANDING INFO TEXT -->
 
+
     </div>
 
 
     <div class="landing-form">  
+      <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
-        <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
-        <!-- /FORM BOX DECORATION -->
+        <img class="form-box-decoration overflowing" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
+        <h2 class="form-box-title">Bienvenido</h2>
+        <form class="form" id="form-login" action="/login" method="post">
+        @csrf
 
-        <!-- FORM BOX TITLE -->
-        <h2 class="form-box-title">CREA TU CUENTA</h2>
-        <!-- /FORM BOX TITLE -->
-    
-        <!-- FORM -->
-        <form class="form" id="form-register" method="post" action="/register">
-          <!-- FORM ROW -->
           <div class="form-row">
-            <!-- FORM ITEM -->
             <div class="form-item">
-              <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="register-email">Nombre</label>
-                <input type="text" id="name" name="name">
+                <label for="login-password">Email</label>
+                <input type="text" id="email"  name="email" autocomplete="off">
               </div>
-              <!-- /FORM INPUT -->
             </div>
-            <!-- /FORM ITEM -->
           </div>
-          <!-- /FORM ROW -->
-    
-          <!-- FORM ROW -->
           <div class="form-row">
-            <!-- FORM ITEM -->
             <div class="form-item">
-              <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="register-username">Email</label>
-                <input type="text" id="email" name="email">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="password" class="dateInput" name="password" autocomplete="off">
               </div>
-              <!-- /FORM INPUT -->
             </div>
-            <!-- /FORM ITEM -->
           </div>
-          <!-- /FORM ROW -->
-    
+
           <div class="form-row">
-            <!-- FORM ITEM -->
             <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="login-password">Password</label>
-                <input type="password" id="password" name="password">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-    
-          <!-- FORM ROW -->
-          <div class="form-row">
-            <!-- FORM ITEM -->
-            <div class="form-item">
-              <!-- FORM INPUT -->
-              <div class="form-input">
-                <label for="register-password-repeat">Repeat Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation">
-              </div>
-              <!-- /FORM INPUT -->
-            </div>
-            <!-- /FORM ITEM -->
-          </div>
-          <!-- /FORM ROW -->
-    
-          @csrf
-    
-          <div class="form-row" style="margin-top: 28px;">    
-            <div class="form-item">
-              <button type="submit" class="button medium secondary" style="width: 100%;">REGISTRARME</a>
+              <button type="submit" class="button medium secondary" style="width: 100%;">Ingresar</a>
             </div>
           </div>
         </form>
-            
       </div>
+      <!-- end.1er FORM -->
+    
+
     </div>
   </div>
-  
-<style>
+  <style>
 input[type="password"] {
   -webkit-tap-highlight-color: transparent;
 --blue: #007bff;
@@ -199,21 +154,16 @@ jQuery.extend(jQuery.validator.messages, {
     email: "No parece un mail valido."
 });
 
-$("#form-register").validate({
+$("#form-login").validate({
   rules: {
-    name: "required",
+    
     email: {
       required: true,
       email: true
     },
     password: {
       required: true,
-      minlength : 5
-    },
-    password_confirmation:{
-      required: true,
-      minlength : 5,
-      equalTo: "#password"
+    
     }
   },
   errorClass: "invalid"
