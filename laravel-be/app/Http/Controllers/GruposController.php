@@ -366,16 +366,22 @@ class GruposController extends Controller {
             $tmp->idPista = 0;
 
             if ($tmp->save()) {
+
+
+                $boton_html="<br/><h2 style='margin-bottom: 10px;border: 1px solid grey;justify-content: center;text-align: center;padding: 13px;'>
+                Voucher: " . 'CH-' . str_replace(":", "", substr($tmp->created_at, 14, 6)) . '-' . $tmp->id . "</h2>
+                <h3 style=' text-align: center;'>Ya casi ... ponete en contacto con el comercio para continuar.</h3>
+                <br/>";
+
+                if ($regalo->get(0)->botondepago!=''){
+                    $boton_html=$boton_html."<a target='_blank' style='width: 100%;' href='" . $regalo->get(0)->botondepago . "'  class='button small twitch blue-ar-l-rn-none'>Ir a Pagar</a><br/>";
+                }
+                if ($regalo->get(0)->Empresa->telefono!=''){
+                    $boton_html=$boton_html."<a target='_blank' style='width: 100%;background-color: #333333;margin-top: 6px;' href='https://api.whatsapp.com/send?phone=" . $regalo->get(0)->Empresa->telefono . "&text=%20 Hola vendedor! compré un regalo en Cheamigo.com.ar ->  Mi codigo de canje es: " . "CH-" . str_replace(':', '', substr($tmp->created_at, 14, 6)) . "-" . $tmp->id . "' class='button small twitch blue-ar-l-rn-none'>Mensaje al vendedor</a><br/><button type='button class='btn btn-secondary' style='margin-top: 6px;' data-dismiss='modal>Cerrar</button>";
+                }
+
                 return response()->json([
-                            'boton' => "<br/><h2 style='margin-bottom: 10px;
-                            border: 1px solid grey;
-                            justify-content: center;
-                            text-align: center;
-                            padding: 13px;'>Voucher: " . 'CH-' . str_replace(":", "", substr($tmp->created_at, 14, 6)) . '-' . $tmp->id . "</h2><h3 style=' text-align: center;'>Ya casi ... ponete en contacto con el comercio para continuar.</h3><br/><a target='_blank' style='width: 100%;' href='" . $regalo->get(0)->botondepago . "'  class='button small twitch blue-ar-l-rn-none'>Ir a Pagar</a><br/>
-                            <a target='_blank' 
-                            style='width: 100%;background-color: #333333;margin-top: 6px;' 
-                            href='https://api.whatsapp.com/send?phone=" . $regalo->get(0)->Empresa->telefono . "&text=%20 Hola vendedor! compré un regalo en Cheamigo.com.ar ->  Mi codigo de canje es: " . "CH-" . str_replace(':', '', substr($tmp->created_at, 14, 6)) . "-" . $tmp->id . "' class='button small twitch blue-ar-l-rn-none'>Mensaje al vendedor</a><br/><button type='button class='btn btn-secondary' style='margin-top: 6px;' data-dismiss='modal>Cerrar</button>",
-                             
+                            'boton' => $boton_html,
                             'empresa_tel' => $regalo->get(0)->Empresa->telefono,
                             'empresa_nombre' => $regalo->get(0)->Empresa->nombre,
                             'regalo' => $regalo->get(0)->nombre,

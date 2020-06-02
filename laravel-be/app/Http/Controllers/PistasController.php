@@ -302,7 +302,7 @@ $message = $twilio->messages
                 $tmp->idGrupo = $request->grupo;
                 $tmp->idpista = $pista->id;
                 $tmp->mensaje = $request->pistamsj;
-                // el codigo se resuelve con la columna timestamps default ver bd --- $tmp->codigo = 'CH-'.useCurrent().'-'.$request->regalo;
+                // el codigo se resuelve con la columna timestamps default ver bd ---  <?php echo 'CH-' . str_replace(":", "", substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ; ?>
                 if ($tmp->save()){
 
                     $output = array("status"=>true,"msj"=>"Pista con Regalo Enviada!","idregalo"=>$tmp->id );

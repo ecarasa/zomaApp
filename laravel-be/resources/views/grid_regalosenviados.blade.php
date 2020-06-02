@@ -74,7 +74,10 @@
                       <!-- /USER AVATAR PROGRESS BORDER -->
                   
                       <!-- USER AVATAR BADGE -->
-                      <div class="user-avatar-badge">
+                      <div class="user-avatar-badge" style="    width: 62px;
+    height: 33px;
+    top: 2px;
+    right: -3px;">
                         <!-- USER AVATAR BADGE BORDER -->
                         <div class="user-avatar-badge-border">
                           <!-- HEXAGON -->
@@ -105,14 +108,14 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title" class="accordion-trigger-linked"><span readonly> Nombre: {{$regalo->nombre}} - </span> <span class="bold" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}} ','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')" > Enviar whatsapp : {{$regalo->telefono}} </span></p>
-                  <p class="user-status-text"> Empresa: {{ $regalo->empresa }} </p>
-                  <p class="user-status-title ">CheAmigo:{{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
+                  <p class="user-status-title" class="accordion-trigger-linked"><span readonly><strong>Nombre</strong> {{$regalo->nombre}} - </span> <span class="bold" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}} ','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')" > Enviar whatsapp : {{$regalo->telefono}} </span></p>
+                  <p class="user-status-text"><strong>Empresa</strong> {{ $regalo->empresa }} </p>
+                  <p class="user-status-title "><strong>CheAmigo</strong> {{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->
-                  <p class="user-status-text"> Codigo de Referencia CH/{{ $regalo->created_at }}/{{ $regalo->id }} </p>
+                  <p class="user-status-text"><strong>Codigo de Voucher</strong> <?php echo 'CH-' . str_replace(":", "", substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ; ?></p>
                   
-                  <p class="user-status-timestamp"> $:  {{ $regalo->importe}} </p>
+                  <p class="user-status-timestamp" style="color: black; font-size: 25px;"> $ {{ $regalo->importe}} </p>
                   <p class="user-status-timestamp">  Recordá acordar el pago con el proveedor para que tu amigo pueda canjear el regalo ! </p>
                   
                   <!-- /USER STATUS TEXT -->

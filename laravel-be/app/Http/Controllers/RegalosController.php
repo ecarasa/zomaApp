@@ -18,8 +18,8 @@ class RegalosController extends Controller {
      */
     public function index() {
         $regalos = Regalos::all();
-        //$categorias =     DB::table('categorias')->select('categoria.id, categoria.nombre')->join('regalos', 'categorias.id', '=', 'regalos.categoria')->groupBy('categoria.id','categoria.url','categoria.nombre',DB::raw('count(*) as total'))->orderBy('total')   ;
-        $categorias = Categorias::all()->take(4);
+        $categorias =     DB::table('categorias')->select('categoria.id, categoria.nombre')->join('regalos', 'categorias.id', '=', 'regalos.categoria')->groupBy('categoria.id','categoria.url','categoria.nombre',DB::raw('count(*) as total'))->orderBy('total');
+       // $categorias = Categorias::->where()->take(4);
 
         if (Auth::check()) {
             $grupos = $users = DB::table('grupos')
