@@ -7,6 +7,8 @@ Route::get('/', 'HomeController@index');
 
 // bases y condiciones
 Route::get('/basesycond', 'HomeController@show');
+//tests
+Route::get('/testemail', 'UserController@EmailBienvenida');
 
 //pistas
 Route::get('/pista', 'PistasController@index')->name('index');
@@ -43,7 +45,6 @@ Route::post('/grupo/agregarparticipante', 'GruposController@agregarParticipante'
 //marketplace
 Route::get('/store/categoria/{categoriaNombre}', 'RegalosController@busquedaCategoria');
 Route::get('/store', 'RegalosController@index');
-Route::post('/regalos/filtro', 'RegalosController@filtrarRegalos');
 
 // compras de cupones
 Route::get('/buy/{hash}/{CuponCode}/{estado}/success', 'RegalosController@success'); // estado 1

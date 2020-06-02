@@ -1,13 +1,14 @@
 <?php
 
 namespace Illuminate\Auth\Notifications;
-
+use App\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+
 
 class VerifyEmail extends Notification
 {
@@ -38,6 +39,8 @@ class VerifyEmail extends Notification
     public function toMail($notifiable)
     {
         $verificationUrl = $this->verificationUrl($notifiable);
+        $userem=User::find($notifiable->getKey());
+
 
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
@@ -45,9 +48,10 @@ class VerifyEmail extends Notification
 
         return (new MailMessage)
             ->subject(Lang::getFromJson('Bienvenid@ CheAmigo'))
-            ->line(Lang::getFromJson('Te damos la biencvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.'))
+            ->line(Lang::getFromJson('Te damos la bienvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.
+            Tu nombre de usuario será tu Email. Si aún no generaste tu contraseña,  utilizá la siguiente:  CH'.$userem->forzarcambioclave))
             ->action(Lang::getFromJson('Click aqui!'), $verificationUrl)
-            ->line(Lang::getFromJson('If you did not create an account, no further action is required.'));
+            ->line(Lang::getFromJson('Si creaste tu cuenta desde la web entonces tu clave sigue siendo la que generaste en el formulario de registro.'));
     }
 
     /**

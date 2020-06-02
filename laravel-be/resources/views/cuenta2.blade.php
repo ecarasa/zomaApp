@@ -22,7 +22,7 @@
    @ //include('nav_menu') -->
   <!-- /NAVIGATION WIDGET -->
   <!-- MENU  DE NAV WIDGET -->
-  @include('header')
+  @include('header_responsive')
   <style>
 
 .modal-dialog {

@@ -45,9 +45,10 @@
                 'password' => Hash::make($request->get('password')),
                 'forzarcambioclave'=>0
             ]);
-
-            $token = JWTAuth::fromUser($user);
             $enviarEmail= $user->EmailBienvenida($user);
+            
+            $token = JWTAuth::fromUser($user);
+            
             return response()->json(compact('user','token'),201);
         }
 
