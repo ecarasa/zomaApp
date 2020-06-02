@@ -1,10 +1,11 @@
-<div class="account-hub-content" style="padding: 30px;">
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"> </script>
+<div class="account-hub-content" style="">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle">Mi cuenta</p>
+            <p class="section-pretitle">Perfil</p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
@@ -20,7 +21,7 @@
           <!-- WIDGET BOX -->
           <div class="widget-box">
             <!-- WIDGET BOX TITLE -->
-            <p class="widget-box-title">Perfil</p>
+            <p class="widget-box-title"></p>
             <!-- /WIDGET BOX TITLE -->
 
             <!-- WIDGET BOX CONTENT -->
@@ -61,7 +62,7 @@
                     <!-- FORM INPUT -->
                     <div class="form-input small active">
                     <label for="account-phone">Whatsapp </label>
-                      <input type="text" id="phone" name="phone" data-inputmask="'mask': '+99999 999 9 9999'" placeholder="" value="{{ $user->telefono }}">
+                      <input type="text" id="phone" name="phone" placeholder="Característica sin 0 y numero sin 15" value="{{ $user->telefono }}">
                     </div>
                     <!-- /FORM INPUT -->
                   </div>
@@ -79,8 +80,11 @@
                   <!-- /FORM ITEM -->
                 </div>
                 <!-- /FORM ROW -->
+                <div class="form-row ">
+                <button type="submit" class="btn btn-primary" style="background:#615dfa">Guardar Cambios
+                </div>
                 <!-- /FORM ROW -->
-                <button type="submit" class="btn btn-primary">Guardar Cambios
+                
 
                 {{ $output }}
                 </button>
