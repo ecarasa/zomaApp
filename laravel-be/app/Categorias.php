@@ -8,10 +8,12 @@ use App\Regalos;
 class Categorias extends Model
 {
 
-
     public function getCantidad(){
         return $this->hasMany('App\Regalos', 'categoria', 'id')->where('categoria','=',$this->id)->count();
     }
 
+    public function cantidad_regalos(){
+        return $this->hasMany('App\Regalos', 'categoria', 'id')->where('categoria','=',$this->id)->count();
+    }
 
 }
