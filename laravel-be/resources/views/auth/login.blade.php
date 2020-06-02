@@ -73,11 +73,15 @@
               </div>
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-row split">
             <div class="form-item">
               <div class="form-input ">
-                <a href="/password/reset" style="color:#615dfa">Olvidé/No Tengo Clave</a>
-                
+                <a href="/password/reset" style="color:#615dfa">Olvidé/No Tengo Clave</a>                
+              </div>
+            </div>
+            <div class="form-item">
+              <div class="form-input ">
+                <a href="/register" style="color:#615dfa">Crear Cuenta</a>                
               </div>
             </div>
           </div>

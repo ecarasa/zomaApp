@@ -108,12 +108,26 @@
 
 
 
-        
-                        $user = User::find( Auth::user()->id);
-                
+                        $tel=$request->phone;
+                        $user = User::find( Auth::user()->id);                
                         $user->name = $request->nya;
                         $user->email= $request->email;
-                        $user->telefono= $request->phone;
+                        if (preg_match("/^0/i",$tel))
+                                $tel= substr($tel,1);
+
+                        if (preg_match("/^15/i",$tel)) {
+                                $tel= substr($tel,2);   
+                                if (strlen($tel)<10)
+                                        $tel="11".$tel; // asumo que es de capital por ahora
+                        }     
+                        
+                        if (preg_match("/^549/i",$tel) and strlen($tel)>10 ) 
+                                $tel= "+".$tel  ;                               
+                        
+                         if (preg_match("/^\+549/i",$tel))
+                                $user->telefono= $tel;
+                        else
+                                 $user->telefono= "+549".$tel;
                         $user->json= $request->nick;
                         $user->save();
                         $output = "<h1>Actualizado correctamente.</h1>";

@@ -6,7 +6,8 @@ Route::get('/', 'HomeController@index');
 
 
 // bases y condiciones
-Route::get('/basesycond', 'HomeController@show');
+Route::get('/basesycond', 'HomeController@showbases');
+Route::get('/basesycond', 'HomeController@showfaqs');
 
 //pistas
 Route::get('/pista', 'PistasController@index')->name('index');
