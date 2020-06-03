@@ -1,4 +1,3 @@
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"> </script>
 <div class="account-hub-content" style="">
         <!-- SECTION HEADER -->
         <div class="section-header">
