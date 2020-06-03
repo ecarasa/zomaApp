@@ -32,6 +32,9 @@
           <li class="menu-main-item">
             <a class="menu-main-item-link" href="/cuenta">Cuenta</a>
           </li>
+          <li class="menu-main-item">
+            <a class="menu-main-item-link" href="/faqs">Preguntas Frecuentes</a>
+          </li>
 
 
         </ul>
@@ -39,293 +42,7 @@
     </div>
 
 
-    <div class="header-actions search-bar" style="position: relative;">
-      <!-- INTERACTIVE INPUT -->
-      
-      <!-- /INTERACTIVE INPUT -->
-
-      <!-- DROPDOWN BOX -->
-      <div class="dropdown-box padding-bottom-small header-search-dropdown" style="position: absolute; z-index: 9999; top: 57px; left: 0px; opacity: 0; visibility: hidden; transform: translate(0px, -40px); transition: transform 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s;">
-        <!-- DROPDOWN BOX CATEGORY -->
-        <div class="dropdown-box-category">
-          <!-- DROPDOWN BOX CATEGORY TITLE -->
-          <p class="dropdown-box-category-title">Members</p>
-          <!-- /DROPDOWN BOX CATEGORY TITLE -->
-        </div>
-        <!-- /DROPDOWN BOX CATEGORY -->
     
-        <!-- DROPDOWN BOX LIST -->
-        <div class="dropdown-box-list small no-scroll">
-          <!-- DROPDOWN BOX LIST ITEM -->
-          <a class="dropdown-box-list-item" href="profile-timeline.html">
-            <!-- USER STATUS -->
-            <div class="user-status notification">
-              <!-- USER STATUS AVATAR -->
-              <div class="user-status-avatar">
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-outline">
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-              
-                  <!-- USER AVATAR PROGRESS -->
-                  <div class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS -->
-              
-                  <!-- USER AVATAR PROGRESS BORDER -->
-                  <div class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS BORDER -->
-              
-                  <!-- USER AVATAR BADGE -->
-                  <div class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-              
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div class="user-avatar-badge-content">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-              
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">12</p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                  </div>
-                  <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-              </div>
-              <!-- /USER STATUS AVATAR -->
-          
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><span class="bold">Neko Bebop</span></p>
-              <!-- /USER STATUS TITLE -->
-          
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text">1 friends in common</p>
-              <!-- /USER STATUS TEXT -->
-          
-              <!-- USER STATUS ICON -->
-              <div class="user-status-icon">
-                <!-- ICON FRIEND -->
-                <svg class="icon-friend">
-                  <use xlink:href="#svg-friend"></use>
-                </svg>
-                <!-- /ICON FRIEND -->
-              </div>
-              <!-- /USER STATUS ICON -->
-            </div>
-            <!-- /USER STATUS -->
-          </a>
-          <!-- /DROPDOWN BOX LIST ITEM -->
-    
-          <!-- DROPDOWN BOX LIST ITEM -->
-          <a class="dropdown-box-list-item" href="profile-timeline.html">
-            <!-- USER STATUS -->
-            <div class="user-status notification">
-              <!-- USER STATUS AVATAR -->
-              <div class="user-status-avatar">
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-outline">
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-              
-                  <!-- USER AVATAR PROGRESS -->
-                  <div class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS -->
-              
-                  <!-- USER AVATAR PROGRESS BORDER -->
-                  <div class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS BORDER -->
-              
-                  <!-- USER AVATAR BADGE -->
-                  <div class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-              
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div class="user-avatar-badge-content">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-              
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">7</p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                  </div>
-                  <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-              </div>
-              <!-- /USER STATUS AVATAR -->
-          
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><span class="bold">Tim Rogers</span></p>
-              <!-- /USER STATUS TITLE -->
-          
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text">4 friends in common</p>
-              <!-- /USER STATUS TEXT -->
-          
-              <!-- USER STATUS ICON -->
-              <div class="user-status-icon">
-                <!-- ICON FRIEND -->
-                <svg class="icon-friend">
-                  <use xlink:href="#svg-friend"></use>
-                </svg>
-                <!-- /ICON FRIEND -->
-              </div>
-              <!-- /USER STATUS ICON -->
-            </div>
-            <!-- /USER STATUS -->
-          </a>
-          <!-- /DROPDOWN BOX LIST ITEM -->
-        </div>
-        <!-- /DROPDOWN BOX LIST -->
-    
-        <!-- DROPDOWN BOX CATEGORY -->
-        <div class="dropdown-box-category">
-          <!-- DROPDOWN BOX CATEGORY TITLE -->
-          <p class="dropdown-box-category-title">Groups</p>
-          <!-- /DROPDOWN BOX CATEGORY TITLE -->
-        </div>
-        <!-- /DROPDOWN BOX CATEGORY -->
-    
-        <!-- DROPDOWN BOX LIST -->
-        <div class="dropdown-box-list small no-scroll">
-          <!-- DROPDOWN BOX LIST ITEM -->
-          <a class="dropdown-box-list-item" href="group-timeline.html">
-            <!-- USER STATUS -->
-            <div class="user-status notification">
-              <!-- USER STATUS AVATAR -->
-              <div class="user-status-avatar">
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-border">
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-40-44" data-src="img/avatar/24.jpg" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-              </div>
-              <!-- /USER STATUS AVATAR -->
-          
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><span class="bold">Cosplayers of the World</span></p>
-              <!-- /USER STATUS TITLE -->
-          
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text">139 members</p>
-              <!-- /USER STATUS TEXT -->
-          
-              <!-- USER STATUS ICON -->
-              <div class="user-status-icon">
-                <!-- ICON GROUP -->
-                <svg class="icon-group">
-                  <use xlink:href="#svg-group"></use>
-                </svg>
-                <!-- /ICON GROUP -->
-              </div>
-              <!-- /USER STATUS ICON -->
-            </div>
-            <!-- /USER STATUS -->
-          </a>
-          <!-- /DROPDOWN BOX LIST ITEM -->
-        </div>
-        <!-- /DROPDOWN BOX LIST -->
-    
-        <!-- DROPDOWN BOX CATEGORY -->
-        <div class="dropdown-box-category">
-          <!-- DROPDOWN BOX CATEGORY TITLE -->
-          <p class="dropdown-box-category-title">Marketplace</p>
-          <!-- /DROPDOWN BOX CATEGORY TITLE -->
-        </div>
-        <!-- /DROPDOWN BOX CATEGORY -->
-      
-        <!-- DROPDOWN BOX LIST -->
-        <div class="dropdown-box-list small no-scroll">
-          <!-- DROPDOWN BOX LIST ITEM -->
-          <a class="dropdown-box-list-item" href="marketplace-product.html">
-            <!-- USER STATUS -->
-            <div class="user-status no-padding-top">
-              <!-- USER STATUS AVATAR -->
-              <div class="user-status-avatar">
-                <!-- PICTURE -->
-                <figure class="picture small round liquid" style="background: url(&quot;img/marketplace/items/07.jpg&quot;) center center / cover no-repeat;">
-                  <img src="img/marketplace/items/07.jpg" alt="item-07" style="display: none;">
-                </figure>
-                <!-- /PICTURE -->
-              </div>
-              <!-- /USER STATUS AVATAR -->
-          
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><span class="bold">Mercenaries White Frame</span></p>
-              <!-- /USER STATUS TITLE -->
-          
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text">By Neko Bebop</p>
-              <!-- /USER STATUS TEXT -->
-          
-              <!-- USER STATUS ICON -->
-              <div class="user-status-icon">
-                <!-- ICON MARKETPLACE -->
-                <svg class="icon-marketplace">
-                  <use xlink:href="#svg-marketplace"></use>
-                </svg>
-                <!-- /ICON MARKETPLACE -->
-              </div>
-              <!-- /USER STATUS ICON -->
-            </div>
-            <!-- /USER STATUS -->
-          </a>
-          <!-- /DROPDOWN BOX LIST ITEM -->
-        </div>
-        <!-- /DROPDOWN BOX LIST -->
-      </div>
-      <!-- /DROPDOWN BOX -->
-    </div>
     
  
     
@@ -435,6 +152,18 @@
           </svg>
           <!-- /MENU ITEM LINK ICON -->
           Cuenta
+        </a>
+        <!-- /MENU ITEM LINK -->
+      </li>
+      <li class="menu-item">
+        <!-- MENU ITEM LINK -->
+        <a class="menu-item-link" href="/faqs">
+          <!-- MENU ITEM LINK ICON -->
+          <svg class="menu-item-link-icon icon-forums">
+            <use xlink:href="#svg-forums"></use>
+          </svg>
+          <!-- /MENU ITEM LINK ICON -->
+          Ayuda
         </a>
         <!-- /MENU ITEM LINK -->
       </li>

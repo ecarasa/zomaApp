@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         }else{
             return view('home');
-        }
+        } 
     }
 
     public function showbases()
