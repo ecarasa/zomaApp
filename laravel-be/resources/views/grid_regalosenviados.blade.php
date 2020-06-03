@@ -83,7 +83,7 @@
                           <!-- HEXAGON -->
                           <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
                           <div class="earning-stat-box-icon-wrap " style="left:100%" >
-                          <img width="100%" src="https://img.icons8.com/clouds/2x/whatsapp.png" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}}','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')"> </img>                         
+                          <img width="100%" src="https://img.icons8.com/clouds/2x/whatsapp.png" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}}','<?php echo  'CH-' . str_replace(':', '', substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ?>')"> </img>                         
                           </div>
                           <!-- /HEXAGON -->
                         </div>
@@ -108,12 +108,12 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title" class="accordion-trigger-linked"><span readonly><strong>Nombre</strong> {{$regalo->nombre}} - </span> <span class="bold" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}} ','CH/{{ $regalo->created_at }}/{{ $regalo->id }}')" > Enviar whatsapp : {{$regalo->telefono}} </span></p>
+                  <p class="user-status-title" class="accordion-trigger-linked"><span readonly><strong>Nombre</strong> {{$regalo->nombre}} - </span> <span class="bold" onclick="SendWebWthsVendedor('{{$regalo->telefono}}','{{ $regalo->empresa }}','{{$regalo->nombre}} ${{$regalo->importe}} ','<?php echo  'CH-' . str_replace(':', '', substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ?>')" > Enviar whatsapp : {{$regalo->telefono}} </span></p>
                   <p class="user-status-text"><strong>Empresa</strong> {{ $regalo->empresa }} </p>
                   <p class="user-status-title "><strong>CheAmigo</strong> {{$regalo->receptor}}  {{$regalo->eReceptor}} </p>
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->
-                  <p class="user-status-text"><strong>Codigo de Voucher</strong> <?php echo 'CH-' . str_replace(":", "", substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ; ?></p>
+                  <p class="user-status-text"><strong>Voucher Código</strong> <?php echo 'CH-' . str_replace(":", "", substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ; ?></p>
                   
                   <p class="user-status-timestamp" style="color: black; font-size: 25px;"> $ {{ $regalo->importe}} </p>
                   <p class="user-status-timestamp">  Recordá acordar el pago con el proveedor para que tu amigo pueda canjear el regalo ! </p>

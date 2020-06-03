@@ -14,8 +14,7 @@
         <link rel="icon" href="img/favicon.ico">
         <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/bootstrap.min.css">
     </head>
-    <body>ÏÏ
-
+    <body>
         @include('pageloader')
         @include('header_responsive')
 
@@ -95,7 +94,7 @@
                        style="background-image: url({{$categoria->imagen}});background-size: cover;">
                         <p class="product-category-box-title">{{$categoria->nombre}}</p>
                         <p class="product-category-box-text"></p>
-                        <p class="product-category-box-tag">{{ $categoria->getCantidad() }} cosas</p>
+                        <p class="product-category-box-tag">{{ $categoria->total }} cosas</p>
                     </a>
                 </div>
                 @endforeach
@@ -107,17 +106,17 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Que buscas ? Encontra lo que estas por regalar</h3>
+                    <h3>¿Qué buscas? Encontrá lo que sea que estes por regalar</h3>
                 </div>
                 <div class="col-md-3" style="margin-top:20px;">
                     <div class="form-select" style="margin-bottom: 28px;">
-                        <label for="billing-state">Categoria</label>
+                        <label for="billing-state">Categoría</label>
                         <select id="categoria_filtro" name="categoria_filtro">
-                            <option value="-1">Selecciona categoria ...</option>
+                            <option value="-1">Selecciona Categoría ...</option>
 
 
                             @foreach ($categorias as $categoria)
-                            <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                            <option value="{{ $categoria->id }}">{{ $categoria->nombre }} [{{ $categoria->total }}]</option>
                             @endforeach
                         </select>
                         <svg class="form-select-icon icon-small-arrow">
@@ -126,7 +125,7 @@
                     </div>
                 </div>
                 <div class="col-md-3  slidecontainer" style="margin-top:14px;">
-                    <label for="billing-state" id="rangoMax_filtrotxt">Maximo a Gastar ? $ 500</label>
+                    <label for="billing-state" id="rangoMax_filtrotxt">Máximo a Gastar ? $ 500</label>
                     <input type="range" min="200" max="5000" value="500" class="slider" id="rangoMax_filtro" name="rangoMax_filtro">
 
                 </div>
@@ -134,7 +133,7 @@
 
                 </div>
                 <div class="col-md-3"style="margin-top: 14px;">
-                    <a style="width: 100%;" href="javascript:filtrarRegalos();"  class='button small twitch blue-ar-l-rn-none'>Buscar</a>
+                    <a style="width: 100%;" href="javascript:filtrarRegalos();"  class='button small twitch blue-ar-l-rn-none'>Buscar ></a>
                 </div>
             </div>
 
@@ -145,7 +144,7 @@
             <div id="grillaRegalos">
                 <div class="section-header">
                     <div class="section-header-info">
-                        <p class="section-pretitle">Mira todo lo que tenemos para vos</p>
+                        <p class="section-pretitle">Mirá todo lo que tenemos para vos</p>
                         <h2 class="section-title">Vouchers {{ isset($categoriaSelected->nombre) ? $categoriaSelected->nombre : 'Todos'}}{{ ' tenemos ' . count($regalos) }}</h2>
                     </div>
                 </div>
@@ -189,7 +188,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" style="width: 100%;">Para quien es este regalo?</h5>
+                        <h5 class="modal-title" style="width: 100%;">Para quíen es este regalo?</h5>
                     </div>
                     <div class="modal-body">
                         @if ($grupos != null)
@@ -220,8 +219,7 @@
                                     <div class="form-select" style="margin-bottom: 28px;">
                                         <label for="billing-state">Amigo</label>
                                         <select id="amigo_a_regalar" name="amigo_a_regalar">
-                                            <option value="0">a quien se lo regalas ?</option>
-                                            <option value="1">...</option>
+                                            <option value="-1">se lo regalo a ... mmmh!</option>
                                         </select>
                                         <!-- FORM SELECT ICON -->
                                         <svg class="form-select-icon icon-small-arrow">
@@ -246,7 +244,7 @@
                         </div>
                         @else
                         <div class="form-item">
-                            <h3>Tenes que iniciar sesion.</>
+                            <h3>Tenes que iniciar sesión.</>
 
                         </div>
                         @endif
@@ -393,9 +391,16 @@
             }).done(function (data) {
                 $('#amigo_a_regalar').empty();
                 $('#amigo_a_regalar').append($('<option></option>').attr('value', '-1').text('Para quien es ? Elegi'));
-                $.each(data, function (key, entry) {
+                $.each(data.usuarios, function (key, entry) {
+                    console.log(key)
+                    console.log(entry)
+                    if (data.userAI[0].idUserAmigoInvible == entry.id){
+                        $('#amigo_a_regalar').append($('<option></option>').attr('value', entry.id).text(entry.name + '(Tu CheAmigo)'));
+                    }else{
+                        if ( data.userAI[0].idUsuario!= entry.id)
                     $('#amigo_a_regalar').append($('<option></option>').attr('value', entry.id).text(entry.name));
-                })
+                    }
+                                    })
             });
         }
 

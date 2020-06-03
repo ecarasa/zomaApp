@@ -32,7 +32,7 @@
                               
                               <div class="modal-body">
                               <p>Empresa a cargo: {{$regalo->empresa}} </p>
-                              <p>Canje Code: CH/{{$regalo->created_at}}/{{$regalo->id}}</p>
+                              <p>Voucher Código: <?php echo  'CH-' . str_replace(":", "", substr($regalo->created_at, 14, 6)) . '-' . $regalo->id ?></p>
                               </div>
                             
                               <div class="modal-footer">                                
