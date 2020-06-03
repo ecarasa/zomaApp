@@ -70,7 +70,7 @@
           <div class="form-row">
             <div class="form-item">
               <div class="form-input active">
-                <label for="login-email">Email</label>
+                <label for="email">Email</label>
                 <input type="text" id="email"  name="email" autocomplete="off">
               </div>
             </div>
@@ -78,7 +78,7 @@
           <div class="form-row">
             <div class="form-item">
               <div class="form-input ">
-                <label for="login-password">Contraseña</label>
+                <label for="password">Contraseña</label>
                 <input type="password" id="password" class="dateInput" name="password" autocomplete="off">
               </div>
             </div>

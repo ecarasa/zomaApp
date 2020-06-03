@@ -124,7 +124,10 @@
                         if (preg_match("/^549/i",$tel) and strlen($tel)>10 ) 
                                 $tel= "+".$tel  ;                               
                         
-                         if (preg_match("/^\+549/i",$tel))
+                        if (preg_match("/^5411/i",$tel) and strlen($tel)>10 ) 
+                                $tel= "+54911".substr($tel,4)  ;        
+                        
+                        if (preg_match("/^\+549/i",$tel))
                                 $user->telefono= $tel;
                         else
                                  $user->telefono= "+549".$tel;
