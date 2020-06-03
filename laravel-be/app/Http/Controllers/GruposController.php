@@ -117,13 +117,14 @@ class GruposController extends Controller {
         $gruposfns = Grupos::where('codigo', $request->codgrupo)->first();
         $participanteId = $gruposfns->existeEmail($request->email, $request->codgrupo);
         /* si no existe el usuario lo doy de alta */
+        $forz=rand(999,99999);  
         if ($participanteId == 0) {
             $user = User::create([
                         'name' => $request->nombreusuario,
                         'email' => $request->email,
-                        'password' => Hash::make('1234'),
+                        'password' => Hash::make('CH'.$forz),
                         'telefono' => $request->telefono,
-                        'forzarcambioclave' => 99 // como es un invitado y la cuenta no existia le voy a pedir clave nueva con captha=codigo grupo
+                        'forzarcambioclave' => $forz // la voy a enviar por email 
             ]);
             $participanteId = $user->id;
             $enviaremail = $user->EmailBienvenida($user);
@@ -229,10 +230,21 @@ class GruposController extends Controller {
 
                 if (!$usuario) {
                     // sino existe lo damos de alta
-                    $usuario = new User();
+                    /*$usuario = new User();
                     $usuario->email = $request->email;
                     $usuario->save();
                     $idUsuarioCreador = $usuario->id;
+                    */
+                    $forz=rand(999,99999);  
+                    $usuario = User::create([
+                        'name' => $request->nombreusuario,
+                        'email' => $request->email,
+                        'password' => Hash::make('CH'.$forz),
+                        'telefono' => $request->telefono,
+                        'forzarcambioclave' => $forz // la voy a enviar por email 
+                    ]);
+                    $idUsuarioCreador = $usuario->id;
+                    $enviaremail = $usuario->EmailBienvenida($usuario); // mando email de bienvenida 
                 } else
                     $idUsuarioCreador = $usuario->id;
             } else

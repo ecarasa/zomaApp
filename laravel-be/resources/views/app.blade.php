@@ -164,8 +164,8 @@
           console.log(data);
           $('.page-loader-indicator').hide()
           if (data.status == true){
-            alert('Grupo Creado');
-            window.location.href = "{{ env('APP_URL_PUERTO') }}/grupo/" + data.codigo;
+            alert('Grupo Creado. Revisa tu casilla de correo para validar tu email y ver los datos de ingreso al juego.');
+            window.location.href = "{{ env('APP_URL') }}/pista";
             //console.log("grupo/" + data.codigo);
           }else{
             alert('Hubo un error, intenta nuevamente')
