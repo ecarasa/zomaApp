@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Redirect;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,14 @@ class HomeController extends Controller
     {
 
         if (Auth::check()) {
-            return view('marketplace');
+            //return view('marketplace');
+            //return redirect()->route('store');
+            //return redirect()->route('store');
+            return redirect('/store');
+
+            // /return redirect()->route('store');
+
+
         }else{
             return view('home');
         } 
