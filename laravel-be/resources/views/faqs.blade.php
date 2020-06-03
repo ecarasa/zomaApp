@@ -178,7 +178,7 @@
 
 <script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="http://www.odindesign-themes.com/thetrickster/js/dropdowns.js"></script>
+<script src="{{ env('APP_URL_PUERTO') }}/js/oddjs.js"></script>
 <script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
 </body>
 </html> 
