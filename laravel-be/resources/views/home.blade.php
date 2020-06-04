@@ -69,7 +69,7 @@
         <!-- /BANNER TITLE -->
 
         <!-- BANNER TEXT -->
-        <p class="banner-text">Es momento de estar cerca, aun estando lejos. Por eso te invitamos a armar un amigo invisible y que puedas, atraves de "cheamigo.com.ar" enviar regalos o pistas a tu amigo invisbible. Que estas esperando ?</p>
+        <p class="banner-text" style="display: block!important;">Es momento de estar cerca, aun estando lejos. Por eso te invitamos a armar un amigo invisible y que puedas, atraves de "cheamigo.com.ar" enviar regalos o pistas a tu amigo invisbible. Que estas esperando ?</p>
         <!-- /BANNER TEXT -->
 
         <!-- BUTTON -->
@@ -223,5 +223,14 @@
 
 <!-- app -->
 <script src="{{ env('APP_URL_PUERTO') }}/app.bundle.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168586368-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168586368-1');
+</script>
 </body>
 </html>

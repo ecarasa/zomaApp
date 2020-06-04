@@ -17,33 +17,17 @@
 
   <!-- LANDING -->
   <div class="landing">
-    <!-- LANDING DECORATION -->
     <div class="landing-decoration"></div>
-    <!-- /LANDING DECORATION -->
-
-    <!-- LANDING INFO -->
     <div class="landing-info">
-      <!-- LOGO -->
       <div class="logo">
-        <!-- ICON LOGO VIKINGER -->
         <svg class="icon-logo-vikinger">
           <use xlink:href="#svg-logo-vikinger"></use>
         </svg>
-        <!-- /ICON LOGO VIKINGER -->
       </div>
-      <!-- /LOGO -->
 
-      <!-- LANDING INFO PRETITLE -->
       <h2 class="landing-info-pretitle">Bienvenido</h2>
-      <!-- /LANDING INFO PRETITLE -->
-
-      <!-- LANDING INFO TITLE -->
       <h1 class="landing-info-title">REGISTRATE</h1>
-      <!-- /LANDING INFO TITLE -->
-
-      <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
-      <!-- /LANDING INFO TEXT -->
+      <p class="landing-info-text" style="display: block!important;">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
 
     </div>
 
@@ -57,6 +41,7 @@
         <!-- FORM BOX TITLE -->
         <h2 class="form-box-title">CREA TU CUENTA</h2>
         <!-- /FORM BOX TITLE -->
+   
     
         <!-- FORM -->
         <form class="form" id="form-register" method="post" action="/register">
@@ -119,7 +104,9 @@
           <!-- /FORM ROW -->
     
           @csrf
-    
+          @if($errors->any())
+            {!! implode('', $errors->all('<div class="error">:message</div>')) !!}
+          @endif
           <div class="form-row" style="margin-top: 28px;">    
             <div class="form-item">
               <button type="submit" class="button medium secondary" style="width: 100%;">REGISTRARME</a>
@@ -132,6 +119,13 @@
   </div>
   
 <style>
+
+
+.error{
+  margin-top: 23px;
+    color: red;
+}
+
 input[type="password"] {
   -webkit-tap-highlight-color: transparent;
 --blue: #007bff;
@@ -219,5 +213,15 @@ $("#form-register").validate({
   errorClass: "invalid"
 });
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168586368-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168586368-1');
+</script>
+
 </body>
 </html>
