@@ -49,7 +49,7 @@
     </div>
 
 
-    <div class="landing-form">  
+    <div class="landing-form" style="    top: 10%;">   
       <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
         <img class="form-box-decoration overflowing" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
