@@ -106,13 +106,13 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>¿Qué buscas? Encontrá lo que sea que estes por regalar</h3>
+                    <h3>¿Qué buscás? Encontrá lo que sea que estés por regalar</h3>
                 </div>
                 <div class="col-md-3" style="margin-top:20px;">
                     <div class="form-select" style="margin-bottom: 28px;">
                         <label for="billing-state">Categoría</label>
                         <select id="categoria_filtro" name="categoria_filtro">
-                            <option value="-1">Selecciona Categoría ...</option>
+                            <option value="-1">Seleccioná Categoría ...</option>
 
 
                             @foreach ($categorias as $categoria)
@@ -198,8 +198,10 @@
                                 <input type='hidden' value name="idRegalo" id="idRegalo">
                                 <div class="form-select" style="margin-bottom: 28px;">
                                     <label for="billing-state">Grupo</label>
+                                    
+
                                     <select id="grupo_regalo" name="grupo_regalo" onchange="javascript:fulfillSelect(this.value);">
-                                        <option value="-1">Selecciona grupo ...</option>
+                                        <option value="-1">Seleccioná Grupo ...</option>
                                         @foreach ($grupos as $grupo)
                                         <option value="{{ $grupo->codigo }}">{{ $grupo->nombre }}</option>
                                         @endforeach
@@ -219,7 +221,7 @@
                                     <div class="form-select" style="margin-bottom: 28px;">
                                         <label for="billing-state">Amigo</label>
                                         <select id="amigo_a_regalar" name="amigo_a_regalar">
-                                            <option value="-1">se lo regalo a ... mmmh!</option>
+                                            <option value="-1">Se lo regalo a ... mmmh!</option>
                                         </select>
                                         <!-- FORM SELECT ICON -->
                                         <svg class="form-select-icon icon-small-arrow">

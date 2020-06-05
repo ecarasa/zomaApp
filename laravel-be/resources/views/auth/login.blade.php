@@ -42,14 +42,18 @@
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar…</p>
+<<<<<<< HEAD
+      <p class="landing-info-text" style="display: block!important;">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar…</p>
+=======
+      <p class="landing-info-text" style="display: block!important;">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+>>>>>>> 0e694ecc50e09cad34c281bc90cf7de71c940ede
       <!-- /LANDING INFO TEXT -->
 
 
     </div>
 
 
-    <div class="landing-form">  
+    <div class="landing-form" style="    top: 10%;">   
       <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
         <img class="form-box-decoration overflowing" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
@@ -181,5 +185,15 @@ $("#form-login").validate({
   errorClass: "invalid"
 });
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168586368-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168586368-1');
+</script>
+
 </body>
 </html>
