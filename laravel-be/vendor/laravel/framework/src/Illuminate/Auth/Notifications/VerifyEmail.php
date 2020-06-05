@@ -45,11 +45,17 @@ class VerifyEmail extends Notification
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
         }
-
+        if ($userem->forzarcambioclave<>0) {
+            $msj="Te damos la bienvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.
+        Tu nombre de usuario será tu Email. Si aún no generaste tu contraseña,  utilizá la siguiente:  CH".$userem->forzarcambioclave;
+        }else
+            $msj="Te damos la bienvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.
+        Tu nombre de usuario será tu Email. Empezá a jugar ahora!";
+        
         return (new MailMessage)
             ->subject(Lang::getFromJson('Bienvenid@ CheAmigo'))
-            ->line(Lang::getFromJson('Te damos la bienvenida a Cheamigo.com.ar. Para empezar a jugar en la web dale click al botón que aparece a continuación.
-            Tu nombre de usuario será tu Email. Si aún no generaste tu contraseña,  utilizá la siguiente:  CH'.$userem->forzarcambioclave))
+            
+            ->line(Lang::getFromJson($msj))
             ->action(Lang::getFromJson('Click aqui!'), $verificationUrl)
             ->line(Lang::getFromJson('Si creaste tu cuenta desde la web entonces tu clave sigue siendo la que generaste en el formulario de registro.'));
     }

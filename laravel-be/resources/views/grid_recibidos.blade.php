@@ -248,7 +248,7 @@
                       <!-- /USER AVATAR BADGE CONTENT -->
                 
                       <!-- USER AVATAR BADGE TEXT -->
-                      <p class="user-avatar-badge-text">16</p>
+                      <p class="user-avatar-badge-text">CH</p>
                       <!-- /USER AVATAR BADGE TEXT -->
                     </div>
                     <!-- /USER AVATAR BADGE -->

@@ -46,7 +46,8 @@
                     <!-- FORM INPUT -->
                     <div class="form-input small active">
                       <label for="account-email">Email</label>
-                      <input type="text" id="email" name="email" value="{{ $user->email }}">
+                      <input readonly type="text" id="email" name="email" value="{{ $user->email }}">
+                      
                     </div>
                     <!-- /FORM INPUT -->
                   </div>

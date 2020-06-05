@@ -42,7 +42,7 @@
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <p class="landing-info-text">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar… </p>
       <!-- /LANDING INFO TEXT -->
 
     </div>

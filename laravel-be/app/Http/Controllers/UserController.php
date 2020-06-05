@@ -111,7 +111,7 @@
                         $tel=$request->phone;
                         $user = User::find( Auth::user()->id);                
                         $user->name = $request->nya;
-                        $user->email= $request->email;
+                        
                         if (preg_match("/^0/i",$tel))
                                 $tel= substr($tel,1);
 

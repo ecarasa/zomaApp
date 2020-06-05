@@ -82,9 +82,9 @@
     </div>
 
     <h2 class="section-title">
-            Empezá a jugar al amigo invisible 100% online con muchos premios pistas y descuentos regalos ahora!
+            Empezá a jugar al amigo invisible 100% online ahora!  </h2>
             <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary botonCrearG" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
-    </h2>
+   
     <!-- /SECTION BANNER -->
 
    
@@ -167,7 +167,7 @@
                   <!-- /USER AVATAR BADGE CONTENT -->
             
                   <!-- USER AVATAR BADGE TEXT -->
-                  <p class="user-avatar-badge-text">24</p>
+                  <p class="user-avatar-badge-text">CH</p>
                   <!-- /USER AVATAR BADGE TEXT -->
                 </div>
                 <!-- /USER AVATAR BADGE -->
@@ -648,7 +648,7 @@ beforeSend: function() {
 
 function SendWebWths(numerowts,codgrupo,emailU) {
 
- window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/pista - ingresa con tu email ("+ emailU+ ") password 1234 "+String.fromCodePoint('0x1F60F')+ " en el grupo "+codgrupo );
+ window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! quiero invitarte a jugar al amigo invisble en Cheamigo.com.ar/jugar - ingresa con tu email ("+ emailU+ ")  "+String.fromCodePoint('0x1F60F')+ " en el grupo "+codgrupo+" podes enviar pistas a tu amigo invisible desde el menú Enviado->Enviar Pista. Suerte! y a Jugar!!! ");
 
 }
 
@@ -685,7 +685,7 @@ beforeSend: function() {
   $('.page-loader-indicator').hide()
   if (data.status == true){
     if (data.op==2){
-      alert('Has iniciado el Juego. Ya pueden empezar a jugar y tienen tiempo hasta '+data.fechafin+' para adivinar. Podés publicar los resultados cuando gustes haciendo click en Terminar');
+      alert('Has iniciado el Juego. Ya pueden empezar a jugar. Podés publicar los resultados cuando gustes haciendo click en Terminar');
       MostrarDetallesGrupo(data.idgrupo);
       }
       if (data.op==3){
