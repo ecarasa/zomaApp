@@ -36,7 +36,7 @@
                   <option value=0 regalourl="" nombreregalo=0> No...</option>
                   @foreach ($regalos as $regalo)
                   <option value={{$regalo->id}} regalourl="{{$regalo->url}}" nombreregalo="{{$regalo->nombre}}"> 
-                    {{$regalo->nombre. '-'.$regalo->descripcion }}
+                    {{$regalo->nombre. '-'.$regalo->descripcion . '| $'. $regalo->importe  }}
                   </option>
                   @endforeach               
                   </select>              

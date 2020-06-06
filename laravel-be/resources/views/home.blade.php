@@ -69,11 +69,7 @@
         <!-- /BANNER TITLE -->
 
         <!-- BANNER TEXT -->
-<<<<<<< HEAD
         <p class="banner-text" style="display: block!important;">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar… </p>
-=======
-        <p class="banner-text" style="display: block!important;">Es momento de estar cerca, aun estando lejos. Por eso te invitamos a armar un amigo invisible y que puedas, atraves de "cheamigo.com.ar" enviar regalos o pistas a tu amigo invisbible. Que estas esperando ?</p>
->>>>>>> 0e694ecc50e09cad34c281bc90cf7de71c940ede
         <!-- /BANNER TEXT -->
 
         <!-- BUTTON -->
