@@ -6,7 +6,8 @@
                 <!-- FORM ITEM -->   
              
                 <div class="form-item">
-                  <select class="form-control" id="ComboGr" onchange="slReceptor();" >
+                  <label for ="ComboGr" style="margin-bottom:5px"> Elegí el grupo para encontrar a tu amigo invisible asociado y enviarle la pista </label>
+                  <select class="form-control" id="ComboGr" name="ComboGr" onchange="slReceptor();" >
                   <option value=0 emailamigoi="" idamigoi=0> Seleccionar grupo</option>
                   @foreach ($grupos as $grupo)
                   <option value={{$grupo->id}} idamigoi="{{$grupo->idUserAmigoInvible}}" emailamigoi="{{$grupo->email}}"> 
@@ -17,10 +18,10 @@
                 </div>
                  <!-- FORM ITEM -->
               </div>
-              <div class="form-row split">
-                <div class="form-item" >
-                  <span class="user-status-title">Tu amigo invisible es:</span>
-                  <span class="bold" id="receptorEmail" > </span>
+              <div class="form-row "  name="camposdivpista"  style="display:none">
+                <div class="form-item">
+                  <p class="user-status-title" style="display:none" id="titleamigo">Tu amigo invisible es:
+                  <span class="bold" id="receptorEmail" class = "bold"> </span> </p>
                   
                   <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="0">
                  
@@ -29,7 +30,7 @@
                 <!-- FORM ITEM -->
               </div>
               <!-- /FORM ITEM -->
-              <div class="form-row split">
+              <div class="form-row " name="camposdivpista" style="display:none">
                   <div class="form-item">
                   <span> Querés incluir un regalo? (podes elegirlo pagarlo ahora o arreglar con el vendedor después) </span>
                   <select class="form-control" id="ComboRegalo" onchange="slRegalo();" >
@@ -44,7 +45,7 @@
                 </div>  
                 <!-- FORM ITEM -->
               <!-- FORM ROW -->
-              <div class="form-row ">
+              <div class="form-row " name="camposdivpista" style="display:none">
                 <div class="form-item">
                   <!-- INTERACTIVE INPUT -->
                   <div class="interactive-input small">
@@ -80,10 +81,10 @@
 
 
               </div>
-              <div class="form-row ">
+              <div class="form-row " name="camposdivpista" style="display:none">
                 <div class="form-item auto-width" onclick="sendMsj();">
                   <!-- BUTTON -->
-                  <p class="button primary padded">
+                  <p class="button primary padded"> Enviar! 
                     <!-- BUTTON ICON -->
                     <svg  class="button-icon no-space icon-send-message">
                       <use xlink:href="#svg-send-message"></use>

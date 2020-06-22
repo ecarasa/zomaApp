@@ -103,11 +103,11 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title" class="accordion-trigger-linked"><span class="bold" readonly> Nombre:</span></p>
-                  <p class="user-status-title "> {{$grupo->codigoGrupo}} </p>
+                  <p class="user-status-title" class="accordion-trigger-linked"><span class="bold" readonly> Nombre del grupo : </span>{{$grupo->codigoGrupo}}</p>
+                  
                   <!-- /USER STATUS TITLE -->              
                   <!-- USER STATUS TEXT -->
-                  <p class="user-status-text"> Tu Amigo Invisible ->{{ $grupo->email }} </p>
+                  <p class="user-status-title" > <span class="bold" readonly> Tu Amigo Invisible: </span>{{ $grupo->email }} </p>
                   <p class="user-status-timestamp"> Fecha Fin:  {{ $grupo->fechaFin}} </p>
                   <!-- /USER STATUS TEXT -->
               

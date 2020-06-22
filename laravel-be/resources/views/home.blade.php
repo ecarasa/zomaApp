@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styleshome.min.css">
   <!-- favicon -->
   <link rel="icon" href="img/favicon.ico">
-  <title>CheAmigo | Mas que un amigo invisible</title>
+  <title>CheAmigo | Más que un amigo invisible</title>
 </head>
 <body>
     <style>
@@ -69,7 +69,7 @@
         <!-- /BANNER TITLE -->
 
         <!-- BANNER TEXT -->
-        <p class="banner-text" style="display: block!important;">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar… </p>
+        <p class="banner-text" style="display: block!important;"><mark style="background:bisque"> La web que te invita jugar al amigo invisible de manera 100% online. </mark> </p>
         <!-- /BANNER TEXT -->
 
         <!-- BUTTON -->

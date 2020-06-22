@@ -82,8 +82,12 @@
     </div>
 
     <h2 class="section-title">
-            Empezá a jugar al amigo invisible 100% online ahora!  </h2>
-            <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary botonCrearG" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
+            Empezá a jugar al amigo invisible 100% online ahora!          
+    </h2>
+    
+    
+    <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary botonCrearG" href="javascript:CargarEnviados('true');MostrarDivUnico('DivEnviarPista');" ><svg class="icon-plus demo-box-icon"><use xlink:href="#svg-plus"></use></svg> Enviar Pista a mi amig@ invisible</a>
+    <a style="padding: 0px 12px 0px 12px;" class="button tiny secondary botonCrearG" href="javascript:irCrearGrupo();" ><svg class="icon-add-friend demo-box-icon"><use xlink:href="#svg-add-friend"></use></svg> Crear Grupo</a>
    
     <!-- /SECTION BANNER -->
 
@@ -346,6 +350,13 @@
 <script src="{{ env('APP_URL_PUERTO') }}/js/bootstrap.min.js"></script>
 <script>
 
+$(document).ready(function(){
+  $('.content-grid').css({"transform": ""});
+  $('.content-grid').css({"margin-left": "10px"});
+  $('.content-grid').css({"margin-right": "10px"});
+  $('.content-grid').css({"max-width": "1555px"});
+});
+
 function InfoCanjeRegaloModal() {
   
   $('#buyModal').appendTo("body").modal('show');
@@ -368,6 +379,9 @@ function slRegalo() {
 function slReceptor() {
   $('#receptor').val($('#ComboGr option:selected').attr('idamigoi'));
   $('#receptorEmail').text($('#ComboGr option:selected').attr('emailamigoi'));
+  $('#titleamigo').show();
+  $('div[name$="camposdivpista"]').show();
+  
 
 }
 
@@ -542,7 +556,7 @@ $('#pistascentro').load('/pista/regalosenviados?idEmisor={{$userLogueado}}');
 /*****
 FUNCION PARA CARGAR DIV PHP DE PISTAS enviadas
 ***** */
-function CargarEnviados() {
+function CargarEnviados(enviar) {
 
   // si estoy en el mobile me muevo para abajo automaticamente
   var fromTop = $('#headerWeb').height();
@@ -550,11 +564,20 @@ function CargarEnviados() {
   if(($('#pistascentro').offset().top - fromTop)>500)
     $(window).scrollTop($('#pistascentro').offset().top - fromTop);
 
+    
+
 $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
 
 $('#pistascentro').load('/pista/enviados?idUser={{ $userLogueado}}');
+if (enviar=="true") { 
+  setTimeout(function(){
+    MostrarDivUnico('DivEnviarPista');
+  },5);    
+  }
 
 }
+
+
 
 /*****
 FUNCION PARA CARGAR DIV PHP DE PISTAS RECIBIDAS
