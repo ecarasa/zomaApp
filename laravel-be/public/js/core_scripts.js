@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('.content-grid').css({"transform": ""});
     $('.content-grid').css({"margin-left": "10px"});

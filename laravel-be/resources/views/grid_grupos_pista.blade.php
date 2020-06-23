@@ -4,7 +4,7 @@
           <!-- SECTION HEADER INFO -->
           <div class="section-header-info">
             <!-- SECTION PRETITLE -->
-            <p class="section-pretitle"> Tus Grupos </p>
+            <p class="section-pretitle"> Grupos en los que estás participando </p>
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->

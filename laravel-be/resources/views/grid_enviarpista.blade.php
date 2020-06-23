@@ -20,8 +20,10 @@
               </div>
               <div class="form-row "  name="camposdivpista"  style="display:none">
                 <div class="form-item">
-                  <p class="user-status-title" style="display:none" id="titleamigo">Tu amigo invisible es:
-                  <span class="bold" id="receptorEmail" class = "bold"> </span> </p>
+                <p class="user-status-title" id="titleamigo">
+                  <span class="bold" >Tu amigo invisible es:</span>
+                  <span id="receptorEmail" class ="bold" style="font-weight: 700;"> </span> 
+                </p>
                   
                   <input type="hidden" id="receptor" name="receptor" placeholder="Receptor" value="0">
                  
@@ -32,7 +34,9 @@
               <!-- /FORM ITEM -->
               <div class="form-row " name="camposdivpista" style="display:none">
                   <div class="form-item">
-                  <span> Querés incluir un regalo? (podes elegirlo pagarlo ahora o arreglar con el vendedor después) </span>
+                  <p class="user-status-title" id="titleamigo">
+                    <span> Querés incluir un regalo? (podes elegirlo pagarlo ahora o arreglar con el vendedor después) </span>
+                  </p>
                   <select class="form-control" id="ComboRegalo" onchange="slRegalo();" >
                   <option value=0 regalourl="" nombreregalo=0> No...</option>
                   @foreach ($regalos as $regalo)
