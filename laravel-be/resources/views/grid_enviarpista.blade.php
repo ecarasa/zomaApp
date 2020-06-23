@@ -7,7 +7,7 @@
              
                 <div class="form-item">
                   <label for ="ComboGr" style="margin-bottom:5px"> Elegí el grupo para encontrar a tu amigo invisible asociado y enviarle la pista </label>
-                  <select class="form-control" id="ComboGr" name="ComboGr" onchange="slReceptor();" >
+                  <select class="form-control" id="ComboGr" name="ComboGr" style="font-weight:600" onchange="slReceptor();" >
                   <option value=0 emailamigoi="" idamigoi=0> Seleccionar grupo</option>
                   @foreach ($grupos as $grupo)
                   <option value={{$grupo->id}} idamigoi="{{$grupo->idUserAmigoInvible}}" emailamigoi="{{$grupo->email}}"> 
