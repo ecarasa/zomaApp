@@ -46,10 +46,8 @@
       <!-- /LOGO -->
 
 
-      <div class="botoneraup">
-      <a class="button small primary" href="/register" target="_blank">Crear Cuenta</a>
-      <a class="button small primary" href="/login" target="_blank">Ingresar</a>
-      <p class="button small secondary popup-event-information-trigger btnempresa" >Empresas</p>
+      <div class="botoneraup">     
+      <p id="btne" class="button small secondary popup-event-information-trigger btnempresa" >Empresas</p>
       </div>
     </nav>
     <!-- /NAVIGATION -->
@@ -216,7 +214,7 @@
         <h2 class="section-title">            
             <img style="width: 100%;" src="{{ env('APP_URL_PUERTO') }}/img/landing/empresas_captura_enviarpista.jpg">
             <br>            
-            <a class="button big" href="/register" >Registrate para empezar a jugar!</a>            
+            
         </h2>
 
       </div>
@@ -255,6 +253,10 @@
     window.open('https://api.whatsapp.com/send?phone=' + numerowts + '&text=%20' + "Hola! me gustaría obtener más info de tu página Cheamigo.com.ar ");
 
   }
+
+  $(document).ready(function() {
+        $('#btne').click();
+  });
 </script>
 </body>
 </html>

@@ -298,7 +298,7 @@
                 </div>
                 <!-- /FEATURED STAT -->
               <!-- FEATURED STAT -->
-              <div class="sidebar-menu-item" onclick="CargarRegalosEnviados();">
+              <div class="sidebar-menu-item" onclick="CargarRegalosEnviados();" style="border-bottom: 2px dashed #615dfa;padding-bottom: 5px;">
                   <!-- PROGRESS ARC WRAP -->
                   <div class="sidebar-menu-header accordion-trigger-linked">
                     <svg class="sidebar-menu-header-icon icon-group">
@@ -344,6 +344,13 @@
 
   </div>
 
+<div style="position: fixed; z-index: 100000; transition: all 0.3s ease-in-out 0s; top: auto; bottom: 34px; left: auto; right: 34px;">
+    <div onclick="ContactWh();" class="xm-alert-icon" style="margin: 0px; padding: 0px; outline: none; border: none; box-sizing: border-box; width: 75px; height: 75px; display: flex; justify-content: center; align-items: center; position: relative; top: 0px; left: 0px; box-shadow: rgba(38, 39, 51, 0.06) 0px 0px 20px 0px; background-color: rgb(113, 80, 255); cursor: pointer; transition: all 0.3s ease-in-out 0s; border-radius: 50%;">
+      <div style="background: url(&quot;https://cdn.clipart.email/b9e683c9f60241154f17af59e3f914ef_logo-png-format-whatsapp-icon_715-715.png&quot;) center center / cover no-repeat transparent; margin: 0px; padding: 0px; outline: none; border: none; box-sizing: border-box; width: 95px; height: 95px; transition: all 0.3s ease-in-out 0s; border-radius: 50%;">
+      </div>        
+    </div>  
+</div>
+
 
 <script src="{{ env('APP_URL_PUERTO') }}/js/app.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -354,7 +361,13 @@ $(document).ready(function(){
     $('.content-grid').css({"margin-left": "10px"});
     $('.content-grid').css({"margin-right": "10px"});
     $('.content-grid').css({"max-width": "1555px"});
-    CargarGrupos();
+    
+    if ($(window).width() <= 480) {  
+      $('.sidebar-menu-item').css({"height": "45px"})
+    }
+    
+    $('#pistascentro').html('<div class="page-loader-indicator loader-bars"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div><center><p class="page-loader-info-text">Cargando...</p></center>');
+    $('#pistascentro').load('/pista/grupos?idUser={{ $userLogueado}}');
 
   });
   

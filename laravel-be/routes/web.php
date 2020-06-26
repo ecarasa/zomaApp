@@ -8,10 +8,13 @@ Route::get('/', 'HomeController@index');
 // bases y condiciones
 Route::get('/basesycond', 'HomeController@showbases');
 Route::get('/faqs', 'HomeController@showfaqs');
+Route::get('/reglas', 'HomeController@showReglas');
+Route::get('/empresas', 'HomeController@showEmpresas');
 
 //pistas
 Route::get('/pista', 'PistasController@index')->name('index');
 Route::get('/home', 'PistasController@index')->name('index');
+
 
 Route::get('/jugar', 'PistasController@index')->name('index');
 Route::post('/pista/crear', 'PistasController@register')->name('register');

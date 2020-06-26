@@ -30,14 +30,14 @@ class HomeController extends Controller
             //return view('marketplace');
             //return redirect()->route('store');
             //return redirect()->route('store');
-            return redirect('/jugar');
+            return redirect('/store');
 
             // /return redirect()->route('store');
 
 
         }else{
             return view('home');
-        }
+        } 
     }
 
     public function showbases()
@@ -48,13 +48,5 @@ class HomeController extends Controller
     public function showfaqs()
     {
         return view('faqs');
-    }
-    public function showReglas()
-    {
-        return view('reglas');
-    }
-    public function showEmpresas()
-    {
-        return view('homeempresas');
     }
 }

@@ -157,6 +157,18 @@
       </li>
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
+        <a class="menu-item-link" href="/empresas">
+          <!-- MENU ITEM LINK ICON -->
+          <svg class="menu-item-link-icon icon-forums">
+            <use xlink:href="#svg-forums"></use>
+          </svg>
+          <!-- /MENU ITEM LINK ICON -->
+          Empresas
+        </a>
+        <!-- /MENU ITEM LINK -->
+      </li>
+      <li class="menu-item">
+        <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="/faqs">
           <!-- MENU ITEM LINK ICON -->
           <svg class="menu-item-link-icon icon-forums">
