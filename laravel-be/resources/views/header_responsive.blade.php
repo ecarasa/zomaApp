@@ -33,6 +33,9 @@
             <a class="menu-main-item-link" href="/cuenta">Cuenta</a>
           </li>
           <li class="menu-main-item">
+            <a class="menu-main-item-link" href="/empresas">Empresas</a>
+          </li>
+          <li class="menu-main-item">
             <a class="menu-main-item-link" href="/faqs">Preguntas Frecuentes</a>
           </li>
 
