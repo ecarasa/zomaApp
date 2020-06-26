@@ -136,7 +136,7 @@
 
       <li class="menu-item">
         <a class="menu-item-link" href="/pista">
-          <svg class="menu-item-link-icon icon-group">
+          <svg class="menu-item-link-icon icon-group" style="fill: #212529;">
             <use xlink:href="#svg-group"></use>
           </svg>
           Jugar CheAmigoInvisible
@@ -159,8 +159,8 @@
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="/empresas">
           <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-forums">
-            <use xlink:href="#svg-forums"></use>
+          <svg class="menu-item-link-icon icon-shopping-bag" style="fill: #212529;">
+            <use xlink:href="#svg-shopping-bag"></use>
           </svg>
           <!-- /MENU ITEM LINK ICON -->
           Empresas
