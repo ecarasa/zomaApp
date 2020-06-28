@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styleshome.min.css">
   <!-- favicon -->
-  <link rel="icon" href="img/favicon.ico">
+  <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
   <title>CheAmigo | Más que un amigo invisible</title>
 </head>
 <body>
@@ -75,7 +75,7 @@
         <!-- /BANNER TITLE -->
 
         <!-- BANNER TEXT -->
-        <p class="banner-text" style="display: block!important;"><mark style="background:bisque"> La web que te invita jugar al amigo invisible de manera 100% online. </mark> </p>
+        <p class="banner-text" style="display: block!important;"><mark style="background:bisque"> La web que te invita a jugar al amigo invisible de manera 100% Online. </mark> </p>
         <!-- /BANNER TEXT -->
 
         <!-- BUTTON -->
@@ -139,7 +139,7 @@
       <!-- SECTION INFO -->
       <div class="section-info">
         <!-- SECTION PRETITLE -->
-        <p class="section-pretitle">CHEAMIGO la mejor plataforma para juga al amigo invisible Online</p>
+        <p class="section-pretitle">CHEAMIGO la mejor plataforma para jugar al Amigo Invisible Online</p>
         <!-- /SECTION PRETITLE -->
 
         <!-- SECTION TITLE -->
@@ -160,7 +160,7 @@
           <!-- /FEATURE ITEM TITLE -->
 
           <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Crea tu cuenta y un grupo para invitar a tus amigos a jugar.No hay límite,ni de grupos ni de usuarios para invitar,  y es Totalmente GRATIS!.</p>
+          <p class="feature-item-text">Creá tu cuenta y un grupo para invitar a tus amig@s a jugar. No hay límite, ni de grupos ni de usuarios para invitar, y es Totalmente GRATIS!.</p>
           <!-- /FEATURE ITEM TEXT -->
         </article>
         <!-- /FEATURE ITEM -->
@@ -176,7 +176,7 @@
           <!-- /FEATURE ITEM TITLE -->
 
           <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Cuando todos se hayan unido, ingresa al grupo y sortealo, y descubrí tu amigo invisible. Enviale pistas y regalos hasta la fecha de resolución</p>
+          <p class="feature-item-text">Cuando tod@s se hayan unido, ingresá al grupo y sortealo. A partir de ese momento el grupo entra en juego y pueden comenzar a enviar pistas al amigo invisible correspondiente de cada uno.Pistas y regalos estarán disponibles los 365 días del año!</p>
           <!-- /FEATURE ITEM TEXT -->
         </article>
         <!-- /FEATURE ITEM -->
@@ -192,7 +192,7 @@
           <!-- /FEATURE ITEM TITLE -->
 
           <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Realicen un encuentro y pidanle al administrador del grupo que anuncie los resultados.Si quieren saber las reglas del Amigo invisible podés hacer <a href="/reglas"> click aquí </a> </p>
+          <p class="feature-item-text">Al finalizar el Admin del grupo podrá ver un listado con quién es el amigo invisble de quién para informar los resultados. Si quieren saber más detalles de las reglas del juego Amigo invisible  hacer <a href="/reglas"> click aquí </a> </p>
           <!-- /FEATURE ITEM TEXT -->
         </article>
         <!-- /FEATURE ITEM -->

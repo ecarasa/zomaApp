@@ -94,7 +94,7 @@
                        style="background-image: url({{$categoria->imagen}});background-size: cover;">
                         <p class="product-category-box-title">{{$categoria->nombre}}</p>
                         <p class="product-category-box-text"></p>
-                        <p class="product-category-box-tag">{{ $categoria->total }} items</p>
+                        <p class="product-category-box-tag">{{ $categoria->total }} cosas</p>
                     </a>
                 </div>
                 @endforeach

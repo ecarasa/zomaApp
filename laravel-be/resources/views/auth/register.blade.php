@@ -30,7 +30,7 @@
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text" style="display: block!important;">Welcome to CheAmigo! La web que te invita a estar juntos aún estando distanciados. La idea principal surge, de alguna forma, para mantenernos conectados y cercanos a nuestros amig@s, familia, etc. y a su vez colaborar con las Pymes y comerciantes en el contexto del Covid-19. Para cumplir nuestro objetivo hemos creado y diseñado esta plataforma que te permite jugar al amigo invisible 100% online, elegir y comprar un regalo para tu amig@ invisible… Jugamos? Animate y creá tu grupo para iniciar… </p>
+      <p class="landing-info-text" style="display: block!important;"><mark style="background:bisque"> Bienvenid@ a la web que te invita a jugar al amigo invisible de manera 100% Online. Creá tu cuenta para poder participar. </mark></p>
       <!-- /LANDING INFO TEXT -->
 
     </div>
@@ -114,6 +114,13 @@
           <div class="form-row" style="margin-top: 28px;">    
             <div class="form-item">
               <button type="submit" class="button medium secondary" style="width: 100%;">REGISTRARME</a>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-item">
+              <div class="form-input ">
+                <a href="/login" style="color:#615dfa">Ya tengo cuenta. </a>                
+              </div>
             </div>
           </div>
         </form>

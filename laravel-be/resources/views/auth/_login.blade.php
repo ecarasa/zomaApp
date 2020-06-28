@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'TuAmigoFiel.com') }}</title>
+            <title>{{ config('app.name', 'CheAmigo.com.ar') }}</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             
@@ -42,14 +42,14 @@
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <p class="landing-info-text" style="display: block!important;">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
       <!-- /LANDING INFO TEXT -->
 
 
     </div>
 
 
-    <div class="landing-form">  
+    <div class="landing-form" style="    top: 10%;">   
       <!-- start.1er FORM -->    
       <div class="form-box login-register-form-element">
         <img class="form-box-decoration overflowing" src="https://cheamigo.com.ar/public/img/landing/rocket.png" alt="rocket">
@@ -73,7 +73,23 @@
               </div>
             </div>
           </div>
+          <div class="form-row split">
+            <div class="form-item">
+              <div class="form-input ">
+                <a href="/password/reset" style="color:#615dfa">Olvidé/No Tengo Clave</a>                
+              </div>
+            </div>
+            <div class="form-item">
+              <div class="form-input ">
+                <a href="/register" style="color:#615dfa">Crear Cuenta</a>                
+              </div>
+            </div>
+          </div>
 
+          
+          @if($errors->any())
+            {!! implode('', $errors->all('<div class="error">:message</div>')) !!}
+          @endif
           <div class="form-row">
             <div class="form-item">
               <button type="submit" class="button medium secondary" style="width: 100%;">Ingresar</a>
@@ -136,6 +152,11 @@ height: 54px;
 padding: 0 18px;
 }
 
+.error{
+  color: red;
+    padding: 20px;
+}
+
 .invalid { 
     position: initial!important;
     padding: 5px!important;
@@ -169,5 +190,15 @@ $("#form-login").validate({
   errorClass: "invalid"
 });
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168586368-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168586368-1');
+</script>
+
 </body>
 </html>

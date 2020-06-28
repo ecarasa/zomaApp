@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="{{ env('APP_URL_PUERTO') }}/css/styleshome.min.css">
   <!-- favicon -->
-  <link rel="icon" href="img/favicon.ico">
+  <link rel="icon" href="{{ env('APP_URL_PUERTO') }}/img/favicon.ico">
   <title>CheAmigo | Más que un amigo invisible</title>
 </head>
 <body>
@@ -48,6 +48,7 @@
 
       <div class="botoneraup">     
       <p id="btne" class="button small secondary popup-event-information-trigger btnempresa" >Empresas</p>
+      <a class="button small primary" href="/register" target="_blank">Crear Cuenta</a>
       </div>
     </nav>
     <!-- /NAVIGATION -->
@@ -141,7 +142,7 @@
         <!-- /SECTION PRETITLE -->
 
         <!-- SECTION TITLE -->
-        <h2 class="section-title">¿Cómo funciona?</h2>
+        <h2 class="section-title">Empezá a jugar con tus compañer@s en la oficina en un click</h2>
         <!-- /SECTION TITLE -->
 
         <!-- SECTION TEXT -->
@@ -151,53 +152,7 @@
       <!-- /SECTION INFO -->
 
       <!-- GRID -->
-      <div class="grid grid-4">
-        <!-- FEATURE ITEM -->
-        <article class="feature-item">
-          <h2 class="feature-item-title">1.</h2>
-          <!-- /FEATURE ITEM TITLE -->
-
-          <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Crea tu cuenta y un grupo para invitar a tus amigos a jugar.No hay límite,ni de grupos ni de usuarios para invitar,  y es Totalmente GRATIS!.</p>
-          <!-- /FEATURE ITEM TEXT -->
-        </article>
-        <!-- /FEATURE ITEM -->
-
-        <!-- FEATURE ITEM -->
-        <article class="feature-item">
-          <!-- FEATURE ITEM IMAGE -->
-          
-          <!-- /FEATURE ITEM IMAGE -->
-
-          <!-- FEATURE ITEM TITLE -->
-          <h2 class="feature-item-title">2.</h2>
-          <!-- /FEATURE ITEM TITLE -->
-
-          <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Cuando todos se hayan unido, ingresa al grupo y sortealo, y descubrí tu amigo invisible. Enviale pistas y regalos hasta la fecha de resolución</p>
-          <!-- /FEATURE ITEM TEXT -->
-        </article>
-        <!-- /FEATURE ITEM -->
-
-        <!-- FEATURE ITEM -->
-        <article class="feature-item">
-          <!-- FEATURE ITEM IMAGE -->
-          
-          <!-- /FEATURE ITEM IMAGE -->
-
-          <!-- FEATURE ITEM TITLE -->
-          <h2 class="feature-item-title">3.</h2>
-          <!-- /FEATURE ITEM TITLE -->
-
-          <!-- FEATURE ITEM TEXT -->
-          <p class="feature-item-text">Realicen un encuentro y pidanle al administrador del grupo que anuncie los resultados.Si quieren saber las reglas del Amigo invisible podés hacer <a href="/reglas"> click aquí </a> </p>
-          <!-- /FEATURE ITEM TEXT -->
-        </article>
-        <!-- /FEATURE ITEM -->
-
-    
-    
-      </div>
+     
       <!-- /GRID -->
     </section>
     <!-- /SECTION -->

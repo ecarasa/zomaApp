@@ -42,7 +42,7 @@
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
-      <p class="landing-info-text" style="display: block!important;">La idea de esta app es manternos, de alguna forma, cercanos a nuestros amigos, familia, etc... y tambien de ayudar a la situacion que genero este COVid19. Por eso te invitamos a regalar un voucher a futuro. Jugando un pequeño juego.</p>
+      <p class="landing-info-text" style="display: block!important;"><mark style="background:bisque"> Bienvenid@ a la web que te invita a jugar al amigo invisible de manera 100% Online. Ingresá con tus datos o creá tu cuenta para poder participar. </mark> </p>
       <!-- /LANDING INFO TEXT -->
 
 
