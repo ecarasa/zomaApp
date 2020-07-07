@@ -174,9 +174,17 @@ class GruposController extends Controller {
             $participantesTemp = $participantes->toArray();
 
             foreach ($participantes as $participante) {
-                $randIndex = $this->selRandomFromArray($participantesTemp, $participante->mail);
+                
+                $randIndex = $this->selRandomFromArray($participantesTemp, $participante->email);
                 $amigoInvDelEach = $participantesTemp[$randIndex];
-                //echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
+                do { 
+                    $randIndex = $this->selRandomFromArray($participantesTemp, $participante->email);
+                    $amigoInvDelEach = $participantesTemp[$randIndex];
+                }
+                while ( $participante->email==$amigoInvDelEach['email']);
+                
+                if ($participante->email==$amigoInvDelEach['email'])
+                echo $participante->email . ' tiene de amigo a ' . $amigoInvDelEach['email'].'<br>';
                 $pivotTable = ParticipanteGrupos::where('idUsuario', $participante->id)->where('codigoGrupo', $grupo->codigo)->first();
                 $pivotTable->idUserAmigoInvible = $amigoInvDelEach['id'];
                 if (!$pivotTable->save())
@@ -201,12 +209,8 @@ class GruposController extends Controller {
     function selRandomFromArray($arr, $emailNot) {
         $index = array_rand($arr);
         $emailRand = $arr[$index]['email'];
-
-        if ($emailRand == $emailNot) {
-            $this->selRandomFromArray($arr, $emailNot);
-        } else {
-            return $index;
-        }
+        return $index;
+        
     }
 
     /**
